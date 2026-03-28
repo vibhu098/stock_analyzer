@@ -1,0 +1,395 @@
+HOME
+SCREENS
+TOOLS 
+ LOGIN
+GET FREE ACCOUNT
+NTPC
+Chart
+Analysis
+Peers
+Quarters
+Profit & Loss
+Balance Sheet
+Cash Flow
+Ratios
+Investors
+Documents
+ Notebook
+ AI
+NTPC Ltd
+₹ 382
+ 0.00%
+27 Feb - close price
+ EXPORT TO EXCEL
+ FOLLOW
+ ntpc.co.in
+ BSE: 532555
+ NSE: NTPC
+ABOUT
+
+NTPC (National Thermal Power Corporation) Ltd along with its subsidiaries/ associates & JVs is primarily involved in generation and sale of bulk power to State power utilities. Other business of the group includes providing consultancy, project management & supervision, energy trading, oil & gas exploration and coal mining.[1]
+
+KEY POINTS
+
+Business Segments
+1) Generation (94% in 9M FY25 vs 96% in FY22): [1] [2] The company is India’s largest power generating company with a total installed capacity of 76,598 MW, accounting for ~17% of the nation’s total capacity and 22% of its total power generation. [3] [4] [5]
+
+READ MORE 
+Market Cap
+₹ 3,70,316 Cr.
+Current Price
+₹ 382
+High / Low
+₹ 389 / 308
+Stock P/E
+18.3
+Book Value
+₹ 173
+Dividend Yield
+2.19 %
+ROCE
+12.2 %
+ROE
+13.6 %
+Face Value
+₹ 10.0
+Add ratio to table
+ EDIT RATIOS
+1M
+6M
+1Yr
+3Yr
+5Yr
+10Yr
+Max
+Price
+PE Ratio
+More 
+Alerts
+Volume
+Price on NSE
+Price on NSE
+50 DMA
+200 DMA
+Volume
+
+PROS
+
+Company has been maintaining a healthy dividend payout of 41.2%
+
+CONS
+
+The company has delivered a poor sales growth of 11.7% over past five years.
+Company has a low return on equity of 13.0% over last 3 years.
+Company might be capitalizing the interest cost
+
+* The pros and cons are machine generated. 
+
+Peer comparison
+
+ Utilities   Power   Power   Power Generation
+
+Part of
+BSE Sensex
+Nifty 50
+BSE 500
+BSE 100
+BSE 200
+show all
+
+ EDIT COLUMNS
+S.No.	Name	CMP Rs.	P/E	Mar Cap Rs.Cr.	Div Yld %	NP Qtr Rs.Cr.	Qtr Profit Var %	Sales Qtr Rs.Cr.	Qtr Sales Var %	ROCE %
+1.	NTPC	381.90	18.34	370315.68	2.19	4986.94	5.85	40643.79	-1.75	12.17
+2.	Adani Green	947.35	94.64	156045.23	0.00	5.00	-106.78	2618.00	11.88	8.70
+3.	JSW Energy	487.75	37.03	85711.93	0.41	528.75	173.41	4081.76	67.36	6.49
+4.	NTPC Green Ene.	90.14	135.93	75954.94	0.00	17.32	-73.36	653.29	29.34	4.89
+5.	NHPC Ltd	75.33	23.95	75669.25	2.54	320.60	-5.24	2220.73	-2.89	7.42
+6.	NLC India	260.05	13.81	36059.49	1.38	724.01	-0.31	4443.05	0.72	10.51
+7.	SJVN	73.03	45.38	28699.29	2.00	224.31	50.56	1081.97	61.25	4.91
+	Median: 25 Co.	125.0	26.23	7620.33	0.0	24.66	-3.66	653.29	13.39	7.42
+Detailed Comparison with:
+Quarterly Results
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+ PRODUCT SEGMENTS
+	Dec 2022	Mar 2023	Jun 2023	Sep 2023	Dec 2023	Mar 2024	Jun 2024	Sep 2024	Dec 2024	Mar 2025	Jun 2025	Sep 2025	Dec 2025
+Sales +	41,411	41,318	39,122	40,875	39,455	42,538	44,428	40,337	41,369	43,904	42,573	39,167	40,644
+Expenses +	29,905	30,208	28,185	30,338	29,514	31,198	32,576	30,651	29,752	32,649	32,289	29,147	28,652
+Operating Profit	11,506	11,110	10,937	10,537	9,941	11,341	11,852	9,686	11,617	11,255	10,284	10,019	11,992
+OPM %	28%	27%	28%	26%	25%	27%	27%	24%	28%	26%	24%	26%	30%
+Other Income +	738	2,081	558	718	2,299	2,542	626	3,119	934	3,973	2,679	2,933	1,497
+Interest	2,874	2,582	2,515	2,465	2,783	2,488	2,649	3,108	2,203	3,097	2,838	2,662	2,275
+Depreciation	3,312	3,393	3,260	3,464	3,491	3,728	3,654	3,647	3,722	4,032	3,869	3,993	4,117
+Profit before tax	6,057	7,216	5,720	5,326	5,966	7,667	6,174	6,051	6,626	8,098	6,255	6,297	7,096
+Tax %	26%	21%	29%	27%	23%	28%	27%	23%	29%	29%	24%	26%	30%
+Net Profit +	4,476	5,672	4,066	3,885	4,572	5,556	4,511	4,649	4,711	5,778	4,775	4,653	4,987
+EPS in Rs	4.62	5.85	4.19	4.01	4.71	5.73	4.65	4.79	4.86	5.96	4.92	4.80	5.14
+Raw PDF													
+Profit & Loss
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+ RELATED PARTY
+ PRODUCT SEGMENTS
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025	TTM
+Sales +	71,459	72,634	70,844	78,273	83,453	90,307	97,700	99,207	121,175	163,770	162,009	170,037	166,287
+Expenses +	53,611	56,711	52,848	56,918	58,596	71,260	60,918	66,614	82,221	120,769	118,085	121,071	122,737
+Operating Profit	17,848	15,923	17,996	21,356	24,856	19,048	36,782	32,593	38,953	43,001	43,924	48,966	43,550
+OPM %	25%	22%	25%	27%	30%	21%	38%	33%	32%	26%	27%	29%	26%
+Other Income +	2,665	2,377	1,118	316	1,839	1,755	-2,065	973	2,110	3,877	5,202	4,209	11,081
+Interest	2,466	2,842	3,346	3,699	3,996	4,717	6,799	7,459	8,265	10,265	10,503	11,171	10,873
+Depreciation	4,142	4,912	5,172	5,921	7,099	7,254	8,623	10,412	12,058	13,137	13,943	15,056	16,012
+Profit before tax	13,905	10,547	10,596	12,052	15,600	8,831	19,295	15,695	20,740	23,476	24,679	26,949	27,747
+Tax %	21%	2%	-2%	22%	34%	-33%	48%	12%	21%	27%	27%	27%	
+Net Profit +	10,975	10,291	10,770	9,385	10,343	11,750	10,113	13,770	16,282	17,197	18,079	19,649	20,193
+EPS in Rs	11.09	10.40	10.88	9.49	10.45	11.88	10.22	14.20	16.79	17.73	18.64	20.26	20.82
+Dividend Payout %	43%	20%	26%	42%	41%	51%	31%	43%	42%	41%	42%	41%	
+Compounded Sales Growth
+10 Years:	9%
+5 Years:	12%
+3 Years:	12%
+TTM:	-1%
+Compounded Profit Growth
+10 Years:	8%
+5 Years:	13%
+3 Years:	7%
+TTM:	7%
+Stock Price CAGR
+10 Years:	14%
+5 Years:	29%
+3 Years:	30%
+1 Year:	23%
+Return on Equity
+10 Years:	13%
+5 Years:	13%
+3 Years:	13%
+Last Year:	14%
+Balance Sheet
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+CORPORATE ACTIONS
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025	Sep 2025
+Equity Capital	8,245	8,245	8,245	8,245	8,245	9,895	9,895	9,697	9,697	9,697	9,697	9,697	9,697
+Reserves	77,570	73,412	83,048	87,986	93,532	97,514	103,675	109,289	118,971	129,193	140,188	151,944	158,162
+Borrowings +	67,170	85,995	93,127	106,840	121,605	142,807	168,712	176,466	185,578	187,271	186,206	186,231	187,142
+Other Liabilities +	26,641	29,568	30,810	33,609	44,579	40,787	45,557	47,915	57,115	57,716	57,439	60,308	62,217
+Total Liabilities	179,627	197,220	215,231	236,680	267,962	291,002	327,838	343,367	371,361	383,877	393,530	408,179	417,217
+Fixed Assets +	72,111	78,849	91,773	99,356	119,759	125,621	156,811	164,449	195,571	197,361	212,611	212,208	221,916
+CWIP	44,889	56,493	66,423	80,737	79,076	91,207	73,359	75,438	73,618	61,789	47,157	52,330	45,737
+Investments	9,758	9,032	8,393	8,248	10,047	13,146	26,401	28,626	23,249	29,770	33,158	35,105	36,248
+Other Assets +	52,869	52,846	48,642	48,339	59,079	61,029	71,266	74,854	78,923	94,957	100,605	108,536	113,316
+Total Assets	179,627	197,220	215,231	236,680	267,962	291,002	327,838	343,367	371,361	383,877	393,530	408,179	417,217
+Cash Flows
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025
+Cash from Operating Activity +	15,732	14,235	23,987	20,014	19,250	16,157	21,584	27,058	37,898	42,351	34,756	41,318
+Cash from Investing Activity +	-13,980	-14,563	-18,346	-24,414	-20,390	-20,894	-27,247	-17,342	-18,080	-14,101	-15,044	-20,546
+Cash from Financing Activity +	-3,309	-1,878	-4,550	3,185	1,043	4,701	5,659	-9,646	-19,877	-28,365	-19,519	-20,968
+Net Cash Flow	-1,556	-2,206	1,092	-1,215	-97	-36	-4	70	-59	-114	194	-195
+Ratios
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025
+Debtor Days	27	38	40	38	33	34	58	85	75	58	62	62
+Inventory Days												
+Days Payable												
+Cash Conversion Cycle	27	38	40	38	33	34	58	85	75	58	62	62
+Working Capital Days	-12	-39	-35	-49	-42	-61	-31	-48	-52	-22	-23	-17
+ROCE %	11%	8%	8%	9%	11%	6%	12%	9%	10%	11%	11%	12%
+Shareholding Pattern
+
+Numbers in percentages
+
+Quarterly
+Yearly
+TRADES
+	Mar 2023	Jun 2023	Sep 2023	Dec 2023	Mar 2024	Jun 2024	Sep 2024	Dec 2024	Mar 2025	Jun 2025	Sep 2025	Dec 2025
+Promoters +	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%	51.10%
+FIIs +	15.61%	15.80%	16.69%	17.05%	17.86%	17.68%	18.60%	18.20%	17.79%	16.09%	16.40%	16.24%
+DIIs +	30.51%	30.20%	29.02%	28.70%	27.55%	27.55%	26.51%	26.76%	27.22%	28.92%	28.93%	29.19%
+Government +	0.10%	0.10%	0.10%	0.10%	0.11%	0.11%	0.11%	0.11%	0.11%	0.12%	0.12%	0.12%
+Public +	2.69%	2.79%	3.08%	3.04%	3.37%	3.55%	3.68%	3.83%	3.77%	3.77%	3.45%	3.34%
+No. of Shareholders	9,83,606	9,86,674	10,66,543	11,58,992	13,93,480	17,67,138	35,74,828	43,65,786	41,43,175	39,65,860	37,29,617	35,43,434
+
+* The classifications might have changed from Sep'2022 onwards. 
+
+Documents
+Announcements
+Recent
+Important
+Search
+All 
+Notices Received From Stock Exchanges For The Quarter Ended 31.12.2025
+8h - NSE and BSE imposed Rs.5,42,800 each for Regulation 17(1) non-compliance for quarter ended 31 Dec 2025.
+Disclosure Regarding Receipt Of The Order From The Additional Commissioner CGST & Central Excise, Patna-1, Of Bihar State
+1d - NTPC received CGST order dated 27-Feb-2026 demanding ₹19,96,97,068 for FY2019-20 and 2020-21.
+Announcement under Regulation 30 (LODR)-Change in Management
+1d - NTPC: Executive Director Balaji Bhagwatrao Narare to cease on superannuation effective 28 February 2026.
+Announcement under Regulation 30 (LODR)-Press Release / Media Release
+2d - NTPC and GMDC signed two MoUs on Feb 26, 2026 for coal supply, gasification and syngas commercialisation.
+Declaration Of COD Of First Part Capacity Of 50 MW Out Of 200 MW Dayapar Wind Energy Project Phase-II Of NTPC Renewable Energy Limited
+2d - NTPC Green Energy declares COD of 50 MW (Dayapar Phase-II) effective 26 Feb 2026; group capacity 9,201.08 MW.
+Annual reports
+Financial Year 2025
+from bse
+Financial Year 2024
+from bse
+Financial Year 2023
+from bse
+Financial Year 2022
+from bse
+Financial Year 2021
+from bse
+Financial Year 2020
+from bse
+Financial Year 2019
+from bse
+Financial Year 2018
+from bse
+Financial Year 2017
+from bse
+Financial Year 2016
+from bse
+Financial Year 2015
+from bse
+Financial Year 2014
+from bse
+Financial Year 2013
+from bse
+Financial Year 2012
+from bse
+Financial Year 2011
+from nse
+DRHP 
+Credit ratings
+Rating update
+15 Jan from crisil
+Rating update
+13 Jan from crisil
+Rating update
+11 Nov 2025 from crisil
+Rating update
+10 Nov 2025 from care
+Rating update
+3 Nov 2025 from icra
+Rating update
+27 Jun 2025 from care
+Concalls
+ Add Missing
+Feb 2026
+Transcript
+AI Summary
+PPT
+REC
+Nov 2025
+Transcript
+AI Summary
+PPT
+REC
+Aug 2025
+Transcript
+AI Summary
+PPT
+May 2025
+Transcript
+AI Summary
+PPT
+Jan 2025
+Transcript
+AI Summary
+PPT
+Nov 2024
+Transcript
+AI Summary
+PPT
+Aug 2024
+Transcript
+AI Summary
+PPT
+Jul 2024
+Transcript
+AI Summary
+PPT
+REC
+May 2024
+Transcript
+AI Summary
+PPT
+Feb 2024
+Transcript
+AI Summary
+PPT
+Nov 2023
+Transcript
+AI Summary
+PPT
+Aug 2023
+Transcript
+AI Summary
+PPT
+May 2023
+Transcript
+AI Summary
+PPT
+Jan 2023
+Transcript
+AI Summary
+PPT
+Nov 2022
+Transcript
+AI Summary
+PPT
+Aug 2022
+Transcript
+AI Summary
+PPT
+Aug 2021
+Transcript
+AI Summary
+PPT
+Aug 2020
+Transcript
+AI Summary
+PPT
+Aug 2019
+Transcript
+AI Summary
+PPT
+Aug 2018
+Transcript
+AI Summary
+PPT
+Aug 2017
+Transcript
+AI Summary
+PPT
+Aug 2016
+Transcript
+AI Summary
+PPT
+
+Stock analysis and screening tool
+
+Mittal Analytics Private Ltd © 2009-2025
+Made with  in India.
+
+Data provided by C-MOTS Internet Technologies Pvt Ltd
+
+Terms & Privacy.
+
+Product
+Premium
+What's new?
+Learn
+Team
+About us
+Support
+Theme
+ Light
+ Dark
+ Auto

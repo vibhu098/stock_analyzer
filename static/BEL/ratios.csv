@@ -1,0 +1,7 @@
+Metric,Mar 2014,Mar 2015,Mar 2016,Mar 2017,Mar 2018,Mar 2019,Mar 2020,Mar 2021,Mar 2022,Mar 2023,Mar 2024,Mar 2025,Unit,Source
+Debtor Days,240,202,185,185,179,162,190,170,145,145,133,140,Days,Screener
+Inventory Days,335,329,397,405,303,272,202,230,228,239,256,272,Days,Screener
+Days Payable,121,110,112,111,93,89,125,154,138,124,128,99,Days,Screener
+Cash Conversion Cycle,454,421,470,479,388,346,267,246,235,261,262,313,Days,Screener
+Working Capital Days,88,55,10,64,128,136,120,47,3,29,17,85,Days,Screener
+ROCE %,18%,20%,21%,25%,25%,32%,26%,28%,28%,31%,36%,39%,%,Screener

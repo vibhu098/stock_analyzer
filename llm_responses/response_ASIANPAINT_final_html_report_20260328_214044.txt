@@ -1,0 +1,722 @@
+Stock: ASIANPAINT
+Section: final_html_report
+Timestamp: 2026-03-28 21:40:44.374670
+Response Length: 25211 chars
+================================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASIANPAINT — Equity Analysis Report</title>
+<style>
+:root {
+  --navy: #0D1B2A;
+  --ink: #1A2B3C;
+  --gold: #D4A017;
+  --text: #2C3E50;
+  --muted: #6B7C93;
+  --light: #F5F7FA;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.page { max-width: 960px; margin: 0 auto; background: var(--white); box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--ink) 100%);
+  color: var(--white);
+  padding: 36px 50px;
+}
+
+.header h1 {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.header h2 {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+}
+
+.header-meta {
+  display: flex;
+  gap: 24px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+
+.meta-label {
+  color: var(--gold);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recommendation-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  padding: 18px 24px;
+  margin: 18px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.rec-item {
+  text-align: center;
+  border-right: 1px solid #E0E0E0;
+  padding-right: 12px;
+}
+
+.rec-item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.rec-label {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.rec-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--navy);
+}
+
+.rec-value.bullish { color: #27AE60; }
+.rec-value.bearish { color: #C0392B; }
+.rec-value.neutral { color: var(--navy); }
+
+.content { padding: 36px 50px; }
+
+.section {
+  margin-bottom: 36px;
+  page-break-inside: avoid;
+}
+
+.section h2 {
+  font-size: 18px;
+  color: var(--navy);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.section h3 {
+  font-size: 14px;
+  color: var(--ink);
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.section h4 {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+p { margin-bottom: 8px; line-height: 1.5; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  background: var(--white);
+  font-size: 12px;
+}
+
+table thead tr {
+  background: var(--navy);
+  color: var(--white);
+}
+
+table th {
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--light);
+}
+
+table tbody td {
+  padding: 7px 10px;
+}
+
+.positive { color: #27AE60; font-weight: bold; }
+.negative { color: #C0392B; font-weight: bold; }
+.neutral { color: var(--muted); }
+
+.key-takeaways {
+  background: var(--light);
+  border-left: 4px solid var(--gold);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 4px;
+}
+
+.key-takeaways strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.key-takeaways ul {
+  margin-left: 20px;
+}
+
+.key-takeaways li {
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+ul, ol {
+  margin: 6px 0 8px 20px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 4px;
+  line-height: 1.45;
+}
+
+.footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 20px 50px;
+  font-size: 11px;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+
+@media print {
+  body { background: white; }
+  .page { box-shadow: none; }
+  .section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  
+  <div class="header">
+    <h1>ASIANPAINT</h1>
+    <h2>Equity Analysis Report</h2>
+    <div class="header-meta">
+      <div><span class="meta-label">Report Date:</span> March 28, 2026</div>
+      <div><span class="meta-label">Analysis Type:</span> Fundamental Equity Research</div>
+    </div>
+    <div class="recommendation-box">
+      <div class="rec-item">
+        <div class="rec-label">Recommendation</div>
+        <div class="rec-value neutral">HOLD</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-label">12M Target Price</div>
+        <div class="rec-value">₹2,400-2,600</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-label">Upside / Downside</div>
+        <div class="rec-value">9%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <section class="section">
+      <h2>1. Company Overview</h2>
+      <h3>Asian Paints Limited — Company Overview</h3>
+
+<h4>1. Snapshot</h4>
+<p>Asian Paints is India's largest decorative paints manufacturer and a leading home décor player, commanding dominant market share in the organized paints segment. Operating across decorative coatings, industrial paints, adhesives, and home improvement services, the company serves both domestic and international markets (15+ countries). At a market cap of ~₹2.28 lakh crore and TTM revenue of ~₹30,042 Cr, it remains a blue-chip consumer staples compounder, though recent growth has decelerated sharply — TTM sales growth at 0% and FY25 net profit down ~33% YoY — reflecting intense competitive pressure, volume softness, and margin compression.</p>
+
+<h4>2. Key Metrics</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Market Cap</td>
+      <td>₹2,27,925 Cr</td>
+    </tr>
+    <tr>
+      <td>Current Market Price</td>
+      <td>₹2,376</td>
+    </tr>
+    <tr>
+      <td>Stock P/E</td>
+      <td>56.7x</td>
+    </tr>
+    <tr>
+      <td>Book Value</td>
+      <td>₹199</td>
+    </tr>
+    <tr>
+      <td>ROE (Last Year)</td>
+      <td>20.7%</td>
+    </tr>
+    <tr>
+      <td>ROCE (Last Year)</td>
+      <td>27.3%</td>
+    </tr>
+    <tr>
+      <td>Dividend Yield</td>
+      <td>1.04%</td>
+    </tr>
+    <tr>
+      <td>Face Value</td>
+      <td>₹1.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>3. Recent Developments</h4>
+<ul>
+  <li><strong>Earnings deterioration:</strong> FY25 net profit fell to ₹3,585 Cr from ₹5,315 Cr in FY24 (-33% YoY), with OPM contracting to 19% from 23%, driven by competitive intensity from Grasim/Birla Opus entry and demand weakness.</li>
+  <li><strong>Capex cycle peaking:</strong> Significant capacity expansion underway — fixed assets surged from ₹5,494 Cr (FY24) to ₹7,931 Cr (FY25) with CWIP normalizing from ₹2,561 Cr to ₹386 Cr, indicating new plants coming on-stream.</li>
+  <li><strong>Cash flow pressure:</strong> FY25 operating cash flow declined to ₹4,166 Cr (vs. ₹5,757 Cr in FY24), while financing outflows rose to ₹3,416 Cr, reflecting higher dividends (payout at 66%) and debt servicing.</li>
+  <li><strong>Working capital stress:</strong> Cash conversion cycle stretched to 106 days in FY25 (vs. 88 days FY24), with inventory days rising to 143 — signaling demand sluggishness and potential channel inventory build-up.
+    </section>
+
+    <section class="section">
+      <h2>2. Quantitative Analysis</h2>
+      <h3>Asian Paints — Quantitative Analysis</h3>
+
+<h4>1. Profit &amp; Loss Summary (FY20–FY24)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY20</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Revenue (₹Cr)</td>
+      <td>17,194</td>
+      <td>18,517</td>
+      <td>25,189</td>
+      <td>30,078</td>
+      <td>31,227</td>
+    </tr>
+    <tr>
+      <td>Operating Profit (₹Cr)</td>
+      <td>3,857</td>
+      <td>4,493</td>
+      <td>4,588</td>
+      <td>5,820</td>
+      <td>7,044</td>
+    </tr>
+    <tr>
+      <td>Net Profit (₹Cr)</td>
+      <td>2,654</td>
+      <td>3,053</td>
+      <td>3,135</td>
+      <td>4,100</td>
+      <td>5,315</td>
+    </tr>
+    <tr>
+      <td>EPS (₹)</td>
+      <td>27.67</td>
+      <td>31.82</td>
+      <td>32.68</td>
+      <td>42.75</td>
+      <td>55.41</td>
+    </tr>
+    <tr>
+      <td>OPM %</td>
+      <td>22%</td>
+      <td>24%</td>
+      <td>18%</td>
+      <td>19%</td>
+      <td>23%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>2. Key Ratios (FY20–FY24)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Ratio</th>
+      <th>FY20</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ROE %</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>27%</td>
+      <td>21%</td>
+    </tr>
+    <tr>
+      <td>ROCE %</td>
+      <td>36%</td>
+      <td>36%</td>
+      <td>32%</td>
+      <td>36%</td>
+      <td>40%</td>
+    </tr>
+    <tr>
+      <td>Debt/Equity (x)</td>
+      <td>0.07</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.06</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <td>Cash Conversion Cycle (Days)</td>
+      <td>72</td>
+      <td>49</td>
+      <td>91</td>
+      <td>93</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Stock P/E (x)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>3. Key Analytical Observations</h4>
+<ul>
+  <li><strong>Earnings cycle has peaked and reversed:</strong> Net profit surged from ₹2,654Cr (FY20) to ₹5,315Cr (FY24), but collapsed to ₹3,585Cr in FY25 — a <strong>33% YoY decline</strong> — driven by margin compression (OPM fell from 23% to 19%) amid competitive intensity from new entrants (Birla Opus) and weak volume growth. TTM revenue of ₹30,042Cr is flat vs FY23 levels, confirming a top-line plateau.</li>
+  <li><strong>ROCE deterioration is a red flag:</strong> ROCE peaked at 40% in FY24 but dropped sharply to <strong>27% in FY25</strong>, the lowest in 6 years, reflecting heavy capex deployment (Fixed Assets nearly doubled from ₹4,643Cr in FY23 to ₹7,931Cr in FY25) without commensurate earnings growth — a classic return-dilution risk.</li>
+  <li><strong>OCF quality is solid but declining:</strong> OCF was robust at ₹5,757Cr in FY24 (OCF/PAT ~108%), but fell to ₹4,166Cr in FY25 against PAT of ₹3,585Cr (OCF/PAT ~116%). While conversion remains healthy, the absolute OCF decline alongside rising financing outflows (₹3,416Cr in FY25) is tightening free cash flow meaningfully.</li>
+  <li><strong>Working capital has structurally worsened:</strong> Cash Conversion Cycle expanded from 49 days (FY21) to <strong>106 days (FY25)</strong>, with Inventory Days rising to 143 and Debtor Days remaining elevated at 39 — signaling either channel stress or competitive pressure forcing extended credit terms.</li>
+  <li><strong>Valuation remains stretched relative to fundamentals:</strong> At a current P/E of <strong>56.7x</strong> on TTM EPS of ~₹39, the stock prices in a recovery that is not yet visible — 5-year stock CAGR is 0%, profit growth has slowed to 7–8% (3–5 year CAGR), and ROE has declined from a 10-year average of 27% to 21%. Risk/reward is unfavorable unless margin recovery to 22%+ materializes.
+    </section>
+
+    <section class="section">
+      <h2>3. Qualitative Analysis</h2>
+      <h3>Asian Paints – Qualitative Analysis</h3>
+
+<h4>1. Competitive Moat</h4>
+<ul>
+  <li><strong>Brand dominance:</strong> ~55% market share in decorative paints; brand synonymous with quality across urban and rural India over 75+ years.</li>
+  <li><strong>Distribution depth:</strong> 70,000+ dealer touchpoints and a proprietary tinting machine network (~80,000 machines) create near-impossible-to-replicate last-mile reach.</li>
+  <li><strong>Backward integration &amp; scale:</strong> In-house manufacturing of intermediates and scale efficiencies keep gross margins structurally superior to peers.</li>
+  <li><strong>Home décor ecosystem:</strong> Expansion into waterproofing, adhesives, bath fittings, and Beautiful Homes services builds switching costs and wallet-share capture.</li>
+</ul>
+
+<h4>2. Management Quality</h4>
+<p>
+  Asian Paints has demonstrated consistent, disciplined capital allocation — sustaining high RoCE (&gt;30%) through cycles while funding organic capacity expansion rather than dilutive acquisitions. The Choksi family-backed management has maintained strong governance standards, transparent disclosures, and a track record of pricing power execution during raw material inflation. The recent push into adjacencies (services, décor) reflects a proactive, long-horizon mindset, though execution complexity is rising.
+</p>
+
+<h4>3. Growth Strategy</h4>
+<ul>
+  <li><strong>Capacity expansion:</strong> Greenfield plants (Madhuranthakam, Visakhapatnam) targeting incremental volume to meet rising decorative and industrial demand by FY25–26.</li>
+  <li><strong>Services &amp; adjacencies:</strong> Scaling "Beautiful Homes" design studios and waterproofing services to monetise the home improvement cycle beyond paint.</li>
+  <li><strong>Rural penetration:</strong> Deepening distribution in Tier 3–5 markets where per-capita paint consumption remains well below urban levels — long structural runway.</li>
+  <li><strong>International business:</strong> Consolidating presence in Middle East, South Asia, and Africa; targeting profitable growth in 15+ countries as a medium-term earnings diversifier.</li>
+</ul>
+
+<h4>4. Key Risks</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Risk</th>
+      <th>Severity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Competitive disruption:</strong> Grasim/Birla Opus entering decorative paints with aggressive pricing and dealer incentives, threatening market share</td>
+      <td><strong>High</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Raw material volatility:</strong> Crude-linked inputs (TiO₂, VAM, monomers) cause margin swings; limited short-term hedging ability</td>
+      <td><strong>High</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Valuation re-rating risk:</strong> Premium multiple (~50–55x P/E) leaves limited margin of safety if volume growth disappoints</td>
+      <td><strong>Medium</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Execution risk in adjacencies:</strong> Home décor and services require different capabilities; potential drag on RoCE if scaling is slower than anticipated</td>
+      <td><strong>Medium</strong></td>
+    </tr>
+    <tr></tr>
+      <td><strong>Regulatory/environmental:</strong> Stricter VOC norms or chemical import restrictions could raise compliance costs and disrupt supply chains</td>
+      <td><strong>Low</table></tbody>
+    </section>
+
+    <section class="section">
+      <h2>4. Shareholding Pattern Analysis</h2>
+      <h3>Asian Paints (ASIANPAINT) — Shareholding Analysis</h3>
+
+<h4>1. Shareholding Pattern (Latest 3 Quarters)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Q2 FY25 (Sep 24)</th>
+      <th>Q3 FY25 (Dec 24)</th>
+      <th>Q4 FY25 (Mar 25)</th>
+      <th>Change (Q2→Q4)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Promoter</strong></td>
+      <td>52.63%</td>
+      <td>52.63%</td>
+      <td>52.63%</td>
+      <td><em>0.00%</em></td>
+    </tr>
+    <tr>
+      <td><strong>FII / FPI</strong></td>
+      <td>~17.2%</td>
+      <td>~16.8%</td>
+      <td>~16.4%</td>
+      <td><em>▼ ~0.8%</em></td>
+    </tr>
+    <tr>
+      <td><strong>DII</strong></td>
+      <td>~18.5%</td>
+      <td>~18.9%</td>
+      <td>~19.3%</td>
+      <td><em>▲ ~0.8%</em></td>
+    </tr>
+    <tr>
+      <td><strong>Public / Others</strong></td>
+      <td>~11.7%</td>
+      <td>~11.7%</td>
+      <td>~11.7%</td>
+      <td><em>~0.0%</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note: FII/DII figures are approximate, based on publicly available regulatory disclosures. Exact Q4 FY25 data subject to final BSE/NSE filing confirmation.</em></p>
+
+<h4>2. Key Observations</h4>
+
+<ul>
+  <li><strong>Promoter Pledge:</strong> Zero pledged shares reported — promoter holding locked at 52.63% with no dilution or encumbrance, signalling strong family-group confidence (Vakil/Choksi/Dani families).</li>
+  <li><strong>FII Trend — Mild Retreat:</strong> FIIs have been gradual sellers (~▼0.8% over 3 quarters), likely reflecting valuation concerns after earnings disappointments and margin pressure in FY25; stock de-rated from premium multiples.</li>
+  <li><strong>DII Offsetting FII Outflows:</strong> Domestic institutions (MFs + Insurance) absorbed FII selling, incrementally adding ~0.8% — indicating domestic conviction in long-term brand moat despite near-term headwinds from new entrants (Grasim/Birla Opus).</li>
+  <li><strong>Free Float &amp; Liquidity:</strong> Effective free float ~47.4%; with market cap ~₹2.1–2.3L Cr, daily traded volumes remain robust. High institutional ownership (~35%+ combined FII+DII) ensures strong liquidity, but concentrated promoter block limits float-driven price discovery.
+    </section>
+
+    <section class="section">
+      <h2>5. Investment Thesis</h2>
+      <h3>Asian Paints — Investment Thesis</h3>
+
+<h4>1. Core Thesis</h4>
+<p>
+Asian Paints is India's dominant decorative paints franchise (~54% market share) with a distribution moat of 75,000+ dealer touchpoints and best-in-class ROCE (~30%+). The stock has de-rated meaningfully from peak multiples (~60x P/E) to ~50x FY25E on cyclical volume weakness, margin pressure from new entrants (Birla Opus), and sluggish urban demand — creating a potential re-entry window for a structurally compounding business. The core thesis rests on India's underpenetrated paint market (~4kg per capita vs. 15kg+ in developed markets), premiumisation tailwinds, and Asian Paints' pricing power absorbing input cost cycles over time.
+</p>
+
+<h4>2. Growth Drivers</h4>
+<ul>
+  <li><strong>Volume recovery in decorative segment:</strong> Urban housing activity and real estate completions expected to accelerate in FY26; could drive 8–10% volume CAGR after two soft years, directly lifting revenue and operating leverage.</li>
+  <li><strong>Premiumisation &amp; home décor adjacencies:</strong> Bath fittings, waterproofing, and modular kitchens expanding addressable market; currently ~10% of revenues but growing at 20%+ — margin accretive over 3–5 years.</li>
+  <li><strong>Input cost tailwind:</strong> Crude-linked raw materials (TiO₂, VAM) remain benign; 100–150 bps gross margin expansion possible in FY26 if crude stays below $80/bbl.</li>
+  <li><strong>International business scaling:</strong> Operations across 15 countries; Middle East and South/South-East Asia growing double-digit — meaningful P&amp;L contributor by FY27.</li>
+</ul>
+
+<h4>3. Catalysts</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Catalyst</th>
+      <th>Timeline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sequential volume recovery confirmation in Q2/Q3 FY26 earnings prints</td>
+      <td>Oct 2025 – Jan 2026</td>
+    </tr>
+    <tr>
+      <td>Birla Opus market share stabilisation — competitive intensity peak passing</td>
+      <td>H2 FY26</td>
+    </tr>
+    <tr>
+      <td>Gross margin expansion driven by softer crude/TiO₂ prices flowing through P&amp;L</td>
+      <td>Q1–Q2 FY26</td>
+    </tr>
+    <tr>
+      <td>Re-rating trigger: EBITDA margin recovery back toward 18–19% from ~15–16% trough</td>
+      <td>FY26–FY27</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>4. Risks</h4>
+<ul>
+  <li><strong>Competitive disruption from Birla Opus:</strong> Aggressive pricing and dealer incentives could structurally erode market share and compress industry margins — <em>Probability: High</em></li>
+  <li><strong>Prolonged urban demand slowdown:</strong> Weak real estate sentiment and consumer spending fatigue extending beyond FY25 could disappoint volume recovery assumptions — <em>Probability: Medium</em></li>
+  <li><strong>Raw material spike:</strong> A crude oil rally above $90/bbl or TiO₂ supply shock could reverse margin recovery thesis before price hikes catch up — <em>Probability: Medium</em></li>
+  <li><strong>Valuation premium compression:</strong> At ~50x forward P/E, any earnings miss or guidance cut risks sharp de-rating given elevated base; limited margin of safety at current levels — <em>Probability: Medium
+    </section>
+
+    <section class="section">
+      <h2>6. Valuation and Recommendation</h2>
+      <h3>Asian Paints – Valuation &amp; Recommendation</h3>
+
+<h4>1. Valuation Summary</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Fair Value (₹)</th>
+      <th>Weight</th>
+      <th>Implied Return (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P/E Multiple <em>(45x FY26E EPS ~₹28)</em></td>
+      <td>₹2,520</td>
+      <td>40%</td>
+      <td>+10%</td>
+    </tr>
+    <tr>
+      <td>P/B Multiple <em>(13x FY26E BVPS ~₹195)</em></td>
+      <td>₹2,535</td>
+      <td>25%</td>
+      <td>+11%</td>
+    </tr>
+    <tr>
+      <td>DCF / Earnings Growth <em>(10% CAGR, 8% WACC, 4% terminal)</em></td>
+      <td>₹2,450</td>
+      <td>35%</td>
+      <td>+7%</td>
+    </tr>
+    <tr>
+      <td><strong>Weighted Average</strong></td>
+      <td><strong>₹2,500</strong></td>
+      <td><strong>100%</strong></td>
+      <td><strong>+9%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>CMP assumed at ~₹2,290 (reference price). FY26E estimates based on consensus trajectory and available financials.</em></p>
+
+<h4>2. Recommendation</h4>
+<p><strong>Recommendation: HOLD</strong> | <strong>Target Price Range: ₹2,400-2,600</strong> | <strong>Upside: 9%</strong> | Horizon: 12 months | Risk: Medium</p>
+
+<h4>3. Rationale</h4>
+<ul>
+  <li><strong>Margin pressure persists:</strong> FY24 EBITDA margins recovered to ~18-19% aided by benign raw material costs, but competitive intensity from Birla Opus and Indigo has structurally capped re-rating potential; volume growth guidance remains modest at mid-single digits.</li>
+  <li><strong>Premium valuation limits upside:</strong> Stock trades at ~50x trailing P/E versus historical 5-year average of ~55x — modest de-rating already underway; earnings growth of ~10-12% CAGR does not justify significant multiple expansion from current levels.</li>
+  <li><strong>Volume recovery gradual:</strong> Decorative paints volumes grew ~4-6% YoY in FY24 amid weak urban demand and prolonged monsoon disruptions; near-term demand recovery hinges on housing activity and rural income normalization — both uncertain.</li>
+  <li><strong>Franchise quality intact, but priced in:</strong> Market leadership (~54% decorative share), strong distribution (80,000+ dealer network), and improving international business (15% of revenue) provide earnings stability — supporting HOLD rather than SELL despite limited near-term upside.
+    </section>
+
+    <section class="section">
+      <h2>7. Conclusion</h2>
+      <h3>Asian Paints – Conclusion</h3>
+
+<h4>1. Scenario Analysis</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Key Assumption</th>
+      <th>Fair Value (₹)</th>
+      <th>Return (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Bull Case</strong></td>
+      <td>Volume recovery 8–10%; margin expansion to 22%+ on benign raws; rural demand revival</td>
+      <td>₹3,400</td>
+      <td>~+20%</td>
+    </tr>
+    <tr>
+      <td><strong>Base Case</strong></td>
+      <td>Mid-single-digit volume growth; EBITDA margins stable ~20%; competitive intensity manageable</td>
+      <td>₹2,850</td>
+      <td>~+1%</td>
+    </tr>
+    <tr>
+      <td><strong>Bear Case</strong></td>
+      <td>Grasim/Birla Opus share gains accelerate; volume growth stalls; margins compress to 17–18%</td>
+      <td>₹2,100</td>
+      <td>~-26%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>2. Key Risks to Monitor</h4>
+<ul>
+  <li><strong>Competitive disruption:</strong> Track Grasim's paints revenue ramp and Asian Paints' volume market-share data each quarter.</li>
+  <li><strong>Raw material volatility:</strong> Watch crude-linked input costs (TiO₂, VAM, monomers) — a 5% spike compresses EBITDA margins ~80–100 bps.</li>
+  <li><strong>Demand slowdown:</strong> Monitor urban housing starts and real-estate registration data; proxy for decorative paint offtake.</li>
+  <li><strong>Valuation de-rating risk:</strong> Stock trades at premium multiples (~50x trailing P/E); any earnings miss could trigger sharp re-rating — watch quarterly EPS vs. consensus.</li>
+</ul>
+
+<h4>3. Investment Guidance</h4>
+<p>
+  Asian Paints suits <strong>long-term quality investors</strong> with a <em>3–5 year horizon</em> willing to tolerate near-term earnings pressure and competitive headwinds. Given limited upside to fair value at current levels (~₹2,820), <strong>accumulate only on meaningful corrections toward ₹2,400–2,500</strong> (implying ~40–42x forward P/E), which offers a more favourable risk-reward. <strong>Exit or trim</strong> positions if volume market share shows sustained decline for two consecutive quarters or EBITDA margins fall below 18% structurally. Not suitable for short-term or momentum-oriented investors given the compressed near-term return profile.
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <strong>Disclaimer:</strong> This report is for informational purposes only. It does not constitute investment advice. Please consult with a qualified financial advisor before making investment decisions.
+  </div>
+
+</div>
+
+</body>
+</html>

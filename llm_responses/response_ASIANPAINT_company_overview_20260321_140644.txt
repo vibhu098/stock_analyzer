@@ -1,0 +1,349 @@
+Stock: ASIANPAINT
+Section: company_overview
+Timestamp: 2026-03-21 14:06:44.895247
+Response Length: 10036 chars
+================================================================================
+
+<h2>Asian Paints Limited (ASIANPAINT) — Company Overview</h2>
+
+<h3>Business Description</h3>
+<p>
+  Asian Paints Limited is <strong>India's largest paint and coatings company</strong> and ranks among the top ten decorative coatings companies globally. Founded in 1942 and headquartered in Mumbai, the company manufactures and sells a wide range of <strong>decorative paints, industrial coatings, adhesives, waterproofing solutions, and home décor products</strong>. Its flagship brands include Asian Paints, Berger (international), Apcolite, Tractor Emulsion, and Royale. The company has expanded into adjacent categories such as bath fittings (Ess Ess), modular kitchens (Sleek), and waterproofing, positioning itself as an integrated <em>home improvement and décor solutions provider</em>.
+</p>
+<p>
+  Asian Paints operates across <strong>15+ countries</strong> with manufacturing facilities in India and abroad. Domestically, it commands an estimated <strong>~50–55% market share</strong> in the decorative paints segment, supported by an extensive distribution network of over 70,000 dealers. The company benefits from strong brand equity, pricing power, and a deeply entrenched distribution moat.
+</p>
+
+<h3>Sector &amp; Industry Classification</h3>
+<ul>
+  <li><strong>Sector:</strong> Materials / Specialty Chemicals &amp; Paints</li>
+  <li><strong>Industry:</strong> Paints, Coatings &amp; Home Décor</li>
+  <li><strong>Index:</strong> NIFTY 50, NIFTY 100, NIFTY 500</li>
+  <li><strong>Market Position:</strong> Market Leader — Domestic Decorative Paints</li>
+</ul>
+
+<h3>Company Size &amp; Scale</h3>
+<table class="financials-table">
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Assets (Mar 2025)</td>
+      <td>₹ 26,653 Cr</td>
+      <td>~4x growth over 10 years (FY14: ₹6,720 Cr)</td>
+    </tr>
+    <tr>
+      <td>Net Profit (FY25)</td>
+      <td>₹ 3,585 Cr</td>
+      <td>Decline YoY from FY24's ₹5,315 Cr</td>
+    </tr>
+    <tr>
+      <td>EPS (FY25)</td>
+      <td>₹ 37.37</td>
+      <td>Down from ₹55.41 in FY24</td>
+    </tr>
+    <tr>
+      <td>Book Value per Share</td>
+      <td>₹ 199</td>
+      <td>Current snapshot</td>
+    </tr>
+    <tr>
+      <td>ROCE</td>
+      <td>27.3%</td>
+      <td>Strong capital efficiency</td>
+    </tr>
+    <tr>
+      <td>ROE</td>
+      <td>20.7%</td>
+      <td>Healthy return on equity</td>
+    </tr>
+    <tr>
+      <td>Dividend Yield</td>
+      <td>1.04%</td>
+      <td>Consistent dividend payer</td>
+    </tr>
+    <tr>
+      <td>Face Value</td>
+      <td>₹ 1.00</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Profitability Trend (Annual)</h3>
+<table class="financials-table">
+  <thead>
+    <tr>
+      <th>Fiscal Year</th>
+      <th>PBT (₹ Cr)</th>
+      <th>Net Profit (₹ Cr)</th>
+      <th>EPS (₹)</th>
+      <th>Dividend Payout %</th>
+      <th>Tax Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FY21</td>
+      <td>4,090</td>
+      <td>3,053</td>
+      <td>31.82</td>
+      <td>56%</td>
+      <td>25%</td>
+    </tr>
+    <tr>
+      <td>FY22</td>
+      <td>4,194</td>
+      <td>3,135</td>
+      <td>32.68</td>
+      <td>59%</td>
+      <td>25%</td>
+    </tr>
+    <tr>
+      <td>FY23</td>
+      <td>5,490</td>
+      <td>4,100</td>
+      <td>42.75</td>
+      <td>60%</td>
+      <td>25%</td>
+    </tr>
+    <tr>
+      <td><strong>FY24</strong></td>
+      <td><strong>6,999</strong></td>
+      <td><strong>5,315</strong></td>
+      <td><strong>55.41</strong></td>
+      <td><strong>60%</strong></td>
+      <td><strong>24%</strong></td>
+    </tr>
+    <tr>
+      <td><em>FY25</em></td>
+      <td><em>4,897</em></td>
+      <td><em>3,585</em></td>
+      <td><em>37.37</em></td>
+      <td><em>66%</em></td>
+      <td><em>27%</em></td>
+    </tr>
+    <tr>
+      <td>TTM</td>
+      <td>5,150</td>
+      <td>3,775</td>
+      <td>39.35</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Key Observation:</strong> FY24 represented a peak earnings year for Asian Paints. FY25 saw a <strong>significant earnings contraction of ~32.6% YoY</strong> in net profit (₹5,315 Cr → ₹3,585 Cr), driven by intensifying competitive pressure from new entrants (notably Grasim/Birla Opus), elevated input cost volatility, and demand moderation in urban markets. The rising dividend payout ratio to 66% in FY25 despite lower earnings signals management's intent to maintain shareholder returns, though it also reflects earnings stress.
+</p>
+
+<h3>Quarterly Profitability Snapshot</h3>
+<table class="financials-table">
+  <thead>
+    <tr>
+      <th>Quarter</th>
+      <th>Operating Profit (₹ Cr)</th>
+      <th>Net Profit (₹ Cr)</th>
+      <th>EPS (₹)</th>
+      <th>YoY Net Profit Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jun 2023</td>
+      <td>2,000</td>
+      <td>1,508</td>
+      <td>15.73</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Sep 2023</td>
+      <td>1,585</td>
+      <td>1,160</td>
+      <td>12.10</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Dec 2023</td>
+      <td>1,897</td>
+      <td>1,444</td>
+      <td>15.05</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Mar 2024</td>
+      <td>1,554</td>
+      <td>1,209</td>
+      <td>12.61</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Jun 2024</td>
+      <td>1,596</td>
+      <td>1,189</td>
+      <td>12.40</td>
+      <td class="negative">▼ -21.2% YoY</td>
+    </tr>
+    <tr>
+      <td>Sep 2024</td>
+      <td>1,123</td>
+      <td>597</td>
+      <td>6.23</td>
+      <td class="negative">▼ -48.5% YoY</td>
+    </tr>
+    <tr>
+      <td>Dec 2024</td>
+      <td>1,509</td>
+      <td>1,104</td>
+      <td>11.51</td>
+      <td class="negative">▼ -23.5% YoY</td>
+    </tr>
+    <tr>
+      <td>Mar 2025</td>
+      <td>1,324</td>
+      <td>694</td>
+      <td>7.24</td>
+      <td class="negative">▼ -42.6% YoY</td>
+    </tr>
+    <tr>
+      <td>Jun 2025</td>
+      <td>1,520</td>
+      <td>1,100</td>
+      <td>11.46</td>
+      <td class="negative">▼ -7.5% YoY</td>
+    </tr>
+    <tr>
+      <td><strong>Sep 2025</strong></td>
+      <td><strong>1,359</strong></td>
+      <td><strong>956</strong></td>
+      <td><strong>9.96</strong></td>
+      <td class="positive">▲ +60.1% YoY</td>
+    </tr>
+    <tr>
+      <td>Dec 2025</td>
+      <td>1,627</td>
+      <td>1,025</td>
+      <td>10.69</td>
+      <td class="negative">▼ -7.1% YoY</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  The quarterly trend reveals a <strong>sharp deterioration in profitability through FY25</strong>, with Sep 2024 being particularly weak (Net Profit: ₹597 Cr — the lowest in recent history). While Sep 2025 showed a meaningful YoY recovery (+60% from a low base), absolute profit levels remain <em>well below peak FY24 quarters</em>. The business appears to be in a <strong>cyclical earnings trough</strong>, with early signs of stabilization but no definitive recovery yet.
+</p>
+
+<h3>Cash Flow Health</h3>
+<table class="financials-table">
+  <thead>
+    <tr>
+      <th>Fiscal Year</th>
+      <th>Operating CF (₹ Cr)</th>
+      <th>Investing CF (₹ Cr)</th>
+      <th>Financing CF (₹ Cr)</th>
+      <th>Net Cash (₹ Cr)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FY22</td>
+      <td>1,260</td>
+      <td>-340</td>
+      <td>-1,989</td>
+      <td>-1,069</td>
+    </tr>
+    <tr>
+      <td>FY23</td>
+      <td>4,222</td>
+      <td>-1,397</td>
+      <td>-2,185</td>
+      <td>640</td>
+    </tr>
+    <tr>
+      <td><strong>FY24</strong></td>
+      <td><strong>5,757</strong></td>
+      <td><strong>-2,270</strong></td>
+      <td><strong>-2,948</strong></td>
+      <td><strong>540</strong></td>
+    </tr>
+    <tr>
+      <td>FY25</td>
+      <td>4,166</td>
+      <td>-832</td>
+      <td>-3,416</td>
+      <td>-82</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Operating cash flows remain <strong>robust despite earnings pressure</strong>, reflecting strong working capital management. FY24's operating CF of ₹5,757 Cr was a multi-year high. FY25 saw moderation to ₹4,166 Cr, but remains healthy. Notably, <strong>financing outflows have increased</strong> (₹3,416 Cr in FY25), primarily reflecting higher dividend payments. Capital expenditure (investing outflows) moderated in FY25 after a heavy investment cycle in FY24 — consistent with the sharp rise in Fixed Assets and CWIP visible in the balance sheet.
+</p>
+
+<h3>Balance Sheet Strength</h3>
+<table class="financials-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Mar 2021</th>
+      <th>Mar 2022</th>
+      <th>Mar 2023</th>
+      <th>Mar 2024</th>
+      <th>Mar 2025</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fixed Assets (₹ Cr)</td>
+      <td>4,603</td>
+      <td>4,554</td>
+      <td>4,643</td>
+      <td>5,494</td>
+      <td>7,931</td>
+    </tr>
+    <tr>
+      <td>CWIP (₹ Cr)</td>
+      <td>110</td>
+      <td>225</td>
+      <td>978</td>
+      <td>2,561</td>
+      <td>386</td>
+    </tr>
+    <tr>
+      <td>Investments (₹ Cr)</td>
+      <td>5,341</td>
+      <td>3,811</td>
+      <td>4,912</td>
+      <td>5,471</td>
+      <td>6,044</td>
+    </tr>
+    <tr>
+      <td>Total Assets (₹ Cr)</td>
+      <td>17,583</td>
+      <td>19,908</td>
+      <td>22,530</td>
+      <td>26,036</td>
+      <td>26,653</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  The <strong>sharp increase in Fixed Assets to ₹7,931 Cr in FY25</strong> (from ₹5,494 Cr in FY24) and the corresponding decline in CWIP from ₹2,561 Cr to ₹386 Cr indicates that the company has <em>capitalized its heavy investment cycle</em> — new capacity has come online. This expansion was partly a defensive response to Grasim Industries entering the paints market. While this increases depreciation burden in the near term, it reinforces Asian Paints' long-term capacity moat.
+</p>
+
+<h3>Preliminary Investment Recommendation</h3>
+<table class="recommendation-table">
+  <thead>
+    <tr>
+      <th>Factor</th>
+      <th>Assessment</th>
+      <th>Signal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Earnings Momentum</td>
+      <td>Significant YoY decline in FY25; base effect recovery in

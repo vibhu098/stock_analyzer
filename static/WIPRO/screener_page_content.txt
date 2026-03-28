@@ -1,0 +1,454 @@
+HOME
+SCREENS
+TOOLS 
+ LOGIN
+GET FREE ACCOUNT
+Wipro
+Chart
+Analysis
+Peers
+Quarters
+Profit & Loss
+Balance Sheet
+Cash Flow
+Ratios
+Investors
+Documents
+ Notebook
+ AI
+Wipro Ltd
+₹ 201
+ -0.06%
+27 Feb - close price
+ EXPORT TO EXCEL
+ FOLLOW
+ wipro.com
+ BSE: 507685
+ NSE: WIPRO
+ABOUT
+
+Wipro Ltd is a global Information technology, consulting and business process services (BPS) company.[1]
+
+It is the 4th largest Indian player in the global IT services industry behind TCS, Infosys and HCL Technologies.[2]
+
+KEY POINTS
+
+Business Segments
+
+READ MORE 
+Market Cap
+₹ 2,10,767 Cr.
+Current Price
+₹ 201
+High / Low
+₹ 292 / 199
+Stock P/E
+17.5
+Book Value
+₹ 61.5
+Dividend Yield
+5.47 %
+ROCE
+23.0 %
+ROE
+17.8 %
+Face Value
+₹ 2.00
+Add ratio to table
+ EDIT RATIOS
+1M
+6M
+1Yr
+3Yr
+5Yr
+10Yr
+Max
+Price
+PE Ratio
+More 
+Alerts
+Volume
+Price on NSE
+Price on NSE
+50 DMA
+200 DMA
+Volume
+
+PROS
+
+Stock is providing a good dividend yield of 5.47%.
+Company has been maintaining a healthy dividend payout of 23.3%
+
+CONS
+
+The company has delivered a poor sales growth of 5.95% over past five years.
+Earnings include an other income of Rs.5,365 Cr.
+
+* The pros and cons are machine generated. 
+
+Peer comparison
+
+ Information Technology   Information Technology   IT - Software   Computers - Software & Consulting
+
+Part of
+Nifty 50
+BSE 500
+BSE Information Technology
+BSE 100
+BSE 200
+show all
+
+ EDIT COLUMNS
+S.No.	Name	CMP Rs.	P/E	Mar Cap Rs.Cr.	Div Yld %	NP Qtr Rs.Cr.	Qtr Profit Var %	Sales Qtr Rs.Cr.	Qtr Sales Var %	ROCE %
+1.	TCS	2637.40	18.67	954234.40	2.27	10720.00	6.69	67087.00	4.87	64.63
+2.	Infosys	1300.10	18.27	527241.40	3.31	6666.00	10.79	45479.00	8.90	37.50
+3.	HCL Technologies	1389.10	21.96	376955.22	3.89	4082.00	4.19	33872.00	13.32	31.61
+4.	Wipro	200.96	17.54	210766.80	5.47	2782.20	-2.06	18016.90	5.21	23.02
+5.	Tech Mahindra	1357.80	27.66	133034.49	3.31	1118.60	32.95	14393.20	8.34	18.56
+6.	LTIMindtree	4462.00	25.54	132295.32	1.46	959.60	28.57	10781.00	11.59	27.63
+7.	Persistent Systems	4733.00	41.51	74663.08	0.74	439.45	35.75	3778.21	23.38	30.44
+	Median: 65 Co.	288.15	22.34	832.6	0.36	12.61	14.35	100.46	12.39	21.28
+Detailed Comparison with:
+Quarterly Results
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+ PRODUCT SEGMENTS
+	Dec 2022	Mar 2023	Jun 2023	Sep 2023	Dec 2023	Mar 2024	Jun 2024	Sep 2024	Dec 2024	Mar 2025	Jun 2025	Sep 2025	Dec 2025
+Sales +	17,079	17,477	17,203	16,681	16,316	16,593	16,795	17,226	17,124	17,429	17,195	17,770	18,017
+Expenses +	13,942	14,619	13,936	13,940	13,533	13,700	13,562	13,917	13,804	14,124	14,112	14,514	14,619
+Operating Profit	3,137	2,859	3,267	2,740	2,783	2,893	3,234	3,310	3,320	3,305	3,084	3,256	3,398
+OPM %	18%	16%	19%	16%	17%	17%	19%	19%	19%	19%	18%	18%	19%
+Other Income +	672	842	736	684	593	1,032	686	1,066	794	1,402	2,042	892	1,028
+Interest	174	174	205	206	203	206	216	246	286	254	246	283	275
+Depreciation	408	384	377	371	370	374	380	373	360	388	362	351	356
+Profit before tax	3,227	3,142	3,421	2,848	2,804	3,345	3,324	3,756	3,467	4,065	4,518	3,515	3,795
+Tax %	25%	28%	24%	28%	28%	27%	28%	27%	18%	28%	18%	26%	27%
+Net Profit +	2,413	2,264	2,588	2,061	2,023	2,447	2,405	2,745	2,841	2,923	3,696	2,614	2,782
+EPS in Rs	2.20	2.06	2.36	1.97	1.94	2.34	2.30	2.62	2.71	2.79	3.53	2.49	2.65
+Raw PDF													
+Profit & Loss
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+ RELATED PARTY
+ PRODUCT SEGMENTS
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025	TTM
+Sales +	38,757	41,210	44,681	46,048	44,710	48,124	50,407	50,299	59,574	67,753	66,792	67,293	70,412
+Expenses +	29,649	32,010	35,372	36,491	35,756	39,363	40,200	38,246	47,163	55,627	55,109	54,294	57,369
+Operating Profit	9,108	9,199	9,309	9,557	8,954	8,761	10,207	12,054	12,411	12,126	11,683	12,998	13,043
+OPM %	24%	22%	21%	21%	20%	18%	20%	24%	21%	18%	17%	19%	19%
+Other Income +	1,611	2,499	2,711	2,646	2,480	2,569	2,477	2,383	4,706	2,364	3,046	3,860	5,365
+Interest	375	363	550	468	384	525	535	403	367	629	820	981	1,058
+Depreciation	737	778	875	1,048	1,015	934	1,141	1,349	1,486	1,592	1,492	1,447	1,458
+Profit before tax	9,608	10,557	10,594	10,687	10,034	9,870	11,008	12,685	15,264	12,269	12,418	14,430	15,892
+Tax %	23%	22%	23%	24%	23%	23%	21%	21%	20%	25%	27%	25%	
+Net Profit +	7,387	8,193	8,200	8,162	7,723	7,614	8,681	10,061	12,135	9,177	9,119	10,792	12,015
+EPS in Rs	5.62	6.22	6.22	6.30	6.40	6.31	7.60	9.18	11.07	8.36	8.73	10.31	11.46
+Dividend Payout %	27%	36%	18%	6%	6%	8%	7%	5%	27%	6%	6%	58%	
+Compounded Sales Growth
+10 Years:	5%
+5 Years:	6%
+3 Years:	4%
+TTM:	4%
+Compounded Profit Growth
+10 Years:	3%
+5 Years:	4%
+3 Years:	-4%
+TTM:	15%
+Stock Price CAGR
+10 Years:	7%
+5 Years:	-1%
+3 Years:	1%
+1 Year:	-28%
+Return on Equity
+10 Years:	18%
+5 Years:	19%
+3 Years:	16%
+Last Year:	18%
+Balance Sheet
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+CORPORATE ACTIONS
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025	Sep 2025
+Equity Capital	493	494	494	486	905	1,207	1,143	1,096	1,096	1,098	1,045	2,094	2,097
+Reserves	28,863	34,128	40,732	46,220	41,358	48,185	45,311	44,146	53,254	61,665	56,737	60,807	62,395
+Borrowings +	4,583	6,103	6,813	6,310	5,803	5,128	5,958	6,925	8,804	6,359	5,100	7,486	7,945
+Other Liabilities +	11,660	12,628	9,990	10,002	10,560	12,468	12,895	13,523	17,228	16,119	18,742	21,608	23,460
+Total Liabilities	45,599	53,352	58,028	63,018	58,625	66,988	65,306	65,689	80,383	85,241	81,624	91,995	95,897
+Fixed Assets +	3,975	4,038	4,068	4,362	4,367	4,401	6,639	7,288	8,038	8,825	7,860	8,686	8,988
+CWIP	275	361	325	694	1,291	2,113	1,874	1,848	1,584	604	670	178	233
+Investments	11,036	10,768	26,201	35,146	30,683	30,249	26,698	25,702	40,631	49,085	50,824	61,222	63,334
+Other Assets +	30,313	38,184	27,435	22,815	22,285	30,225	30,095	30,851	30,130	26,727	22,270	21,908	23,343
+Total Assets	45,599	53,352	58,028	63,018	58,625	66,988	65,306	65,689	80,383	85,241	81,624	91,995	95,897
+Cash Flows
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025
+Cash from Operating Activity +	6,589	7,704	6,687	7,371	6,471	10,210	9,068	12,728	7,240	11,192	14,216	13,155
+Cash from Investing Activity +	254	-1,480	-9,774	-7,984	5,008	-347	3,219	-1,283	-12,620	-4,759	2,206	-7,223
+Cash from Financing Activity +	-4,089	-1,836	-3,490	-4,368	-12,918	-1,395	-12,233	-12,106	495	-6,804	-17,159	-5,415
+Net Cash Flow	2,754	4,388	-6,577	-4,981	-1,440	8,468	54	-661	-4,885	-371	-736	517
+Ratios
+
+Standalone Figures in Rs. Crores / View Consolidated
+
+	Mar 2014	Mar 2015	Mar 2016	Mar 2017	Mar 2018	Mar 2019	Mar 2020	Mar 2021	Mar 2022	Mar 2023	Mar 2024	Mar 2025
+Debtor Days	81	72	69	64	78	69	67	58	57	54	47	44
+Inventory Days	33	69	74	55								
+Days Payable	785	821	612	593								
+Cash Conversion Cycle	-671	-681	-469	-473	78	69	67	58	57	54	47	44
+Working Capital Days	12	14	3	18	6	-6	-1	-0	-2	5	-10	-34
+ROCE %	31%	28%	25%	22%	21%	20%	22%	25%	27%	19%	20%	23%
+Shareholding Pattern
+
+Numbers in percentages
+
+Quarterly
+Yearly
+TRADES
+1 Recently
+	Mar 2023	Jun 2023	Sep 2023	Dec 2023	Mar 2024	Jun 2024	Sep 2024	Dec 2024	Mar 2025	Jun 2025	Sep 2025	Dec 2025
+Promoters +	72.92%	72.91%	72.93%	72.90%	72.89%	72.82%	72.80%	72.75%	72.73%	72.67%	72.66%	72.64%
+FIIs +	6.38%	6.32%	6.47%	6.70%	6.96%	7.12%	7.27%	7.81%	8.35%	8.16%	8.45%	8.22%
+DIIs +	8.01%	7.56%	8.03%	8.13%	8.28%	8.25%	8.71%	8.20%	7.47%	7.78%	7.86%	8.38%
+Public +	12.51%	13.05%	12.43%	12.16%	11.76%	11.68%	11.10%	11.12%	11.31%	11.28%	10.89%	10.63%
+Others +	0.18%	0.16%	0.14%	0.13%	0.11%	0.11%	0.11%	0.11%	0.11%	0.11%	0.11%	0.11%
+No. of Shareholders	26,91,329	27,79,436	25,93,087	25,21,361	23,97,648	23,69,089	22,36,752	23,58,943	24,31,180	24,61,550	25,15,452	24,42,662
+
+* The classifications might have changed from Sep'2022 onwards. 
+
+Documents
+Announcements
+Recent
+Important
+Search
+All 
+Announcement under Regulation 30 (LODR)-Allotment of ESOP / ESPS 25 Feb
+Announcement under Regulation 30 (LODR)-Allotment of ESOP / ESPS 18 Feb
+Disclosure Pursuant To Regulation 30 Of The SEBI (LODR) Regulations, 2015
+9 Feb - Wipro completed subscription to equity of AMPIN Energy C&I One Pvt Ltd on Feb 9, 2026.
+Announcement under Regulation 30 (LODR)-Allotment of ESOP / ESPS 6 Feb
+Announcement under Regulation 30 (LODR)-Press Release / Media Release
+4 Feb - Feb 4, 2026: Wipro joins MIT ILP to collaborate on agentic AI, robotics, quantum, DLT, cyber resilience.
+Annual reports
+Financial Year 2025
+from bse
+Financial Year 2024
+from bse
+Financial Year 2023
+from bse
+Financial Year 2022
+from bse
+Financial Year 2021
+from bse
+Financial Year 2020
+from bse
+Financial Year 2019
+from bse
+Financial Year 2018
+from bse
+Financial Year 2017
+from bse
+Financial Year 2016
+from bse
+Financial Year 2015
+from bse
+Financial Year 2014
+from bse
+Financial Year 2013
+from bse
+Financial Year 2012
+from bse
+Financial Year 2011
+from bse
+Credit ratings
+Rating update
+7 Jul 2025 from icra
+Rating update
+10 Sep 2024 from icra
+Rating update
+3 Oct 2023 from icra
+Rating update
+7 Sep 2023 from icra
+Rating update
+12 Aug 2022 from icra
+Rating update
+15 Jul 2021 from icra
+Concalls
+ Add Missing
+Jan 2026
+Transcript
+AI Summary
+PPT
+REC
+Jan 2026
+Transcript
+AI Summary
+PPT
+Oct 2025
+Transcript
+AI Summary
+PPT
+REC
+Jul 2025
+Transcript
+AI Summary
+PPT
+REC
+Apr 2025
+Transcript
+AI Summary
+PPT
+REC
+Jan 2025
+Transcript
+AI Summary
+PPT
+Oct 2024
+Transcript
+AI Summary
+PPT
+Jul 2024
+Transcript
+AI Summary
+PPT
+Apr 2024
+Transcript
+AI Summary
+PPT
+Jan 2024
+Transcript
+AI Summary
+PPT
+Oct 2023
+Transcript
+AI Summary
+PPT
+Jul 2023
+Transcript
+AI Summary
+PPT
+May 2023
+Transcript
+AI Summary
+PPT
+Jan 2023
+Transcript
+AI Summary
+PPT
+Oct 2022
+Transcript
+AI Summary
+PPT
+Jul 2022
+Transcript
+AI Summary
+PPT
+Jul 2022
+Transcript
+AI Summary
+PPT
+May 2022
+Transcript
+AI Summary
+PPT
+Jan 2022
+Transcript
+AI Summary
+PPT
+Nov 2021
+Transcript
+AI Summary
+PPT
+Jul 2021
+Transcript
+AI Summary
+PPT
+Jul 2021
+Transcript
+AI Summary
+PPT
+Apr 2021
+Transcript
+AI Summary
+PPT
+Jan 2021
+Transcript
+AI Summary
+PPT
+Oct 2020
+Transcript
+AI Summary
+PPT
+Aug 2020
+Transcript
+AI Summary
+PPT
+Jul 2020
+Transcript
+AI Summary
+PPT
+May 2020
+Transcript
+AI Summary
+PPT
+Feb 2020
+Transcript
+AI Summary
+PPT
+Oct 2019
+Transcript
+AI Summary
+PPT
+Jul 2019
+Transcript
+AI Summary
+PPT
+Apr 2019
+Transcript
+AI Summary
+PPT
+Feb 2019
+Transcript
+AI Summary
+PPT
+Oct 2018
+Transcript
+AI Summary
+PPT
+May 2018
+Transcript
+AI Summary
+PPT
+Jan 2018
+Transcript
+AI Summary
+PPT
+Oct 2017
+Transcript
+AI Summary
+PPT
+
+Stock analysis and screening tool
+
+Mittal Analytics Private Ltd © 2009-2025
+Made with  in India.
+
+Data provided by C-MOTS Internet Technologies Pvt Ltd
+
+Terms & Privacy.
+
+Product
+Premium
+What's new?
+Learn
+Team
+About us
+Support
+Theme
+ Light
+ Dark
+ Auto

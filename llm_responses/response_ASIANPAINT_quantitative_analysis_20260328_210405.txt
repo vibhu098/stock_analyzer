@@ -1,0 +1,138 @@
+Stock: ASIANPAINT
+Section: quantitative_analysis
+Timestamp: 2026-03-28 21:04:05.787510
+Response Length: 4148 chars
+================================================================================
+
+<h3>Asian Paints – Quantitative Analysis</h3>
+
+<h4>1. Profit &amp; Loss Summary (FY20–FY24)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY20</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Net Profit (₹Cr)</td>
+      <td>2,654</td>
+      <td>3,053</td>
+      <td>3,135</td>
+      <td>4,100</td>
+      <td>5,315</td>
+    </tr>
+    <tr>
+      <td>PBT (₹Cr)</td>
+      <td>3,413</td>
+      <td>4,090</td>
+      <td>4,194</td>
+      <td>5,490</td>
+      <td>6,999</td>
+    </tr>
+    <tr>
+      <td>EPS (₹)</td>
+      <td>27.67</td>
+      <td>31.82</td>
+      <td>32.68</td>
+      <td>42.75</td>
+      <td>55.41</td>
+    </tr>
+    <tr>
+      <td>Tax Rate (%)</td>
+      <td>22%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>24%</td>
+    </tr>
+    <tr>
+      <td>Dividend Payout (%)</td>
+      <td>43%</td>
+      <td>56%</td>
+      <td>59%</td>
+      <td>60%</td>
+      <td>60%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note: Standalone Revenue and OPM % not available in provided data; Operating Profit quarterly series starts Dec 2022. PBT used as closest annual proxy for profitability trend.</em></p>
+
+<h4>2. Key Ratios (FY20–FY24)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Ratio</th>
+      <th>FY20</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ROE (%)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>20.7 (current)</td>
+    </tr>
+    <tr>
+      <td>ROCE (%)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>27.3 (current)</td>
+    </tr>
+    <tr>
+      <td>OCF (₹Cr)</td>
+      <td>2,813</td>
+      <td>3,460</td>
+      <td>1,260</td>
+      <td>4,222</td>
+      <td>5,757</td>
+    </tr>
+    <tr>
+      <td>OCF / Net Profit (x)</td>
+      <td>1.06</td>
+      <td>1.13</td>
+      <td>0.40</td>
+      <td>1.03</td>
+      <td>1.08</td>
+    </tr>
+    <tr>
+      <td>Total Assets (₹Cr)</td>
+      <td>13,588</td>
+      <td>17,583</td>
+      <td>19,908</td>
+      <td>22,530</td>
+      <td>26,036</td>
+    </tr>
+    <tr>
+      <td>Fixed Assets + CWIP (₹Cr)</td>
+      <td>5,069</td>
+      <td>4,713</td>
+      <td>4,779</td>
+      <td>5,621</td>
+      <td>8,055</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>3. Key Analytical Observations</h4>
+<ul>
+  <li><strong>Earnings momentum stalled in FY25:</strong> Net profit fell sharply to ₹3,585 Cr in FY25 from a peak of ₹5,315 Cr in FY24 — a ~33% YoY decline — driven by margin compression visible in quarterly OPM deterioration (from ₹2,000 Cr in Jun-23 to ₹1,123 Cr in Sep-24). TTM PAT of ₹3,775 Cr confirms the weakness is sustained, not one-off.</li>
+  <li><strong>Cash flow quality historically strong, now weakening:</strong> OCF/PAT consistently above 1x (FY20–FY24 avg ~1.06x, ex-FY22 anomaly), signalling high earnings quality. FY25 OCF dropped to ₹4,166 Cr vs FY24's ₹5,757 Cr, tracking the profit decline. FY22 OCF/PAT of 0.40x was a red-flag year (working capital stress amid input cost spike).</li>
+  <li><strong>Aggressive capex cycle underway:</strong> Fixed Assets + CWIP surged from ₹5,621 Cr (FY23) to ₹8,055 Cr (FY24) and further to ₹8,317 Cr (Mar-25), implying a major capacity build. This is compressing near-term FCF and coincides with the earnings dip — execution risk on new capacity utilisation is key to watch.</li>
+  <li><strong>Dividend payout creeping up despite earnings fall:</strong> Payout ratio rose to 66% in FY25 (vs 60% in FY24), signalling management confidence in recovery but also reducing retained earnings at a time of heavy capex — a mild financial discipline concern.</li>
+  <li><strong>Competitive pressure evident in margins:</strong> Operating profit per quarter has trended down from ~₹1,900–2,000 Cr range (FY23 peak) to ₹1,100–1,600 Cr (FY25), consistent with intensifying competition (Grasim/Birla Opus entry) and volume-driven pricing pressure, not just input costs. Recovery to peak earnings requires both margin restoration and volume growth.</li>
+</ul>

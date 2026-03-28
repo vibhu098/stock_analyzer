@@ -1,0 +1,244 @@
+Stock: HDFCBANK
+Section: quantitative_analysis
+Timestamp: 2026-03-21 13:47:42.675914
+Response Length: 11661 chars
+================================================================================
+
+<h2>Quantitative Analysis — HDFC Bank Limited (HDFCBANK)</h2>
+<p><em>All financial data sourced from Screener.in. Indian Financial Year runs April 1 – March 31. Latest full-year data: FY25 (Mar 2025); Latest annual comparative base: FY24 (Mar 2024).</em></p>
+
+<h3>a) Market Valuation and Price Metrics</h3>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Current Value</th>
+      <th>Unit</th>
+      <th>Status / Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Market Capitalization</td>
+      <td>13,66,198</td>
+      <td>₹ Cr</td>
+      <td>Largest private sector bank in India by market cap; among top-3 by overall market cap on NSE</td>
+    </tr>
+    <tr>
+      <td>Current Stock Price</td>
+      <td>888</td>
+      <td>₹ per share</td>
+      <td>5-Year CAGR of only 3%; significant underperformance vs. earnings growth — valuation re-rating lag post HDFC merger</td>
+    </tr>
+    <tr>
+      <td>Price-to-Earnings (P/E) Ratio</td>
+      <td>18.7</td>
+      <td>x</td>
+      <td>Historically traded at 22–28x; current P/E at multi-year lows, indicating potential undervaluation relative to historical norms</td>
+    </tr>
+    <tr>
+      <td>Price-to-Book (P/B) Ratio</td>
+      <td>2.54</td>
+      <td>x</td>
+      <td>Calculated: ₹888 / ₹350 Book Value. Historically commanded 3.5–5x P/B; current level reflects merger-related uncertainty discount</td>
+    </tr>
+    <tr>
+      <td>Book Value per Share</td>
+      <td>350</td>
+      <td>₹ per share</td>
+      <td>Steady accretion from retained earnings; post-merger equity base significantly expanded</td>
+    </tr>
+    <tr>
+      <td>Dividend Yield</td>
+      <td>1.24</td>
+      <td>%</td>
+      <td>Moderate yield; consistent payout policy with room for improvement as payout ratio normalises</td>
+    </tr>
+    <tr>
+      <td>Stock Price CAGR — 10 Years</td>
+      <td>13</td>
+      <td>%</td>
+      <td>Healthy long-term wealth creation; short-term (1–5 year) CAGR of 2–3% reflects post-merger consolidation phase</td>
+    </tr>
+    <tr>
+      <td>Stock Price CAGR — 1 Year</td>
+      <td>2</td>
+      <td>%</td>
+      <td>Significant underperformance vs. NIFTY 50 and earnings growth — valuation compression phase</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Trend Analysis:</strong> HDFC Bank's market valuation metrics reveal a notable disconnect between fundamental earnings growth and stock price performance, particularly over the 1–5 year horizon. The P/E of 18.7x and P/B of 2.54x represent multi-year lows for the bank, a consequence of the large-scale merger with HDFC Ltd. in July 2023 which temporarily diluted return ratios and created balance sheet integration uncertainty. The 10-year stock price CAGR of 13% demonstrates the bank's long-term wealth creation capability, suggesting the current period of price stagnation may represent a structural buying opportunity as merger synergies progressively materialise.</p>
+
+<ul>
+  <li><strong>Valuation Compression Post-Merger:</strong> The stock's 5-year CAGR of just 3% versus a 10-year CAGR of 13% underscores that the HDFC-HDFC Bank merger (July 2023) has materially weighed on near-term sentiment, creating a valuation gap relative to historical averages.</li>
+  <li><strong>P/E at Historical Lows:</strong> At 18.7x, the current P/E is approximately 30–35% below the bank's historical 5-year average of 25–28x, presenting a potentially attractive entry point for long-term investors.</li>
+  <li><strong>P/B Discount Signals Opportunity:</strong> The P/B of 2.54x compares to a historical range of 3.5–5x. Given ROE of 14.3% (trending toward 16–17% as merger synergies accrue), the current P/B implies the market is not yet pricing in a full recovery of return ratios.</li>
+  <li><strong>Market Cap Dominance:</strong> Despite valuation compression, HDFC Bank's ₹13.66 lakh crore market cap cements its position as India's largest private sector bank, providing institutional investor anchor support and index weight-driven demand.</li>
+</ul>
+
+<h3>b) Profitability and Returns (5-Year Trend)</h3>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY25</th>
+      <th>FY24</th>
+      <th>FY23</th>
+      <th>FY22</th>
+      <th>FY21</th>
+      <th>FY20</th>
+      <th>Trend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Return on Equity (ROE)</td>
+      <td>~13.1%*</td>
+      <td>14.3%</td>
+      <td>~16.8%</td>
+      <td>~16.0%</td>
+      <td>~15.7%</td>
+      <td>~16.0%</td>
+      <td>▼ Declining post-merger; 10-yr avg: 16%</td>
+    </tr>
+    <tr>
+      <td>Return on Capital Employed (ROCE)</td>
+      <td>~7.35%</td>
+      <td>7.35%</td>
+      <td>~7.2%</td>
+      <td>~6.8%</td>
+      <td>~6.5%</td>
+      <td>~6.8%</td>
+      <td>▲ Stable to modestly improving</td>
+    </tr>
+    <tr>
+      <td>Net Profit Margin (NPM)</td>
+      <td>22.4%</td>
+      <td>23.5%</td>
+      <td>27.3%</td>
+      <td>28.9%</td>
+      <td>25.7%</td>
+      <td>22.9%</td>
+      <td>▼ Compressing due to higher interest costs post-merger</td>
+    </tr>
+    <tr>
+      <td>Financing Margin (NIM Proxy)</td>
+      <td>15%</td>
+      <td>9%</td>
+      <td>18%</td>
+      <td>17%</td>
+      <td>15%</td>
+      <td>13%</td>
+      <td>▼ FY24 sharp dip due to merger accounting; FY25 recovery to 15%</td>
+    </tr>
+    <tr>
+      <td>Pre-Tax Profit Margin</td>
+      <td>29.4%</td>
+      <td>27.4%</td>
+      <td>36.2%</td>
+      <td>38.4%</td>
+      <td>34.5%</td>
+      <td>31.9%</td>
+      <td>▼ Pressure from elevated interest expense post-merger</td>
+    </tr>
+    <tr>
+      <td>Effective Tax Rate</td>
+      <td>24%</td>
+      <td>14%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>28%</td>
+      <td>FY24 unusually low (deferred tax); normalised at 24–25%</td>
+    </tr>
+  </tbody>
+</table>
+<p><em>*ROE FY25 estimated from Net Profit ₹67,347 Cr / Average Equity (FY24 + FY25 reserves + equity capital). NPM = Net Profit / Revenue for respective years.</em></p>
+
+<p><strong>Trend Analysis:</strong> HDFC Bank's profitability metrics show a bifurcated picture — pre-merger (FY20–FY23) performance was consistently strong with ROE averaging 16% and net profit margins near 25–29%, while post-merger (FY24 onwards) metrics have faced transitional headwinds driven by HDFC Ltd.'s higher-cost liability book and mortgage-heavy asset mix being absorbed. The financing margin's sharp compression in FY24 (to 9%) followed by recovery to 15% in FY25 is a key positive signal, suggesting the bank is successfully re-pricing its liability franchise. Net profit margins, while lower than peak levels, remain healthy and are supported by consistent double-digit absolute profit growth.</p>
+
+<ul>
+  <li><strong>ROE Trajectory Warrants Monitoring:</strong> ROE has declined from a 10-year average of 16% to ~13–14% post-merger. Management has guided for a gradual recovery to 16–17% over 2–3 years as the HDFC mortgage book matures and deposit costs normalise — this is the single most critical metric for re-rating.</li>
+  <li><strong>Financing Margin Recovery in FY25:</strong> The rebound in financing margin from 9% (FY24) to 15% (FY25) confirms that the worst of NIM compression may be behind the bank, driven by active liability repricing and a shift toward higher-yielding retail assets.</li>
+  <li><strong>Net Profit Margin Compression is Structural, Not Cyclical:</strong> The decline in NPM from ~28% (FY22) to ~22% (FY25) reflects the structural change in business mix post-HDFC merger — more interest-rate sensitive mortgage assets — rather than operational deterioration.</li>
+  <li><strong>Tax Rate Normalisation:</strong> FY24's unusually low effective tax rate of 14% (vs. normalised 24–25%) was driven by deferred tax adjustments related to the merger. FY25's return to 24% normalises the earnings base, providing a cleaner picture of underlying profitability.</li>
+</ul>
+
+<h3>c) Growth Metrics</h3>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>10-Year CAGR</th>
+      <th>5-Year CAGR</th>
+      <th>3-Year CAGR</th>
+      <th>TTM / Latest YoY</th>
+      <th>Trend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Revenue (Net Interest + Other Income)</td>
+      <td>20%</td>
+      <td>21%</td>
+      <td>33%</td>
+      <td>5%</td>
+      <td>▼ Sharp deceleration in TTM; 3-yr elevated by merger consolidation</td>
+    </tr>
+    <tr>
+      <td>Net Profit Growth</td>
+      <td>21%</td>
+      <td>21%</td>
+      <td>22%</td>
+      <td>10%</td>
+      <td>▼ Moderating but still double-digit; structural slowdown post-merger</td>
+    </tr>
+    <tr>
+      <td>Earnings Per Share (EPS) Growth</td>
+      <td>~17%*</td>
+      <td>~13%*</td>
+      <td>~14%*</td>
+      <td>~10%</td>
+      <td>▼ Diluted by equity expansion post-merger; EPS growth below PAT growth</td>
+    </tr>
+    <tr>
+      <td>Deposit Growth (Balance Sheet)</td>
+      <td>~21%</td>
+      <td>~16%</td>
+      <td>~26%</td>
+      <td>~14%</td>
+      <td>▲ Strong absolute growth; FY25 deposits at ₹27.15 lakh Cr</td>
+    </tr>
+    <tr>
+      <td>Total Assets Growth</td>
+      <td>~22%</td>
+      <td>~18%</td>
+      <td>~33%</td>
+      <td>~8%</td>
+      <td>▲ Post-merger asset base near ₹40 lakh Cr; growth moderating intentionally</td>
+    </tr>
+    <tr>
+      <td>Book Value per Share Growth</td>
+      <td>~15%</td>
+      <td>~14%</td>
+      <td>~16%</td>
+      <td>~10%</td>
+      <td>▲ Consistent; reflects retained earnings accretion</td>
+    </tr>
+  </tbody>
+</table>
+<p><em>*EPS CAGR estimated from reported EPS data: FY20 ₹23.94, FY24 ₹40.02, FY25 ₹44.01. Note: EPS growth lags PAT growth due to share count expansion from HDFC merger (equity capital jumped from ₹558 Cr in FY23 to ₹760 Cr in FY24).</em></p>
+
+<p><strong>Trend Analysis:</strong> HDFC Bank has delivered remarkably consistent long-term growth, with both revenue and net profit compounding at approximately 20–21% over the past decade — a testament to its franchise strength and disciplined execution. However, the TTM growth rates of 5% (revenue) and 10% (net profit) signal a deliberate phase of consolidation post the transformative HDFC Ltd. merger, where management is prioritising balance sheet quality, deposit accretion, and NIM recovery over aggressive loan book expansion. The 3-year CAGR of 33% for revenue is partially inflated by the merger's consolidation effect in FY24 and should be interpreted in that context.</p>
+
+<ul>
+  <li><strong>Decade of Consistent 20%+ Compounding:</strong> With 10-year revenue and profit CAGRs both at 20–21%, HDFC Bank stands among the most consistent large-cap compounders in Indian financial markets — a key quality marker for long-term investors.</li>
+  <li><strong>EPS Growth Dilution from Merger:</strong> The equity capital base expanded from ₹558 Cr (FY23) to ₹760 Cr (FY24) due to share issuance for the HDFC merger, causing EPS growth to meaningfully lag PAT growth. This dilution effect will progressively diminish as the merged entity's earnings power scales up.</li>
+  <li><strong>TTM Slowdown is Intentional, Not Structural:</strong> Management has publicly communicated a strategy of "deposit-first" growth, deliberately slowing loan book expansion to rebuild the loan-to-deposit ratio (LDR) from elevated post-merger levels (~110%) toward a more sustainable 85–90%. This explains the muted TTM revenue growth of 5%.</li>
+  <li><strong>Deposit Growth as Lead Indicator:</strong> FY25 deposits reached ₹27.15 lakh Cr (up ~14% YoY), and the trend of improving deposit accretion — visible in quarterly data — is a positive leading indicator for credit growth resumption in FY26–27.</li>
+</ul>

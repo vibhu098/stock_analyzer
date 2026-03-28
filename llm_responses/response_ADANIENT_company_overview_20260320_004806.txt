@@ -1,0 +1,477 @@
+Stock: ADANIENT
+Section: company_overview
+Timestamp: 2026-03-20 00:48:06.155804
+Response Length: 12545 chars
+================================================================================
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adani Enterprises Ltd — Company Overview | Equity Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        .report-wrapper {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+            overflow: hidden;
+        }
+
+        /* ── Header Banner ── */
+        .report-header {
+            background: linear-gradient(135deg, #0a2342 0%, #1a3a5c 60%, #0d4f8b 100%);
+            padding: 36px 40px 28px;
+            position: relative;
+            border-bottom: 4px solid #f5a623;
+        }
+
+        .report-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f5a623, #e8861a, #f5a623);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .company-identity h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+        }
+
+        .company-identity .ticker-badge {
+            display: inline-block;
+            background: #f5a623;
+            color: #0a2342;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 3px;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        .company-identity .exchange-info {
+            font-size: 12px;
+            color: #a8c4e0;
+            margin-top: 4px;
+        }
+
+        .report-meta {
+            text-align: right;
+        }
+
+        .report-meta .section-tag {
+            background: rgba(245,166,35,0.18);
+            border: 1px solid #f5a623;
+            color: #f5a623;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 3px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .report-meta .date-line {
+            font-size: 11px;
+            color: #7a9bbf;
+            margin-top: 8px;
+        }
+
+        .report-meta .analyst-line {
+            font-size: 11px;
+            color: #7a9bbf;
+        }
+
+        .header-tagline {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #a8c4e0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 14px;
+        }
+
+        /* ── Recommendation Strip ── */
+        .rec-strip {
+            background: #0d4f8b;
+            padding: 14px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .rec-badge {
+            background: #27ae60;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 6px 22px;
+            border-radius: 4px;
+            letter-spacing: 1.5px;
+        }
+
+        .rec-badge.hold { background: #e67e22; }
+
+        .rec-details {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .rec-item {
+            text-align: center;
+        }
+
+        .rec-item .rec-label {
+            font-size: 10px;
+            color: #a8c4e0;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .rec-item .rec-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .rec-item .rec-value.green { color: #2ecc71; }
+        .rec-item .rec-value.amber { color: #f5a623; }
+        .rec-item .rec-value.red   { color: #e74c3c; }
+
+        /* ── Section Wrapper ── */
+        .section-body {
+            padding: 32px 40px;
+            border-bottom: 1px solid #e8ecf0;
+        }
+
+        .section-body:last-child {
+            border-bottom: none;
+        }
+
+        h2.section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0a2342;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f5a623;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2.section-title .section-num {
+            background: #0a2342;
+            color: #f5a623;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        h3.sub-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0d4f8b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 22px 0 10px;
+        }
+
+        p {
+            font-size: 13.5px;
+            color: #2d3748;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        /* ── KPI Cards ── */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .kpi-card {
+            background: #f7f9fc;
+            border: 1px solid #dde3ec;
+            border-radius: 6px;
+            padding: 14px 16px;
+            border-top: 3px solid #0d4f8b;
+            transition: box-shadow 0.2s;
+        }
+
+        .kpi-card:hover {
+            box-shadow: 0 4px 12px rgba(13,79,139,0.12);
+        }
+
+        .kpi-card.accent-gold { border-top-color: #f5a623; }
+        .kpi-card.accent-green { border-top-color: #27ae60; }
+        .kpi-card.accent-red { border-top-color: #e74c3c; }
+        .kpi-card.accent-purple { border-top-color: #8e44ad; }
+
+        .kpi-label {
+            font-size: 10.5px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            font-weight: 600;
+        }
+
+        .kpi-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0a2342;
+            margin-top: 4px;
+            line-height: 1.2;
+        }
+
+        .kpi-sub {
+            font-size: 10.5px;
+            color: #a0aec0;
+            margin-top: 3px;
+        }
+
+        /* ── Tables ── */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin: 16px 0;
+        }
+
+        .data-table thead tr {
+            background: #0a2342;
+            color: #ffffff;
+        }
+
+        .data-table thead th {
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+        }
+
+        .data-table thead th:not(:first-child) {
+            text-align: right;
+        }
+
+        .data-table tbody tr {
+            border-bottom: 1px solid #e8ecf0;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: #f7f9fc;
+        }
+
+        .data-table tbody tr:hover {
+            background: #eef2f8;
+        }
+
+        .data-table td {
+            padding: 9px 14px;
+            color: #2d3748;
+            font-size: 13px;
+        }
+
+        .data-table td:not(:first-child) {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .data-table td.metric-name {
+            font-weight: 600;
+            color: #0a2342;
+        }
+
+        .data-table td.positive { color: #27ae60; font-weight: 600; }
+        .data-table td.negative { color: #e74c3c; font-weight: 600; }
+        .data-table td.neutral  { color: #e67e22; font-weight: 600; }
+        .data-table td.highlight-cell {
+            background: #fff8e8;
+            font-weight: 700;
+            color: #0a2342;
+        }
+
+        /* ── Segment Pills ── */
+        .segment-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .segment-pill {
+            background: #eef2f8;
+            border: 1px solid #c5d3e8;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #0d4f8b;
+        }
+
+        .segment-pill.primary {
+            background: #0d4f8b;
+            color: #ffffff;
+            border-color: #0d4f8b;
+        }
+
+        .segment-pill.secondary {
+            background: #f5a623;
+            color: #0a2342;
+            border-color: #e8961a;
+        }
+
+        /* ── Insight Boxes ── */
+        .insight-box {
+            border-left: 4px solid #0d4f8b;
+            background: #f0f5ff;
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+        }
+
+        .insight-box.amber {
+            border-left-color: #f5a623;
+            background: #fffbf0;
+        }
+
+        .insight-box.green {
+            border-left-color: #27ae60;
+            background: #f0fff5;
+        }
+
+        .insight-box.red {
+            border-left-color: #e74c3c;
+            background: #fff5f5;
+        }
+
+        .insight-box .insight-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0d4f8b;
+            margin-bottom: 5px;
+        }
+
+        .insight-box.amber .insight-title { color: #c87d0a; }
+        .insight-box.green .insight-title { color: #1e8449; }
+        .insight-box.red .insight-title   { color: #c0392b; }
+
+        .insight-box p {
+            margin: 0;
+            font-size: 13px;
+            color: #2d3748;
+        }
+
+        /* ── Growth Metrics ── */
+        .growth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .growth-card {
+            background: #f7f9fc;
+            border: 1px solid #dde3ec;
+            border-radius: 6px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .growth-card .g-label {
+            font-size: 12px;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .growth-card .g-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #27ae60;
+        }
+
+        .growth-card .g-value.moderate { color: #e67e22; }
+        .growth-card .g-value.low      { color: #e74c3c; }
+
+        /* ── Disclaimer ── */
+        .disclaimer {
+            background: #f7f9fc;
+            border-top: 1px solid #e2e8f0;
+            padding: 16px 40px;
+            font-size: 10.5px;
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        .disclaimer strong {
+            color: #718096;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 680px) {
+            .report-header, .section-body, .disclaimer { padding-left: 20px; padding-right: 20px; }
+            .rec-strip { padding: 14px 20px; }
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .header-top { flex-direction: column; }
+            .report-meta { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="report-wrapper">
+
+    <!-- ══════════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════════ -->
+    <div class="report-header">
+        <div class="header-top">
+            <div class="company-identity">
+                <h1>Adani Enterprises Limited</h1>
+                <div class="ticker-badge">NSE: ADANIENT</div>
+                <div class="exchange-info">BSE: 512599 &nbsp;|&nbsp; NSE: ADANIENT &nbsp;|&nbsp; NIFTY 50 Constituent &nbsp;|&nbsp; Sector: Diversified Conglomerate</div>
+            </div>
+            <div class="report-meta">
+                <div class="section-tag">Section 1 of 7 — Company Overview</div>
+                <div class="date-line">Data as of: FY2024 Annual / Sep 2025 

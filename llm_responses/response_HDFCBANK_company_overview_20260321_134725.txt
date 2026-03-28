@@ -1,0 +1,268 @@
+Stock: HDFCBANK
+Section: company_overview
+Timestamp: 2026-03-21 13:47:25.309635
+Response Length: 9626 chars
+================================================================================
+
+<h2>Company Overview: HDFC Bank Limited (HDFCBANK)</h2>
+
+<h3>1. Company Introduction</h3>
+
+<p>
+  <strong>HDFC Bank Limited</strong> is India's largest private sector bank by assets and market capitalisation, listed on the NSE and BSE under the ticker symbol <strong>HDFCBANK</strong>. Headquartered in Mumbai, Maharashtra, the bank operates within the <strong>Banking, Financial Services &amp; Insurance (BFSI)</strong> sector and is a constituent of the benchmark <strong>NIFTY 50</strong> index.
+</p>
+
+<p>
+  In a landmark consolidation within Indian financial services, HDFC Bank completed the merger with its parent entity, <strong>HDFC Limited</strong> (Housing Development Finance Corporation), effective <strong>July 1, 2023</strong>. This transformative merger significantly expanded the bank's balance sheet, loan book, and deposit franchise, making it one of the largest financial institutions in Asia by total assets. The merger is reflected in the notable step-up in balance sheet size from FY23 to FY24, with total assets rising from approximately ₹24.7 lakh crore to ₹36.2 lakh crore.
+</p>
+
+<h4>Primary Business Activities</h4>
+<ul>
+  <li><strong>Retail Banking:</strong> Savings and current accounts, fixed and recurring deposits, personal loans, auto loans, credit cards, home loans, and wealth management services catering to individual customers.</li>
+  <li><strong>Wholesale/Corporate Banking:</strong> Working capital finance, term loans, trade finance, cash management, and treasury services for large corporates, SMEs, and institutional clients.</li>
+  <li><strong>Treasury Operations:</strong> Management of investment portfolios (government securities, corporate bonds, equities), foreign exchange, and derivatives, contributing significantly to non-interest income.</li>
+  <li><strong>Housing Finance (Post-Merger):</strong> Following the absorption of HDFC Limited, mortgage and housing finance now constitutes a material component of the loan book, diversifying the credit portfolio beyond traditional banking products.</li>
+  <li><strong>Digital Banking:</strong> HDFC Bank operates one of India's most advanced digital banking platforms, with significant investments in mobile banking, internet banking, and API-led financial services infrastructure.</li>
+</ul>
+
+<hr>
+
+<h3>2. Financial Summary</h3>
+
+<h4>Key Market &amp; Valuation Metrics (Current Snapshot)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Market Capitalisation</td>
+      <td>₹13,66,198 Cr</td>
+      <td>Among India's top-3 most valuable listed companies</td>
+    </tr>
+    <tr>
+      <td>Current Market Price</td>
+      <td>₹888</td>
+      <td>As of latest available data</td>
+    </tr>
+    <tr>
+      <td>Book Value Per Share</td>
+      <td>₹350</td>
+      <td>Price-to-Book at ~2.54x — moderate premium to book</td>
+    </tr>
+    <tr>
+      <td>Stock P/E Ratio</td>
+      <td>18.7x</td>
+      <td>Reasonable valuation relative to historical averages</td>
+    </tr>
+    <tr>
+      <td>Face Value</td>
+      <td>₹1.00</td>
+      <td>Post-split adjusted face value</td>
+    </tr>
+    <tr>
+      <td>Dividend Yield</td>
+      <td>1.24%</td>
+      <td>Dividend payout at ~25% of net profit (FY25)</td>
+    </tr>
+    <tr>
+      <td>Return on Equity (ROE)</td>
+      <td>14.3%</td>
+      <td>Modestly compressed post-merger; 10-year avg at 16%</td>
+    </tr>
+    <tr>
+      <td>Return on Capital Employed (ROCE)</td>
+      <td>7.35%</td>
+      <td>Typical for banking entities given leverage structure</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Profit &amp; Loss Snapshot — 5-Year Trend (FY20–FY25)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Financial Year</th>
+      <th>Revenue (₹ Cr)</th>
+      <th>Net Profit (₹ Cr)</th>
+      <th>EPS (₹)</th>
+      <th>Dividend Payout %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FY20</td>
+      <td>1,14,813</td>
+      <td>26,257</td>
+      <td>23.94</td>
+      <td>5%</td>
+    </tr>
+    <tr>
+      <td>FY21</td>
+      <td>1,20,858</td>
+      <td>31,117</td>
+      <td>28.22</td>
+      <td>12%</td>
+    </tr>
+    <tr>
+      <td>FY22</td>
+      <td>1,27,753</td>
+      <td>36,961</td>
+      <td>33.33</td>
+      <td>23%</td>
+    </tr>
+    <tr>
+      <td>FY23</td>
+      <td>1,61,586</td>
+      <td>44,109</td>
+      <td>39.53</td>
+      <td>24%</td>
+    </tr>
+    <tr>
+      <td>FY24</td>
+      <td>2,58,341</td>
+      <td>60,812</td>
+      <td>40.02</td>
+      <td>24%</td>
+    </tr>
+    <tr>
+      <td>FY25</td>
+      <td>3,00,517</td>
+      <td>67,347</td>
+      <td>44.01</td>
+      <td>25%</td>
+    </tr>
+    <tr>
+      <td><strong>TTM</strong></td>
+      <td><strong>3,08,372</strong></td>
+      <td><strong>73,066</strong></td>
+      <td><strong>47.60</strong></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  Revenue and net profit have demonstrated <strong>consistent compounding growth</strong> over the past decade, with a 10-year compounded sales growth rate of <strong>20% CAGR</strong> and profit growth of <strong>21% CAGR</strong>. The FY24 revenue surge is primarily attributable to the consolidation of HDFC Limited's financials post-merger. On a normalised basis, TTM compounded sales growth moderates to <strong>5%</strong>, reflecting the integration phase and a deliberate management focus on deposit mobilisation and liability franchise strengthening.
+</p>
+
+<h4>Balance Sheet Scale (FY20–FY25)</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Financial Year</th>
+      <th>Total Assets (₹ Cr)</th>
+      <th>Total Deposits (₹ Cr)</th>
+      <th>Investments (₹ Cr)</th>
+      <th>Reserves (₹ Cr)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FY20</td>
+      <td>15,30,511</td>
+      <td>11,47,502</td>
+      <td>3,91,827</td>
+      <td>1,70,438</td>
+    </tr>
+    <tr>
+      <td>FY21</td>
+      <td>17,46,871</td>
+      <td>13,35,060</td>
+      <td>4,43,728</td>
+      <td>2,03,170</td>
+    </tr>
+    <tr>
+      <td>FY22</td>
+      <td>20,68,535</td>
+      <td>15,59,217</td>
+      <td>4,55,536</td>
+      <td>2,39,538</td>
+    </tr>
+    <tr>
+      <td>FY23</td>
+      <td>24,66,081</td>
+      <td>18,83,395</td>
+      <td>5,17,001</td>
+      <td>2,79,641</td>
+    </tr>
+    <tr>
+      <td>FY24</td>
+      <td>36,17,623</td>
+      <td>23,79,786</td>
+      <td>7,02,415</td>
+      <td>4,39,486</td>
+    </tr>
+    <tr>
+      <td>FY25</td>
+      <td>39,10,199</td>
+      <td>27,14,715</td>
+      <td>8,36,360</td>
+      <td>5,00,659</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  The bank's total assets crossed the <strong>₹39 lakh crore</strong> mark as of March 2025, with the latest interim balance sheet (Sep 2025) indicating assets of approximately <strong>₹40 lakh crore</strong>, underscoring the bank's systemic importance in the Indian financial ecosystem. Deposit growth from ₹11.5 lakh crore in FY20 to ₹27.1 lakh crore in FY25 reflects both organic expansion and merger-driven consolidation.
+</p>
+
+<hr>
+
+<h3>3. Preliminary Investment Recommendation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Assessment</th>
+      <th>Signal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Valuation (P/E: 18.7x, P/B: ~2.54x)</td>
+      <td>Reasonable; trading at a discount to historical premium multiples, reflecting post-merger integration uncertainty</td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <td>Earnings Growth (21% 5-yr CAGR)</td>
+      <td>Strong long-term track record; near-term moderation expected as merger synergies play out</td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <td>ROE (14.3% vs. 10-yr avg 16%)</td>
+      <td>Temporarily compressed post-merger; improvement expected as capital efficiency normalises</td>
+      <td>Neutral</td>
+    </tr>
+    <tr>
+      <td>Balance Sheet Quality</td>
+      <td>Robust deposit franchise; borrowings elevated post-merger but declining (FY24: ₹6.6L Cr → FY25: ₹5.5L Cr)</td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <td>Stock Price CAGR (5-yr: 3%, 3-yr: 4%)</td>
+      <td>Significant underperformance vs. earnings growth — valuation re-rating opportunity exists</td>
+      <td>Positive</td>
+    </tr>
+    <tr>
+      <td>Near-term Revenue Growth (TTM: 5%)</td>
+      <td>Moderation reflects deliberate deposit-led strategy; not a structural deterioration</td>
+      <td>Neutral</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Preliminary Recommendation: <strong>BUY</strong></h4>
+
+<p>
+  Based on the available financial data, HDFC Bank presents a compelling <strong>BUY</strong> case at current levels. The stock's significant valuation discount to its own historical trading multiples — with a 5-year stock price CAGR of merely <strong>3%</strong> against a 5-year earnings CAGR of <strong>21%</strong> — signals a meaningful <strong>valuation re-rating opportunity</strong>. The post-merger integration phase appears to be progressing well, with borrowings declining, deposits growing steadily, and quarterly net profits demonstrating sequential improvement from ₹11,952 Cr (Jun 2023) to ₹18,654 Cr (Dec 2025). The bank's franchise strength, digital leadership, and systemic importance within India's banking sector provide durable long-term competitive advantages.
+</p>
+
+<p>
+  <em><strong>Disclaimer:</strong> This preliminary recommendation is based solely on the quantitative financial data provided. A comprehensive investment decision should incorporate asset quality analysis (GNPA/NNPA trends), NIM trajectory, management commentary, competitive dynamics, and macroeconomic factors, which will be addressed in subsequent analytical sections.</em>
+</p>

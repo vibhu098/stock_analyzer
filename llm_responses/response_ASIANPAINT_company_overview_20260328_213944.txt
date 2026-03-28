@@ -1,0 +1,62 @@
+Stock: ASIANPAINT
+Section: company_overview
+Timestamp: 2026-03-28 21:39:44.755983
+Response Length: 2415 chars
+================================================================================
+
+<h3>Asian Paints Limited — Company Overview</h3>
+
+<h4>1. Snapshot</h4>
+<p>Asian Paints is India's largest decorative paints manufacturer and a leading home décor player, commanding dominant market share in the organized paints segment. Operating across decorative coatings, industrial paints, adhesives, and home improvement services, the company serves both domestic and international markets (15+ countries). At a market cap of ~₹2.28 lakh crore and TTM revenue of ~₹30,042 Cr, it remains a blue-chip consumer staples compounder, though recent growth has decelerated sharply — TTM sales growth at 0% and FY25 net profit down ~33% YoY — reflecting intense competitive pressure, volume softness, and margin compression.</p>
+
+<h4>2. Key Metrics</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Market Cap</td>
+      <td>₹2,27,925 Cr</td>
+    </tr>
+    <tr>
+      <td>Current Market Price</td>
+      <td>₹2,376</td>
+    </tr>
+    <tr>
+      <td>Stock P/E</td>
+      <td>56.7x</td>
+    </tr>
+    <tr>
+      <td>Book Value</td>
+      <td>₹199</td>
+    </tr>
+    <tr>
+      <td>ROE (Last Year)</td>
+      <td>20.7%</td>
+    </tr>
+    <tr>
+      <td>ROCE (Last Year)</td>
+      <td>27.3%</td>
+    </tr>
+    <tr>
+      <td>Dividend Yield</td>
+      <td>1.04%</td>
+    </tr>
+    <tr>
+      <td>Face Value</td>
+      <td>₹1.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>3. Recent Developments</h4>
+<ul>
+  <li><strong>Earnings deterioration:</strong> FY25 net profit fell to ₹3,585 Cr from ₹5,315 Cr in FY24 (-33% YoY), with OPM contracting to 19% from 23%, driven by competitive intensity from Grasim/Birla Opus entry and demand weakness.</li>
+  <li><strong>Capex cycle peaking:</strong> Significant capacity expansion underway — fixed assets surged from ₹5,494 Cr (FY24) to ₹7,931 Cr (FY25) with CWIP normalizing from ₹2,561 Cr to ₹386 Cr, indicating new plants coming on-stream.</li>
+  <li><strong>Cash flow pressure:</strong> FY25 operating cash flow declined to ₹4,166 Cr (vs. ₹5,757 Cr in FY24), while financing outflows rose to ₹3,416 Cr, reflecting higher dividends (payout at 66%) and debt servicing.</li>
+  <li><strong>Working capital stress:</strong> Cash conversion cycle stretched to 106 days in FY25 (vs. 88 days FY24), with inventory days rising to 143 — signaling demand sluggishness and potential channel inventory build-up.</li>
+</ul>

@@ -1,0 +1,1906 @@
+{
+  "xbrli:xbrl": {
+    "$": {
+      "xmlns:in-bse-fin": "http://www.bseindia.com/xbrl/fin/2020-03-31/in-bse-fin",
+      "xmlns:in-bse-fin-roles": "http://www.bseindia.com/xbrl/fin/2020-03-31/in-bse-fin-roles",
+      "xmlns:in-bse-fin-ent": "http://www.bseindia.com/xbrl/fin/2020-03-31/in-bse-fin/in-bse-fin-ent",
+      "xmlns:in-bse-fin-type": "http://www.bseindia.com/xbrl/fin/2020-03-31/in-bse-fin-types",
+      "xmlns:xbrldt": "http://xbrl.org/2005/xbrldt",
+      "xmlns:nonnum": "http://www.xbrl.org/dtr/type/non-numeric",
+      "xmlns:link": "http://www.xbrl.org/2003/linkbase",
+      "xmlns:net": "http://www.xbrl.org/2009/role/net",
+      "xmlns:num": "http://www.xbrl.org/dtr/type/numeric",
+      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+      "xmlns:iso4217": "http://www.xbrl.org/2003/iso4217",
+      "xmlns:negated": "http://www.xbrl.org/2009/role/negated",
+      "xmlns:xbrldi": "http://xbrl.org/2006/xbrldi",
+      "xmlns:xbrli": "http://www.xbrl.org/2003/instance",
+      "xmlns:xl": "http://www.xbrl.org/2003/XLink"
+    },
+    "link:schemaRef": [
+      {
+        "$": {
+          "xlink:type": "simple",
+          "xlink:href": "Ind-AS_entry_point_2020-03-31.xsd"
+        }
+      }
+    ],
+    "xbrli:context": [
+      {
+        "$": {
+          "id": "OneD"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourD"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneOperatingExpenses01D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:OneOperatingExpenses01Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneOperatingExpenses02D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:OneOperatingExpenses02Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneOperatingExpenses03D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:OneOperatingExpenses03Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneOperatingExpenses04D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:OneOperatingExpenses04Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourOperatingExpenses01D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:FourOperatingExpenses01Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourOperatingExpenses02D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:FourOperatingExpenses02Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourOperatingExpenses03D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:FourOperatingExpenses03Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourOperatingExpenses04D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:explicitMember": [
+              {
+                "_": "in-bse-fin:FourOperatingExpenses04Member",
+                "$": {
+                  "dimension": "in-bse-fin:DetailsOfOtherExpensesAxis"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneI"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:instant": [
+              "2024-12-31"
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneItemsThatWillNotBeReclassifiedToProfitAndLoss01D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:typedMember": [
+              {
+                "$": {
+                  "dimension": "in-bse-fin:ItemsThatWillNotBeReclassifiedToProfitAndLossAxis"
+                },
+                "ItemsThatWillNotBeReclassifiedToProfitAndLossDomain": [
+                  "in-bse-fin:OneItemsThatWillNotBeReclassifiedToProfitAndLoss01Member"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneItemsThatWillNotBeReclassifiedToProfitAndLoss02D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:typedMember": [
+              {
+                "$": {
+                  "dimension": "in-bse-fin:ItemsThatWillNotBeReclassifiedToProfitAndLossAxis"
+                },
+                "ItemsThatWillNotBeReclassifiedToProfitAndLossDomain": [
+                  "in-bse-fin:OneItemsThatWillNotBeReclassifiedToProfitAndLoss02Member"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourItemsThatWillNotBeReclassifiedToProfitAndLoss01D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:typedMember": [
+              {
+                "$": {
+                  "dimension": "in-bse-fin:ItemsThatWillNotBeReclassifiedToProfitAndLossAxis"
+                },
+                "ItemsThatWillNotBeReclassifiedToProfitAndLossDomain": [
+                  "in-bse-fin:FourItemsThatWillNotBeReclassifiedToProfitAndLoss01Member"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourItemsThatWillNotBeReclassifiedToProfitAndLoss02D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:typedMember": [
+              {
+                "$": {
+                  "dimension": "in-bse-fin:ItemsThatWillNotBeReclassifiedToProfitAndLossAxis"
+                },
+                "ItemsThatWillNotBeReclassifiedToProfitAndLossDomain": [
+                  "in-bse-fin:FourItemsThatWillNotBeReclassifiedToProfitAndLoss02Member"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "OneItemsThatWillBeReclassifiedToProfitAndLoss01D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:typedMember": [
+              {
+                "$": {
+                  "dimension": "in-bse-fin:ItemsThatWillBeReclassifiedToProfitAndLossAxis"
+                },
+                "ItemsThatWillBeReclassifiedToProfitAndLossDomain": [
+                  "in-bse-fin:OneItemsThatWillBeReclassifiedToProfitAndLoss01Member"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$": {
+          "id": "FourItemsThatWillBeReclassifiedToProfitAndLoss01D"
+        },
+        "xbrli:entity": [
+          {
+            "xbrli:identifier": [
+              {
+                "_": "TATAMOTORS",
+                "$": {
+                  "scheme": "http://www.nseindia.com/NSESymbol"
+                }
+              }
+            ]
+          }
+        ],
+        "xbrli:period": [
+          {
+            "xbrli:startDate": [
+              "2024-10-01"
+            ],
+            "xbrli:endDate": [
+              "2024-12-31"
+            ]
+          }
+        ],
+        "xbrli:scenario": [
+          {
+            "xbrldi:typedMember": [
+              {
+                "$": {
+                  "dimension": "in-bse-fin:ItemsThatWillBeReclassifiedToProfitAndLossAxis"
+                },
+                "ItemsThatWillBeReclassifiedToProfitAndLossDomain": [
+                  "in-bse-fin:FourItemsThatWillBeReclassifiedToProfitAndLoss01Member"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "xbrli:unit": [
+      {
+        "$": {
+          "id": "INR"
+        },
+        "xbrli:measure": [
+          "iso4217:INR"
+        ]
+      },
+      {
+        "$": {
+          "id": "pure"
+        },
+        "xbrli:measure": [
+          "xbrli:pure"
+        ]
+      },
+      {
+        "$": {
+          "id": "shares"
+        },
+        "xbrli:measure": [
+          "xbrli:shares"
+        ]
+      },
+      {
+        "$": {
+          "id": "INRPerShare"
+        },
+        "xbrli:divide": [
+          {
+            "xbrli:unitNumerator": [
+              {
+                "xbrli:measure": [
+                  "iso4217:INR"
+                ]
+              }
+            ],
+            "xbrli:unitDenominator": [
+              {
+                "xbrli:measure": [
+                  "xbrli:shares"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "in-bse-fin:ScripCode": [
+      {
+        "_": "500570",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:Symbol": [
+      {
+        "_": "TATAMOTORS",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:MSEISymbol": [
+      {
+        "_": "NA",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:NameOfTheCompany": [
+      {
+        "_": "Tata Motors Limited",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:ClassOfSecurity": [
+      {
+        "_": "Equity",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfStartOfFinancialYear": [
+      {
+        "_": "2024-04-01",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfEndOfFinancialYear": [
+      {
+        "_": "2025-03-31",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfBoardMeetingWhenFinancialResultsWereApproved": [
+      {
+        "_": "2025-01-29",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOnWhichPriorIntimationOfTheMeetingForConsideringFinancialResultsWasInformedToTheExchange": [
+      {
+        "_": "2025-01-06",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DescriptionOfPresentationCurrency": [
+      {
+        "_": "INR",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:LevelOfRoundingUsedInFinancialStatements": [
+      {
+        "_": "Crores",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:ReportingQuarter": [
+      {
+        "_": "Third quarter",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:StartTimeOfBoardMeeting": [
+      {
+        "_": "11:30:00",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:EndTimeOfBoardMeeting": [
+      {
+        "_": "16:15:00",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfStartOfBoardMeeting": [
+      {
+        "_": "2025-01-29",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfEndOfBoardMeeting": [
+      {
+        "_": "2025-01-29",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DeclarationOfUnmodifiedOpinionOrStatementOnImpactOfAuditQualification": [
+      {
+        "_": "Not applicable",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:IsCompanyReportingMultisegmentOrSingleSegment": [
+      {
+        "_": "Single segment",
+        "$": {
+          "contextRef": "OneD"
+        }
+      },
+      {
+        "_": "Single segment",
+        "$": {
+          "contextRef": "FourD"
+        }
+      }
+    ],
+    "in-bse-fin:DescriptionOfSingleSegment": [
+      {
+        "_": "Commercial Vehicles",
+        "$": {
+          "contextRef": "OneD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfStartOfReportingPeriod": [
+      {
+        "_": "2024-10-01",
+        "$": {
+          "contextRef": "OneD"
+        }
+      },
+      {
+        "_": "2024-04-01",
+        "$": {
+          "contextRef": "FourD"
+        }
+      }
+    ],
+    "in-bse-fin:DateOfEndOfReportingPeriod": [
+      {
+        "_": "2024-12-31",
+        "$": {
+          "contextRef": "OneD"
+        }
+      },
+      {
+        "_": "2024-12-31",
+        "$": {
+          "contextRef": "FourD"
+        }
+      }
+    ],
+    "in-bse-fin:WhetherResultsAreAuditedOrUnaudited": [
+      {
+        "_": "Audited",
+        "$": {
+          "contextRef": "OneD"
+        }
+      },
+      {
+        "_": "Audited",
+        "$": {
+          "contextRef": "FourD"
+        }
+      }
+    ],
+    "in-bse-fin:NatureOfReportStandaloneConsolidated": [
+      {
+        "_": "Standalone",
+        "$": {
+          "contextRef": "OneD"
+        }
+      },
+      {
+        "_": "Standalone",
+        "$": {
+          "contextRef": "FourD"
+        }
+      }
+    ],
+    "in-bse-fin:RevenueFromOperations": [
+      {
+        "_": "170400000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "494200000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:OtherIncome": [
+      {
+        "_": "3060000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "25890000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:Income": [
+      {
+        "_": "173460000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "520090000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:CostOfMaterialsConsumed": [
+      {
+        "_": "97420000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "287610000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:PurchasesOfStockInTrade": [
+      {
+        "_": "17470000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "53130000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ChangesInInventoriesOfFinishedGoodsWorkInProgressAndStockInTrade": [
+      {
+        "_": "2290000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-2710000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:EmployeeBenefitExpense": [
+      {
+        "_": "11110000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "34030000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:FinanceCosts": [
+      {
+        "_": "2650000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "8700000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:DepreciationDepletionAndAmortisationExpense": [
+      {
+        "_": "4970000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "14660000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:OtherExpenses": [
+      {
+        "_": "22020000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "66550000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-3200000000.00",
+        "$": {
+          "contextRef": "OneOperatingExpenses01D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "60000000.00",
+        "$": {
+          "contextRef": "OneOperatingExpenses02D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "22480000000.00",
+        "$": {
+          "contextRef": "OneOperatingExpenses03D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "2680000000.00",
+        "$": {
+          "contextRef": "OneOperatingExpenses04D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-8970000000.00",
+        "$": {
+          "contextRef": "FourOperatingExpenses01D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "250000000.00",
+        "$": {
+          "contextRef": "FourOperatingExpenses02D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "67600000000.00",
+        "$": {
+          "contextRef": "FourOperatingExpenses03D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "7670000000.00",
+        "$": {
+          "contextRef": "FourOperatingExpenses04D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:Expenses": [
+      {
+        "_": "157930000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "461970000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ProfitBeforeExceptionalItemsAndTax": [
+      {
+        "_": "15530000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "58120000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ExceptionalItemsBeforeTax": [
+      {
+        "_": "-240000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-950000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ProfitBeforeTax": [
+      {
+        "_": "15290000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "57170000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:CurrentTax": [
+      {
+        "_": "260000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "340000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:DeferredTax": [
+      {
+        "_": "990000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "16130000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:TaxExpense": [
+      {
+        "_": "1250000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "16470000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:NetMovementInRegulatoryDeferralAccountBalancesRelatedToProfitOrLossAndTheRelatedDeferredTaxMovement": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ProfitLossForPeriodFromContinuingOperations": [
+      {
+        "_": "14040000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "40700000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ProfitLossFromDiscontinuedOperationsBeforeTax": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:TaxExpenseOfDiscontinuedOperations": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ProfitLossFromDiscontinuedOperationsAfterTax": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethod": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ProfitLossForPeriod": [
+      {
+        "_": "14040000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "40700000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:OtherComprehensiveIncomeNetOfTaxes": [
+      {
+        "_": "-1600000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-360000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ComprehensiveIncomeForThePeriod": [
+      {
+        "_": "12440000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "40340000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ComprehensiveIncomeForThePeriodAttributableToOwnersOfParent": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:ComprehensiveIncomeForThePeriodAttributableToOwnersOfParentNonControllingInterests": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:PaidUpValueOfEquityShareCapital": [
+      {
+        "_": "7360000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "7360000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:FaceValueOfEquityShareCapital": [
+      {
+        "_": "2",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "2",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:BasicEarningsLossPerShareFromContinuingOperations": [
+      {
+        "_": "3.81",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "11.69",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:DilutedEarningsLossPerShareFromContinuingOperations": [
+      {
+        "_": "3.81",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "11.68",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:BasicEarningsLossPerShareFromDiscontinuedOperations": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:DilutedEarningsLossPerShareFromDiscontinuedOperations": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:BasicEarningsLossPerShareFromContinuingAndDiscontinuedOperations": [
+      {
+        "_": "3.81",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "11.69",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:DilutedEarningsLossPerShareFromContinuingAndDiscontinuedOperations": [
+      {
+        "_": "3.81",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "11.68",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INRPerShare",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:DebtEquityRatio": [
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "pure",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "0.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "pure",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:DebtServiceCoverageRatio": [
+      {
+        "_": "0.01",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "pure",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "0.02",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "pure",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:InterestServiceCoverageRatio": [
+      {
+        "_": "0.08",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "pure",
+          "decimals": "INF"
+        }
+      },
+      {
+        "_": "0.10",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "pure",
+          "decimals": "INF"
+        }
+      }
+    ],
+    "in-bse-fin:DescriptionOfOtherExpenses": [
+      {
+        "_": "Amount transferred to capital and other account",
+        "$": {
+          "contextRef": "OneOperatingExpenses01D"
+        }
+      },
+      {
+        "_": "Foreign exchange loss (net)",
+        "$": {
+          "contextRef": "OneOperatingExpenses02D"
+        }
+      },
+      {
+        "_": "Other expenses",
+        "$": {
+          "contextRef": "OneOperatingExpenses03D"
+        }
+      },
+      {
+        "_": "Product development/engineering expenses",
+        "$": {
+          "contextRef": "OneOperatingExpenses04D"
+        }
+      },
+      {
+        "_": "Amount transferred to capital and other account",
+        "$": {
+          "contextRef": "FourOperatingExpenses01D"
+        }
+      },
+      {
+        "_": "Foreign exchange loss (net)",
+        "$": {
+          "contextRef": "FourOperatingExpenses02D"
+        }
+      },
+      {
+        "_": "Other expenses",
+        "$": {
+          "contextRef": "FourOperatingExpenses03D"
+        }
+      },
+      {
+        "_": "Product development/engineering expenses",
+        "$": {
+          "contextRef": "FourOperatingExpenses04D"
+        }
+      }
+    ],
+    "in-bse-fin:DescriptionOfItemThatWillNotBeReclassifiedToProfitAndLoss": [
+      {
+        "_": "Remeasurement losses on defined benefit obligations (net)",
+        "$": {
+          "contextRef": "OneItemsThatWillNotBeReclassifiedToProfitAndLoss01D"
+        }
+      },
+      {
+        "_": "Equity instruments at fair value through other comprehensive income (net)",
+        "$": {
+          "contextRef": "OneItemsThatWillNotBeReclassifiedToProfitAndLoss02D"
+        }
+      },
+      {
+        "_": "Remeasurement losses on defined benefit obligations (net)",
+        "$": {
+          "contextRef": "FourItemsThatWillNotBeReclassifiedToProfitAndLoss01D"
+        }
+      },
+      {
+        "_": "Equity instruments at fair value through other comprehensive income (net)",
+        "$": {
+          "contextRef": "FourItemsThatWillNotBeReclassifiedToProfitAndLoss02D"
+        }
+      }
+    ],
+    "in-bse-fin:AmountOfItemThatWillNotBeReclassifiedToProfitAndLoss": [
+      {
+        "_": "-60000000.00",
+        "$": {
+          "contextRef": "OneItemsThatWillNotBeReclassifiedToProfitAndLoss01D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-1680000000.00",
+        "$": {
+          "contextRef": "OneItemsThatWillNotBeReclassifiedToProfitAndLoss02D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-220000000.00",
+        "$": {
+          "contextRef": "FourItemsThatWillNotBeReclassifiedToProfitAndLoss01D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-50000000.00",
+        "$": {
+          "contextRef": "FourItemsThatWillNotBeReclassifiedToProfitAndLoss02D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-1740000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-270000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:IncomeTaxRelatingToItmesThatWillNotBeReclassifiedToProfitOrLoss": [
+      {
+        "_": "-260000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "280000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:DescriptionOfItemThatWillBeReclassifiedToProfitAndLoss": [
+      {
+        "_": "Items that will be reclassified to profit or loss - gains/(loss) in cash flow hedges",
+        "$": {
+          "contextRef": "OneItemsThatWillBeReclassifiedToProfitAndLoss01D"
+        }
+      },
+      {
+        "_": "Items that will be reclassified to profit or loss - gains/(loss) in cash flow hedges",
+        "$": {
+          "contextRef": "FourItemsThatWillBeReclassifiedToProfitAndLoss01D"
+        }
+      }
+    ],
+    "in-bse-fin:AmountOfItemThatWillBeReclassifiedToProfitAndLoss": [
+      {
+        "_": "-160000000.00",
+        "$": {
+          "contextRef": "OneItemsThatWillBeReclassifiedToProfitAndLoss01D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "260000000.00",
+        "$": {
+          "contextRef": "FourItemsThatWillBeReclassifiedToProfitAndLoss01D",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "-160000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "260000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ],
+    "in-bse-fin:IncomeTaxRelatingToItmesThatWillBeReclassifiedToProfitOrLoss": [
+      {
+        "_": "-40000000.00",
+        "$": {
+          "contextRef": "OneD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      },
+      {
+        "_": "70000000.00",
+        "$": {
+          "contextRef": "FourD",
+          "unitRef": "INR",
+          "decimals": "-7"
+        }
+      }
+    ]
+  }
+}

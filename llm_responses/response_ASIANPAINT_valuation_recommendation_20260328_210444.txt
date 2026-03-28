@@ -1,0 +1,58 @@
+Stock: ASIANPAINT
+Section: valuation_recommendation
+Timestamp: 2026-03-28 21:04:44.040259
+Response Length: 2281 chars
+================================================================================
+
+<h3>Asian Paints – Valuation &amp; Recommendation</h3>
+
+<h4>1. Valuation Table</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Fair Value (₹)</th>
+      <th>Weight</th>
+      <th>Implied Return (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P/E Multiple (55x FY26E EPS ~₹42)</td>
+      <td>₹2,310</td>
+      <td>40%</td>
+      <td>+7%</td>
+    </tr>
+    <tr>
+      <td>P/B Multiple (16x FY26E BVPS ~₹155)</td>
+      <td>₹2,480</td>
+      <td>25%</td>
+      <td>+15%</td>
+    </tr>
+    <tr>
+      <td>DCF / Earnings Growth (10% CAGR, 8% WACC, 4% TV)</td>
+      <td>₹2,200</td>
+      <td>35%</td>
+      <td>+2%</td>
+    </tr>
+    <tr>
+      <td><strong>Weighted Average</strong></td>
+      <td><strong>₹2,320</strong></td>
+      <td><strong>100%</strong></td>
+      <td><strong>+8%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>CMP assumption: ~₹2,150 (reference price). FY26E estimates based on consensus trajectory and FY24 actuals.</em></p>
+
+<h4>2. Recommendation Summary</h4>
+<p><strong>Recommendation: HOLD</strong> | <strong>Target Price Range: ₹2,250-2,400</strong> | <strong>Upside: 8%</strong> | Horizon: 12 months | Risk: Medium</p>
+
+<h4>3. Rationale</h4>
+<ul>
+  <li><strong>Margin pressure persisting:</strong> FY24 EBITDA margins recovered to ~18-19%, but new entrant competition (Birla Opus) and elevated input costs cap near-term re-rating; volume growth guidance of mid-single digits limits earnings momentum.</li>
+  <li><strong>Premium valuation limits upside:</strong> At ~55x trailing P/E vs. historical mean of ~50x and sector peers at 30-40x, risk-reward is asymmetric — modest earnings miss could trigger meaningful de-rating given negligible margin of safety.</li>
+  <li><strong>Structural moat intact but growth decelerating:</strong> Asian Paints retains ~54% decorative market share, best-in-class distribution (75,000+ dealer touchpoints), and strong brand equity — but revenue growth has moderated to ~8-10% YoY from the 20%+ post-COVID peak.</li>
+  <li><strong>Competitive disruption is a real risk:</strong> Birla Opus's ₹10,000 Cr+ capex commitment and aggressive pricing in premium segments poses a credible long-term threat to volume share and pricing power — a structural overhang not yet fully priced in.</li>
+</ul>

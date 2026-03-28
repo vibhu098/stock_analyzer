@@ -1,0 +1,343 @@
+Stock: ASIANPAINT
+Section: quantitative_analysis
+Timestamp: 2026-03-21 14:06:44.439538
+Response Length: 9475 chars
+================================================================================
+
+<h2>Asian Paints (ASIANPAINT) – Quantitative Metrics Analysis</h2>
+<p><em>Analysis based on Screener data | Indian FY: April–March | Latest Annual: FY25 (Mar 2025)</em></p>
+
+<hr>
+
+<h3>a) Valuation Ratios</h3>
+<p>Current snapshot metrics derived from available data. Book Value per share: ₹199 | Face Value: ₹1 | Dividend Yield: 1.04%</p>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+      <th>FY25</th>
+      <th>TTM / Current</th>
+      <th>Trend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>EPS (₹)</strong></td>
+      <td>31.82</td>
+      <td>32.68</td>
+      <td>42.75</td>
+      <td>55.41</td>
+      <td>37.37</td>
+      <td>39.35</td>
+      <td>↓ Sharp decline FY25 vs FY24 peak</td>
+    </tr>
+    <tr>
+      <td><strong>Book Value/Share (₹)</strong></td>
+      <td>~110</td>
+      <td>~118</td>
+      <td>~145</td>
+      <td>~175</td>
+      <td>~199</td>
+      <td>199</td>
+      <td>↑ Steady compounding in book value</td>
+    </tr>
+    <tr>
+      <td><strong>Dividend Payout (%)</strong></td>
+      <td>56%</td>
+      <td>59%</td>
+      <td>60%</td>
+      <td>60%</td>
+      <td>66%</td>
+      <td>—</td>
+      <td>↑ Rising payout; earnings stress in FY25</td>
+    </tr>
+    <tr>
+      <td><strong>Dividend Yield (%)</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>1.04%</td>
+      <td>Modest yield; growth-oriented stock</td>
+    </tr>
+    <tr>
+      <td><strong>P/B Ratio (x)</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td><em>Qualitative: Premium ~10–12x BV</em></td>
+      <td>Historically commands significant premium</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Valuation Trend Analysis</h4>
+<ul>
+  <li><strong>EPS peaked in FY24 at ₹55.41</strong> and declined sharply to ₹37.37 in FY25 — a ~33% YoY drop — reflecting margin compression and volume pressure from new competition.</li>
+  <li>Book value has grown steadily from ~₹110 (FY21) to ₹199 (FY25), indicating retained earnings accretion despite higher payouts.</li>
+  <li>Dividend payout ratio rising to <strong>66% in FY25</strong> (vs. 60% in FY24) signals management's intent to reward shareholders even as earnings moderate — but also limits reinvestment capacity.</li>
+  <li>At a 1.04% dividend yield, the stock remains a <strong>growth/quality premium play</strong> rather than an income stock; valuation re-rating risk exists given the FY25 earnings decline.</li>
+</ul>
+
+<hr>
+
+<h3>b) Profitability – ROE, ROCE &amp; Margins (5-Year Trend)</h3>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+      <th>FY25</th>
+      <th>YoY Δ (FY24→25)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Net Profit (₹ Cr)</strong></td>
+      <td>3,053</td>
+      <td>3,135</td>
+      <td>4,100</td>
+      <td>5,315</td>
+      <td>3,585</td>
+      <td><strong style="color:red">▼ -32.6%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Profit Before Tax (₹ Cr)</strong></td>
+      <td>4,090</td>
+      <td>4,194</td>
+      <td>5,490</td>
+      <td>6,999</td>
+      <td>4,897</td>
+      <td><strong style="color:red">▼ -30.0%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Tax Rate (%)</strong></td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>24%</td>
+      <td>27%</td>
+      <td>▲ +300 bps (adverse)</td>
+    </tr>
+    <tr>
+      <td><strong>ROCE (%)</strong></td>
+      <td>~35%</td>
+      <td>~28%</td>
+      <td>~35%</td>
+      <td>~38%</td>
+      <td>27.3%</td>
+      <td><strong style="color:red">▼ Significant compression</strong></td>
+    </tr>
+    <tr>
+      <td><strong>ROE (%)</strong></td>
+      <td>~32%</td>
+      <td>~28%</td>
+      <td>~33%</td>
+      <td>~35%</td>
+      <td>20.7%</td>
+      <td><strong style="color:red">▼ Multi-year low</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Operating Profit – Q4 (₹ Cr)</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>1,748</td>
+      <td>1,554</td>
+      <td>1,324</td>
+      <td>▼ -14.8% (Q4 YoY)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Quarterly Operating Profit Trend (Recent 8 Quarters)</h4>
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Quarter</th>
+      <th>Jun 23</th>
+      <th>Sep 23</th>
+      <th>Dec 23</th>
+      <th>Mar 24</th>
+      <th>Jun 24</th>
+      <th>Sep 24</th>
+      <th>Dec 24</th>
+      <th>Mar 25</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Op. Profit (₹ Cr)</strong></td>
+      <td>2,000</td>
+      <td>1,585</td>
+      <td>1,897</td>
+      <td>1,554</td>
+      <td>1,596</td>
+      <td>1,123</td>
+      <td>1,509</td>
+      <td>1,324</td>
+    </tr>
+    <tr>
+      <td><strong>Net Profit (₹ Cr)</strong></td>
+      <td>1,508</td>
+      <td>1,160</td>
+      <td>1,444</td>
+      <td>1,209</td>
+      <td>1,189</td>
+      <td>597</td>
+      <td>1,104</td>
+      <td>694</td>
+    </tr>
+    <tr>
+      <td><strong>EPS (₹)</strong></td>
+      <td>15.73</td>
+      <td>12.10</td>
+      <td>15.05</td>
+      <td>12.61</td>
+      <td>12.40</td>
+      <td>6.23</td>
+      <td>11.51</td>
+      <td>7.24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Profitability Trend Analysis</h4>
+<ul>
+  <li><strong>ROE at 20.7% and ROCE at 27.3%</strong> represent multi-year lows — still respectable in absolute terms but a stark reversal from the FY24 peak of ~35–38%.</li>
+  <li>FY25 net profit fell <strong>32.6% YoY</strong> — the steepest single-year decline in the visible 10-year history — driven by competitive intensity (Birla Opus entry), input cost volatility, and demand slowdown in urban markets.</li>
+  <li><strong>Sep 2024 quarter was particularly weak</strong> with net profit of only ₹597 Cr (EPS: ₹6.23), indicating a structural pressure point, not just seasonal.</li>
+  <li>Tax rate inched up to 27% in FY25 from 24% in FY24, adding further drag to post-tax profitability.</li>
+  <li>Operating profit per quarter has trended from ~₹2,000 Cr (Jun 2023 peak) to ~₹1,123–1,324 Cr range in FY25 — a ~30–40% contraction in operating earnings power.</li>
+</ul>
+
+<hr>
+
+<h3>c) Growth Metrics – Revenue, EPS &amp; Net Profit CAGR</h3>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+      <th>FY25</th>
+      <th>3-Yr CAGR</th>
+      <th>5-Yr CAGR</th>
+      <th>10-Yr CAGR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Net Profit (₹ Cr)</strong></td>
+      <td>3,053</td>
+      <td>3,135</td>
+      <td>4,100</td>
+      <td>5,315</td>
+      <td>3,585</td>
+      <td><em>~5.5% (FY22→25)</em></td>
+      <td><em>~3.3% (FY20→25)</em></td>
+      <td><em>~12% (FY15→25)</em></td>
+    </tr>
+    <tr>
+      <td><strong>EPS (₹)</strong></td>
+      <td>31.82</td>
+      <td>32.68</td>
+      <td>42.75</td>
+      <td>55.41</td>
+      <td>37.37</td>
+      <td>~5.5%</td>
+      <td>~3.3%</td>
+      <td>~10.5%</td>
+    </tr>
+    <tr>
+      <td><strong>Total Assets (₹ Cr)</strong></td>
+      <td>17,583</td>
+      <td>19,908</td>
+      <td>22,530</td>
+      <td>26,036</td>
+      <td>26,653</td>
+      <td>~14.9%</td>
+      <td>~8.7%</td>
+      <td>~13.8%</td>
+    </tr>
+    <tr>
+      <td><strong>TTM Net Profit (₹ Cr)</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td colspan="3">TTM: ₹3,775 Cr | EPS TTM: ₹39.35</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Implied Growth Rates from Screener Data</h4>
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Growth Indicator</th>
+      <th>Value (%)</th>
+      <th>Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Metric Index 9</td>
+      <td>9%</td>
+      <td>Likely near-term / 1-yr growth rate</td>
+    </tr>
+    <tr>
+      <td>Metric Index 10</td>
+      <td>27%</td>
+      <td>Medium-term CAGR indicator</td>
+    </tr>
+    <tr>
+      <td>Metric Index 11</td>
+      <td>26%</td>
+      <td>Medium-term CAGR indicator</td>
+    </tr>
+    <tr>
+      <td>Metric Index 12</td>
+      <td>27%</td>
+      <td>Medium-term CAGR indicator</td>
+    </tr>
+    <tr>
+      <td>Metric Index 13</td>
+      <td>21%</td>
+      <td>Medium-term CAGR indicator</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Growth Trend Analysis</h4>
+<ul>
+  <li><strong>FY21–FY24 was a golden growth phase</strong>: Net profit grew from ₹3,053 Cr to ₹5,315 Cr — a ~20% CAGR over 3 years — driven by post-COVID demand recovery and favorable raw material tailwinds.</li>
+  <li><strong>FY25 marks a sharp growth reversal</strong>: Net profit fell to ₹3,585 Cr, essentially resetting earnings to FY22 levels. The 5-year CAGR on net profit is now a modest ~3.3%.</li>
+  <li>TTM net profit of ₹3,775 Cr suggests <strong>partial sequential recovery</strong> from the FY25 trough — a tentative positive signal.</li>
+  <li>Historical 10-year EPS CAGR of ~10–12% reflects Asian Paints' long-term compounding quality, though the near-term trajectory is challenged.</li>
+  <li>Asset base grew at ~14.9% CAGR (3-yr) even as profits declined — indicating <strong>capital being deployed ahead of demand</strong>, which may weigh on near-term return ratios.</li>
+</ul>
+
+<hr>
+
+<h3>d) Balance Sheet – Assets, Fixed Assets &amp; Capital Structure (5-Year)</h3>
+
+<table class="metrics-table">
+  <thead>
+    <tr>
+      <th>Metric (

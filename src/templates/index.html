@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Report Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Stock Analysis Report Generator</h1>
+            <p>AI-Powered Financial Analysis for Indian Stocks</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Stock Selector Panel -->
+            <div class="selector-panel">
+                <h2>Select Stock</h2>
+
+                <div class="stock-selector">
+                    <label for="stockSelect">Choose a Stock:</label>
+                    <select id="stockSelect">
+                        <option value="">-- Select a Stock --</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" id="analyzeBtn" disabled>
+                    Analyze Stock
+                </button>
+
+                <div class="status-indicator" id="statusIndicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div id="statusMessage">Processing...</div>
+                </div>
+
+                <div class="stock-info" id="stockInfo" style="display: none;">
+                    <strong>Selected Stock:</strong> <span id="selectedStockName">-</span>
+                </div>
+
+                <button class="btn btn-secondary" id="resetBtn" style="display: none;">
+                    Select Different Stock
+                </button>
+
+                <button class="btn btn-export" id="exportBtn" style="display: none;">
+                    📥 Export as PDF
+                </button>
+            </div>
+
+            <!-- Report Panel -->
+            <div class="report-panel" id="reportPanel">
+                <div class="report-header">
+                    <h2 id="reportTitle">Analysis Report</h2>
+                    <div class="report-meta">
+                        <span>📅 Generated: <span id="generatedTime">-</span></span>
+                        <span>📈 Stock: <span id="reportStock">-</span></span>
+                    </div>
+                </div>
+
+                <div id="reportContent"></div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <div class="empty-state-icon">📋</div>
+                <p>Select a stock and click "Analyze Stock" to generate an AI-powered financial analysis report.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

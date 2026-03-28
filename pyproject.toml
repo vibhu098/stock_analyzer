@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langchain-bootstrap"
+version = "0.1.0"
+description = "LangChain bootstrap project with RedisVL and OpenAI"
+requires-python = ">=3.9"
+authors = [
+    {name = "Developer", email = "dev@example.com"}
+]
+dependencies = [
+    "langchain>=0.1.0",
+    "langchain-openai>=0.0.1",
+    "redisvl>=0.1.0",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "redis>=5.0.0",
+    "pydantic>=2.0.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+jupyter = [
+    "jupyter>=1.0.0",
+    "ipython>=8.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/langchain-bootstrap"
+Repository = "https://github.com/example/langchain-bootstrap"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

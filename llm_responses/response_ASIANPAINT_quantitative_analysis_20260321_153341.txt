@@ -1,0 +1,322 @@
+Stock: ASIANPAINT
+Section: quantitative_analysis
+Timestamp: 2026-03-21 15:33:41.604492
+Response Length: 10284 chars
+================================================================================
+
+<h3>Quantitative Analysis: Asian Paints Limited</h3>
+<p><em>Analysis based on audited financials from FY2014–FY2025 and available quarterly data. All figures in Indian Rupees (₹ Crore) unless stated otherwise. Indian Financial Year = April 1 – March 31.</em></p>
+
+<hr>
+
+<h3>a) Market Valuation and Price Metrics</h3>
+
+<p>Asian Paints commands one of the most premium valuations in the Indian consumer staples and paints sector, reflecting its dominant market position, brand equity, and historically superior return profile. The current snapshot metrics (Book Value: ₹199/share, Dividend Yield: 1.04%) provide anchoring reference points for valuation reconstruction across historical periods.</p>
+
+<h4>Valuation Metrics — Historical Snapshot</h4>
+<p><em>Note: Current stock price and market cap are derived from available data. EPS figures are sourced from audited P&L. P/E is estimated using reported EPS and approximate prevailing market prices for each fiscal year-end. P/B is estimated using reported book value trajectory. P/S ratios are estimated from revenue data. Exact historical market prices are not provided in the source data; estimates are based on publicly known approximate year-end levels consistent with the provided EPS and book value data.</em></p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY20 (Mar 2020)</th>
+      <th>FY21 (Mar 2021)</th>
+      <th>FY22 (Mar 2022)</th>
+      <th>FY23 (Mar 2023)</th>
+      <th>FY24 (Mar 2024)</th>
+      <th>FY25 (Mar 2025)</th>
+      <th>Trend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>EPS (₹/share)</strong></td>
+      <td>27.67</td>
+      <td>31.82</td>
+      <td>32.68</td>
+      <td>42.75</td>
+      <td>55.41</td>
+      <td>37.37</td>
+      <td>Declining (FY25)</td>
+    </tr>
+    <tr>
+      <td><strong>Book Value (₹/share)*</strong></td>
+      <td>~95</td>
+      <td>~115</td>
+      <td>~130</td>
+      <td>~155</td>
+      <td>~175</td>
+      <td>~199</td>
+      <td>Improving</td>
+    </tr>
+    <tr>
+      <td><strong>Approx. Year-End Price (₹)*</strong></td>
+      <td>~1,700</td>
+      <td>~2,700</td>
+      <td>~3,100</td>
+      <td>~3,100</td>
+      <td>~2,850</td>
+      <td>~2,350</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>Approx. Market Cap (₹ Cr)*</strong></td>
+      <td>~1,63,000</td>
+      <td>~2,59,000</td>
+      <td>~2,97,000</td>
+      <td>~2,97,000</td>
+      <td>~2,73,000</td>
+      <td>~2,25,000</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>P/E Ratio (x)*</strong></td>
+      <td>~61x</td>
+      <td>~85x</td>
+      <td>~95x</td>
+      <td>~73x</td>
+      <td>~51x</td>
+      <td>~63x</td>
+      <td>Compressing</td>
+    </tr>
+    <tr>
+      <td><strong>P/B Ratio (x)*</strong></td>
+      <td>~18x</td>
+      <td>~23x</td>
+      <td>~24x</td>
+      <td>~20x</td>
+      <td>~16x</td>
+      <td>~12x</td>
+      <td>Compressing</td>
+    </tr>
+    <tr>
+      <td><strong>Dividend Yield (%)*</strong></td>
+      <td>~0.7%</td>
+      <td>~0.6%</td>
+      <td>~0.6%</td>
+      <td>~0.8%</td>
+      <td>~1.2%</td>
+      <td>~1.04%</td>
+      <td>Improving</td>
+    </tr>
+    <tr>
+      <td><strong>TTM EPS (₹)</strong></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>39.35</td>
+      <td>Stabilising</td>
+    </tr>
+  </tbody>
+</table>
+<p><em>*Approximate figures based on known market data consistent with provided EPS/book value. Exact historical prices not provided in source data.</em></p>
+
+<h4>Trend Analysis</h4>
+<p>Asian Paints experienced significant P/E multiple expansion from FY20 (~61x) through FY22 (~95x), driven by pandemic-era re-rating of quality consumer franchises and strong earnings recovery. However, from FY23 onwards, the valuation has undergone meaningful compression — the P/E has declined from ~95x to approximately ~51x by FY24 and ~63x on TTM basis in FY25 — reflecting the sharp earnings decline in FY25 where net profit fell ~33% YoY to ₹3,585 Cr from ₹5,315 Cr in FY24. The P/B ratio compression from ~24x to ~12x is particularly notable and signals that the market is reassessing the structural premium it is willing to assign to the franchise, partly driven by new competitive entrants (Grasim/Birla Opus) and margin headwinds.</p>
+
+<h4>Key Takeaways</h4>
+<ul>
+  <li><strong>Valuation de-rating in progress:</strong> The stock has undergone a significant de-rating from peak FY22 multiples (~95x P/E, ~24x P/B), with the market reassessing the growth premium amid intensifying competition and margin pressure — this represents a structural shift, not merely a cyclical correction.</li>
+  <li><strong>EPS inflection risk:</strong> FY25 EPS of ₹37.37 represents a ~33% decline from FY24's ₹55.41, the sharpest single-year earnings contraction in the decade-long dataset, raising questions about whether FY24 represented a peak earnings cycle.</li>
+  <li><strong>Dividend yield improving but modest:</strong> At 1.04%, the dividend yield offers limited income support relative to risk-free alternatives, though the rising payout ratio (66% in FY25) signals management's commitment to returning capital even during an earnings downturn.</li>
+  <li><strong>Market cap erosion:</strong> Approximate market cap has declined from ~₹2,97,000 Cr at peak (FY22/FY23) to ~₹2,25,000 Cr, implying ~₹72,000 Cr of market value destruction — a significant wealth erosion for long-term shareholders who entered at peak valuations.</li>
+</ul>
+
+<hr>
+
+<h3>b) Profitability and Returns</h3>
+
+<p>Asian Paints has historically been one of India's most profitable consumer companies, with ROCE consistently above 30% through FY24. The FY25 data reveals a significant profitability reset, with metrics declining sharply across all parameters — a development that warrants careful examination for sustainability assessment.</p>
+
+<h4>Profitability Metrics — 6-Year Historical Table</h4>
+<p><em>Note: Revenue figures used for margin calculations are derived from P&L data. EBITDA/Operating Profit margins are approximated from Operating Profit data in quarterly results extrapolated to annual. ROA calculated using Net Profit / Average Total Assets. ROE and ROCE are current snapshot values (FY24 basis); historical reconstruction uses available data.</em></p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>FY20</th>
+      <th>FY21</th>
+      <th>FY22</th>
+      <th>FY23</th>
+      <th>FY24</th>
+      <th>FY25</th>
+      <th>Trend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Net Profit (₹ Cr)</strong></td>
+      <td>2,654</td>
+      <td>3,053</td>
+      <td>3,135</td>
+      <td>4,100</td>
+      <td>5,315</td>
+      <td>3,585</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>Profit Before Tax (₹ Cr)</strong></td>
+      <td>3,413</td>
+      <td>4,090</td>
+      <td>4,194</td>
+      <td>5,490</td>
+      <td>6,999</td>
+      <td>4,897</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>Effective Tax Rate (%)</strong></td>
+      <td>22%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>25%</td>
+      <td>24%</td>
+      <td>27%</td>
+      <td>Rising (headwind)</td>
+    </tr>
+    <tr>
+      <td><strong>Net Profit Margin (%)*</strong></td>
+      <td>~14.8%</td>
+      <td>~16.0%</td>
+      <td>~11.9%</td>
+      <td>~13.5%</td>
+      <td>~15.5%</td>
+      <td>~10.5%</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>PBT Margin (%)*</strong></td>
+      <td>~19.0%</td>
+      <td>~21.4%</td>
+      <td>~15.9%</td>
+      <td>~18.1%</td>
+      <td>~20.4%</td>
+      <td>~14.3%</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>ROE (%)*</strong></td>
+      <td>~35%</td>
+      <td>~32%</td>
+      <td>~28%</td>
+      <td>~31%</td>
+      <td>~36%</td>
+      <td>~20.7%</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>ROCE (%)*</strong></td>
+      <td>~38%</td>
+      <td>~36%</td>
+      <td>~30%</td>
+      <td>~35%</td>
+      <td>~42%</td>
+      <td>~27.3%</td>
+      <td>Declining</td>
+    </tr>
+    <tr>
+      <td><strong>ROA (%)*</strong></td>
+      <td>~19.5%</td>
+      <td>~19.5%</td>
+      <td>~16.8%</td>
+      <td>~19.7%</td>
+      <td>~22.4%</td>
+      <td>~13.5%</td>
+      <td>Declining</td>
+    </tr>
+  </tbody>
+</table>
+<p><em>*Margin and return ratios estimated using available Net Profit and PBT data. Revenue figures for margin calculation are not provided in source data; estimates based on implied revenue from growth metrics and EPS data. Exact revenue figures not available in source dataset.</em></p>
+
+<h4>Quarterly Profitability Trend (Recent 8 Quarters)</h4>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Quarter</th>
+      <th>Operating Profit (₹ Cr)</th>
+      <th>PBT (₹ Cr)</th>
+      <th>Net Profit (₹ Cr)</th>
+      <th>EPS (₹)</th>
+      <th>QoQ Net Profit Change</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jun 2023</td>
+      <td>2,000</td>
+      <td>2,018</td>
+      <td>1,508</td>
+      <td>15.73</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Sep 2023</td>
+      <td>1,585</td>
+      <td>1,551</td>
+      <td>1,160</td>
+      <td>12.10</td>
+      <td>-23.1%</td>
+    </tr>
+    <tr>
+      <td>Dec 2023</td>
+      <td>1,897</td>
+      <td>1,914</td>
+      <td>1,444</td>
+      <td>15.05</td>
+      <td>+24.5%</td>
+    </tr>
+    <tr>
+      <td>Mar 2024</td>
+      <td>1,554</td>
+      <td>1,522</td>
+      <td>1,209</td>
+      <td>12.61</td>
+      <td>-16.3%</td>
+    </tr>
+    <tr>
+      <td>Jun 2024</td>
+      <td>1,596</td>
+      <td>1,589</td>
+      <td>1,189</td>
+      <td>12.40</td>
+      <td>-1.7%</td>
+    </tr>
+    <tr>
+      <td>Sep 2024</td>
+      <td>1,123</td>
+      <td>853</td>
+      <td>597</td>
+      <td>6.23</td>
+      <td><strong>-49.8%</strong></td>
+    </tr>
+    <tr>
+      <td>Dec 2024</td>
+      <td>1,509</td>
+      <td>1,476</td>
+      <td>1,104</td>
+      <td>11.51</td>
+      <td>+84.9%</td>
+    </tr>
+    <tr>
+      <td>Mar 2025</td>
+      <td>1,324</td>
+      <td>979</td>
+      <td>694</td>
+      <td>7.24</td>
+      <td>-37.1%</td>
+    </tr>
+    <tr>
+      <td>Jun 2025</td>
+      <td>1,520</td>
+      <td>1,468</td>
+      <td>1,100</td>
+      <td>11.46</td>
+      <td>+58.5%</td>
+    </tr>
+    <tr>
+      <td

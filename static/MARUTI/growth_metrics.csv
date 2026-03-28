@@ -1,0 +1,17 @@
+Metric,Value,Unit,Category,Source
+Compounded Sales Growth (10 Years),12,%,Growth,Screener
+Compounded Sales Growth (5 Years),15,%,Growth,Screener
+Compounded Sales Growth (3 Years),20,%,Growth,Screener
+Compounded Sales Growth (TTM),14,%,Growth,Screener
+Compounded Profit Growth (10 Years),16,%,Growth,Screener
+Compounded Profit Growth (5 Years),34,%,Growth,Screener
+Compounded Profit Growth (3 Years),72,%,Growth,Screener
+Compounded Profit Growth (TTM),2,%,Growth,Screener
+Stock Price CAGR (10 Years),15,%,Valuation,Screener
+Stock Price CAGR (5 Years),16,%,Valuation,Screener
+Stock Price CAGR (3 Years),19,%,Valuation,Screener
+Stock Price CAGR (1 Year),24,%,Valuation,Screener
+Return on Equity (10 Years),12,%,Profitability,Screener
+Return on Equity (5 Years),11,%,Profitability,Screener
+Return on Equity (3 Years),14,%,Profitability,Screener
+Return on Equity (Last Year),16,%,Profitability,Screener
