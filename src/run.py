@@ -86,7 +86,7 @@ def main():
             logger.warning(f"Warning: {e}")
     
     try:
-        from src.stock_analyzer.app import app
+        from src.api.app import app
         logger.info("✓ Application imported successfully")
     except ImportError as e:
         logger.error(f"✗ Failed to import application: {e}")

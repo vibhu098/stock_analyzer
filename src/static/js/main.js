@@ -2,7 +2,9 @@
 
 const API_BASE = '';
 
-// DOM Elements
+// ============================================================
+// ANALYSIS FEATURE - DOM Elements
+// ============================================================
 const stockSelect = document.getElementById('stockSelect');
 const analyzeBtn = document.getElementById('analyzeBtn');
 const resetBtn = document.getElementById('resetBtn');
@@ -19,16 +21,32 @@ const reportStock = document.getElementById('reportStock');
 const generatedTime = document.getElementById('generatedTime');
 const reportTitle = document.getElementById('reportTitle');
 
+// ============================================================
+// CHAT FEATURE - DOM Elements (Independent)
+// ============================================================
+const chatPanel = document.getElementById('chatPanel');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const chatSendBtn = document.getElementById('chatSendBtn');
+
+// State
 let currentStock = null;
 let analysisInProgress = false;
+let chatHistory = [];
+let availableStocks = [];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     loadStocks();
-    setupEventListeners();
+    setupAnalysisEventListeners();
+    setupChatEventListeners();
 });
 
-function setupEventListeners() {
+// ============================================================
+// ANALYSIS FEATURE
+// ============================================================
+
+function setupAnalysisEventListeners() {
     stockSelect.addEventListener('change', onStockSelected);
     analyzeBtn.addEventListener('click', startAnalysis);
     resetBtn.addEventListener('click', resetSelection);
@@ -42,6 +60,9 @@ async function loadStocks() {
 
         if (data.success) {
             const stocks = data.stocks;
+            availableStocks = stocks;
+            
+            // Populate analysis stock selector
             stocks.forEach(stock => {
                 const option = document.createElement('option');
                 option.value = stock;
@@ -310,3 +331,149 @@ function escapeHtml(text) {
     };
     return text.replace(/[&<>"']/g, m => map[m]);
 }
+
+// ============================================================
+// INDEPENDENT CHAT FEATURE
+// ============================================================
+
+function setupChatEventListeners() {
+    // Chat message sending
+    chatSendBtn.addEventListener('click', sendChatMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendChatMessage();
+        }
+    });
+    
+    // Enable chat input by default
+    chatInput.disabled = false;
+    chatSendBtn.disabled = false;
+    
+    // Show welcome message
+    addChatMessage('assistant', 
+        '👋 Welcome! Ask me anything about Indian stocks. Examples:\n' +
+        '• "Tell me about ASIANPAINT"\n' +
+        '• "Which stocks have P/E < 20?"\n' +
+        '• "Compare INFY vs TCS"\n' +
+        '• "Stocks with highest ROE"\n\n' +
+        'I\'ll automatically search relevant stocks based on your question.',
+        0.95
+    );
+}
+
+/**
+ * Extract stock symbols from user query
+ * Looks for patterns like "INFY", "TCS", or common stock names
+ */
+function extractStocksFromQuery(query, availableStocks) {
+    const queryUpper = query.toUpperCase();
+    const found = [];
+    
+    // Find all exact matches for available stocks
+    availableStocks.forEach(stock => {
+        if (queryUpper.includes(stock)) {
+            found.push(stock);
+        }
+    });
+    
+    // Remove duplicates while preserving order
+    return [...new Set(found)];
+}
+
+function addChatMessage(sender, text, confidence = null) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${sender}`;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
+
+    if (sender === 'assistant' && confidence !== null) {
+        const confDiv = document.createElement('div');
+        confDiv.className = 'chat-confidence';
+        confDiv.textContent = `Confidence: ${(confidence * 100).toFixed(0)}%`;
+        bubble.appendChild(confDiv);
+    }
+
+    messageDiv.appendChild(bubble);
+    chatMessages.appendChild(messageDiv);
+
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function addLoadingMessage() {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'chat-message assistant';
+    messageDiv.id = 'loading-message';
+
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'chat-loading';
+    loadingDiv.innerHTML = `<span>Thinking</span><div class="chat-loading-dots">
+        <span></span><span></span><span></span>
+    </div>`;
+
+    messageDiv.appendChild(loadingDiv);
+    chatMessages.appendChild(messageDiv);
+
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeLoadingMessage() {
+    const loadingMsg = document.getElementById('loading-message');
+    if (loadingMsg) {
+        loadingMsg.remove();
+    }
+}
+
+async function sendChatMessage() {
+    const question = chatInput.value.trim();
+
+    if (!question) {
+        return;
+    }
+
+    // Add user message
+    addChatMessage('user', question);
+    chatInput.value = '';
+    chatInput.disabled = true;
+    chatSendBtn.disabled = true;
+
+    // Show loading state
+    addLoadingMessage();
+
+    try {
+        // Extract stocks mentioned in the query
+        const mentionedStocks = extractStocksFromQuery(question, availableStocks);
+        
+        // Always use multi-query endpoint - it handles both single and multi-stock queries
+        const response = await fetch(`${API_BASE}/api/chat/multi-query`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query: question,
+                stocks: mentionedStocks.length > 0 ? mentionedStocks : null
+            })
+        });
+
+        const data = await response.json();
+        removeLoadingMessage();
+
+        if (data.success) {
+            addChatMessage('assistant', data.answer, data.confidence);
+        } else {
+            addChatMessage('assistant', `Sorry, I couldn't answer that. ${data.error || 'Please try again.'}`);
+        }
+    } catch (error) {
+        console.error('Chat error:', error);
+        removeLoadingMessage();
+        addChatMessage('assistant', `Error: ${error.message}. Please try again.`);
+    } finally {
+        chatInput.disabled = false;
+        chatSendBtn.disabled = false;
+        chatInput.focus();
+    }
+}
+

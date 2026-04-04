@@ -103,10 +103,17 @@ HTML only. No lengthy paragraphs."""
 
 INVESTMENT_THESIS_PROMPT = """Write compact Investment Thesis for {stock_symbol}.
 
+Context from analysis:
+{quantitative_summary}
+
+{qualitative_summary}
+
+{shareholding_summary}
+
 OUTPUT 4 SHORT PARTS:
 
 1. CORE THESIS (1 paragraph)
-   - Why invest? Key return driver. Current valuation context.
+   - Why invest? Key return driver. Current market context.
 
 2. GROWTH DRIVERS (bullet list, max 4 items)
    - Specific driver, expected timeline, financial impact
@@ -118,23 +125,29 @@ OUTPUT 4 SHORT PARTS:
 4. RISKS (bullet list, max 4 items)
    - Specific risk + probability (High/Medium/Low)
 
-HTML only. Keep every part tight — no repetition from earlier sections."""
+HTML only. Use data provided above. No repetition from earlier sections."""
 
 VALUATION_AND_RECOMMENDATION_PROMPT = """Write compact Valuation & Recommendation for {stock_symbol}.
+
+FINANCIAL DATA:
+{financial_summary}
+
+MARKET DATA (Current Metrics):
+{market_data}
 
 OUTPUT 3 PARTS:
 
 1. VALUATION TABLE
    Columns: Method | Fair Value (₹) | Weight | Implied Return (%)
    Rows: P/E Multiple | P/B Multiple | DCF/Earnings Growth | Weighted Average
-   Use actual estimated numbers based on data available.
+   Use actual numbers from data provided above. If method not available, mark N/A.
 
 2. RECOMMENDATION SUMMARY BLOCK
    Output this EXACT format (machine-readable, critical for report header):
    <p><strong>Recommendation: BUY</strong> | <strong>Target Price Range: ₹XXXX-XXXX</strong> | <strong>Upside: XX%</strong> | Horizon: 12 months | Risk: Medium</p>
-   Replace BUY/HOLD/SELL/REDUCE with actual recommendation.
+   Replace BUY/HOLD/SELL/REDUCE with actual recommendation based on analysis.
    Replace ₹XXXX-XXXX with actual 12-month target price range.
-   Replace XX% with actual expected upside or downside percentage.
+   Replace XX% with actual expected upside or downside percentage (use current price from market data).
 
 3. RATIONALE (bullet list, max 4 items)
    - Key reasons supporting recommendation with specific data points

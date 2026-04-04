@@ -7,9 +7,9 @@ from pathlib import Path
 from typing import TypedDict, Any
 from langgraph.graph import StateGraph, START, END
 from langchain_core.messages import HumanMessage, AIMessage, BaseMessage
-from src.agents.llm_manager import LLMManager
-from src.stock_analyzer.comprehensive_prompt_new import generate_comprehensive_html_report
-from src.stock_analyzer.prompts import (
+from src.llm import LLMManager
+from .comprehensive_prompt_new import generate_comprehensive_html_report
+from .prompts import (
     STOCK_ANALYST_SYSTEM_PROMPT,
     COMPANY_OVERVIEW_PROMPT,
     QUANTITATIVE_ANALYSIS_PROMPT,
@@ -19,37 +19,21 @@ from src.stock_analyzer.prompts import (
     VALUATION_AND_RECOMMENDATION_PROMPT,
     CONCLUSION_PROMPT,
 )
+from src.common import save_llm_response, save_prompt_to_files
+from src.common import prepare_today_market_snapshot, get_price_performance_summary
+from src.data import create_realtime_metrics_csv
+from src.embeddings import AnalysisEmbeddingStore
+from src.common import AnalysisCacheManager
 
 logger = logging.getLogger(__name__)
-
-# Response logging utility
-def save_llm_response(stock_symbol: str, section_name: str, response_content: str):
-    """Save LLM responses to files for debugging timeout issues."""
-    try:
-        response_dir = Path(__file__).parent.parent.parent / "llm_responses"
-        response_dir.mkdir(exist_ok=True)
-        
-        # Create a file with stock name and section
-        timestamp = Path(f"response_{Path(stock_symbol).name}_{section_name}_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.txt")
-        filepath = response_dir / timestamp
-        
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(f"Stock: {stock_symbol}\n")
-            f.write(f"Section: {section_name}\n")
-            f.write(f"Timestamp: {pd.Timestamp.now()}\n")
-            f.write(f"Response Length: {len(response_content)} chars\n")
-            f.write("="*80 + "\n\n")
-            f.write(response_content)
-        
-        logger.info(f"Saved LLM response to {filepath}")
-    except Exception as e:
-        logger.warning(f"Could not save LLM response: {e}")
 
 # Type definitions for LangGraph state
 class AnalysisState(TypedDict):
     """State for comprehensive 7-section equity analysis workflow."""
     stock_symbol: str
     files_loaded: dict
+    market_snapshot: str  # Today's real-time market data
+    price_performance: str  # Price performance metrics
     company_overview: str
     quantitative_analysis: str
     qualitative_analysis: str
@@ -76,6 +60,12 @@ class StockAnalysisEngine:
         self.llm = self.llm_manager.get_llm()
         self.debug_mode = debug_mode
         
+        # Initialize embedding store for chat feature
+        self.embedding_store = AnalysisEmbeddingStore()
+        
+        # Initialize cache manager to avoid re-analysis within 7 days
+        self.cache_manager = AnalysisCacheManager()
+        
         # Set stock data path - check new location first, then fall back to old location
         if stock_data_path:
             self.stock_data_path = Path(stock_data_path)
@@ -89,6 +79,7 @@ class StockAnalysisEngine:
             else:
                 self.stock_data_path = old_location
         
+        # Build the analysis workflow
         self.graph = self._build_graph()
     
     def get_available_stocks(self):
@@ -200,30 +191,54 @@ class StockAnalysisEngine:
             return {'error': str(e)}
     
     def _company_overview_node(self, state: AnalysisState) -> dict:
-        """Generate company overview section."""
+        """
+        Generate company overview section.
+        
+        Data sources:
+        - CSV key_metrics.csv: Current financial metrics (Market Cap, P/E, ROE, ROCE, Div Yield)
+        """
         try:
-            # Full data directly - don't truncate
-            company_data = str(state['files_loaded'])
+            logger.info(f"Loading company overview data for {state['stock_symbol']}...")
+            
+            # Load structured financial data from CSV
+            from src.data import format_key_metrics_for_llm
+            company_data = format_key_metrics_for_llm(state['stock_symbol'])
+            
+            logger.info(f"Prepared {len(company_data)} chars of company data")
+            
+            # === OPTION 3: Inject today's market snapshot ===
+            market_snapshot = state.get('market_snapshot', '')
+            enriched_company_data = f"{company_data}\n\n{market_snapshot}"
             
             prompt = COMPANY_OVERVIEW_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
-                company_data=company_data
+                company_data=enriched_company_data
             )
             
-            # DEBUG: Print prompt before sending
-            print("\n" + "="*80)
-            print("DEBUG: COMPANY OVERVIEW PROMPT")
-            print("="*80)
-            print(f"Stock Symbol: {state['stock_symbol']}")
-            print(f"Data Available: {len(company_data)} chars")
-            print("\nFormatted Prompt (first 2000 chars):")
-            print(prompt[:2000])
-            print("..."*20)
-            print("="*80)
-            
+            # DEBUG: Print full prompt when debug_mode is True
             if self.debug_mode:
-                print("\n⚠️  DEBUG MODE: Stopping before API call")
-                print("To continue, set debug_mode=False when initializing the engine\n")
+                print("\n" + "="*80)
+                print("DEBUG: COMPANY OVERVIEW PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Data Available: {len(enriched_company_data)} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'company_overview', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
                 return {'company_overview': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
@@ -237,53 +252,62 @@ class StockAnalysisEngine:
             logger.info(f"Generated company overview for {state['stock_symbol']}")
             return {'company_overview': response.content}
         except Exception as e:
-            logger.error(f"Error in company_overview_node: {e}")
+            logger.error(f"Error in company_overview_node: {e}", exc_info=True)
             return {'company_overview': f"Error generating company overview: {str(e)}"}
     
     def _quantitative_analysis_node(self, state: AnalysisState) -> dict:
-        """Generate quantitative analysis section."""
+        """
+        Generate quantitative analysis with properly structured financial tables.
+        
+        Data source:
+        - CSV (P&L and Ratios): Organized year-by-year (FY20-FY24)
+        - CSV (Key Metrics): Current financial snapshot
+        
+        Why CSV not embeddings?
+        - LLM needs structured data to create proper table rows
+        - Embeddings return scattered individual metrics
+        - CSV provides clear year-by-year organization
+        """
         try:
-            # Pass full data without truncation
-            quantitative_data = f"""
-KEY METRICS:
-{state['files_loaded'].get('key_metrics', 'Not available')}
-
-BALANCE SHEET:
-{state['files_loaded'].get('balance_sheet', 'Not available')}
-
-CASH FLOW:
-{state['files_loaded'].get('cash_flow', 'Not available')}
-
-GROWTH METRICS:
-{state['files_loaded'].get('growth_metrics', 'Not available')}
-
-PROFIT & LOSS:
-{state['files_loaded'].get('profit_and_loss', 'Not available')}
-
-QUARTERLY RESULTS:
-{state['files_loaded'].get('quarterly_results', 'Not available')}
-
-RATIOS (ROCE%, Efficiency):
-{state['files_loaded'].get('ratios', 'Not available')}
-"""
+            logger.info(f"Loading quantitative metrics for {state['stock_symbol']}...")
+            
+            # Import the formatter
+            from src.data import format_quantitative_data_for_llm
+            
+            # Get properly structured CSV data for tables
+            quantitative_data = format_quantitative_data_for_llm(state['stock_symbol'])
+            
+            logger.info(f"Loaded {len(quantitative_data)} chars of structured financial data")
+            
             prompt = QUANTITATIVE_ANALYSIS_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
                 quantitative_data=quantitative_data
             )
             
-            # DEBUG: Print prompt before sending
-            print("\n" + "="*80)
-            print("DEBUG: QUANTITATIVE ANALYSIS PROMPT")
-            print("="*80)
-            print(f"Stock Symbol: {state['stock_symbol']}")
-            print(f"Data Length: {len(quantitative_data)} chars")
-            print("\nFormatted Prompt (first 2000 chars):")
-            print(prompt[:2000])
-            print("..."*20)
-            print("="*80)
-            
+            # DEBUG: Print full prompt when debug_mode is True
             if self.debug_mode:
-                print("\n⚠️  DEBUG MODE: Stopping before API call\n")
+                print("\n" + "="*80)
+                print("DEBUG: QUANTITATIVE ANALYSIS PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Data Length: {len(quantitative_data)} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'quantitative_analysis', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
                 return {'quantitative_analysis': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
@@ -297,27 +321,71 @@ RATIOS (ROCE%, Efficiency):
             logger.info(f"Generated quantitative analysis for {state['stock_symbol']}")
             return {'quantitative_analysis': response.content}
         except Exception as e:
-            logger.error(f"Error in quantitative_analysis_node: {e}")
+            logger.error(f"Error in quantitative_analysis_node: {e}", exc_info=True)
             return {'quantitative_analysis': f"Error generating quantitative analysis: {str(e)}"}
     
     def _qualitative_analysis_node(self, state: AnalysisState) -> dict:
-        """Generate qualitative analysis section."""
+        """
+        Generate qualitative analysis: competitive moat, management, risks.
+        
+        Data source:
+        - CSV files: All extracted business and qualitative metrics
+        """
         try:
-            qualitative_data = f"""
-Stock: {state['stock_symbol']}
-Sector: Based on NIFTY 50 listing
-
-Available for Analysis:
-- Financial performance trends from quantitative data
-- Company stability indicators from balance sheet
-- Growth profile from historical metrics
-
-Context: Provide sector-level qualitative insights based on the company's financial performance indicators.
-"""
+            logger.info(f"Loading qualitative analysis data for {state['stock_symbol']}...")
+            
+            # Load all CSV data for comprehensive qualitative context
+            csv_files = {
+                'profit_and_loss': self.stock_data_path / state['stock_symbol'] / 'profit_and_loss_annual.csv',
+                'balance_sheet': self.stock_data_path / state['stock_symbol'] / 'balance_sheet.csv',
+                'growth_metrics': self.stock_data_path / state['stock_symbol'] / 'growth_metrics.csv',
+                'ratios': self.stock_data_path / state['stock_symbol'] / 'ratios.csv',
+            }
+            
+            qualitative_data = f"QUALITATIVE & BUSINESS DATA FOR {state['stock_symbol']}:\n"
+            qualitative_data += "="*80 + "\n\n"
+            
+            for csv_name, csv_path in csv_files.items():
+                if csv_path.exists():
+                    try:
+                        df = pd.read_csv(csv_path)
+                        qualitative_data += f"\n{csv_name.upper()}:\n"
+                        qualitative_data += df.to_string(index=False) + "\n"
+                    except Exception as e:
+                        logger.warning(f"Could not load {csv_name}: {e}")
+            
+            logger.info(f"Loaded qualitative data ({len(qualitative_data)} chars)")
+            
             prompt = QUALITATIVE_ANALYSIS_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
                 qualitative_data=qualitative_data
             )
+            
+            # DEBUG: Print full prompt when debug_mode is True
+            if self.debug_mode:
+                print("\n" + "="*80)
+                print("DEBUG: QUALITATIVE ANALYSIS PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Data Length: {len(qualitative_data)} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'qualitative_analysis', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
+                return {'qualitative_analysis': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
                 HumanMessage(content=STOCK_ANALYST_SYSTEM_PROMPT),
@@ -330,27 +398,53 @@ Context: Provide sector-level qualitative insights based on the company's financ
             logger.info(f"Generated qualitative analysis for {state['stock_symbol']}")
             return {'qualitative_analysis': response.content}
         except Exception as e:
-            logger.error(f"Error in qualitative_analysis_node: {e}")
+            logger.error(f"Error in qualitative_analysis_node: {e}", exc_info=True)
             return {'qualitative_analysis': f"Error generating qualitative analysis: {str(e)}"}
     
     def _shareholding_analysis_node(self, state: AnalysisState) -> dict:
-        """Generate shareholding pattern analysis."""
+        """
+        Generate shareholding and capital structure analysis.
+        
+        Data sources:
+        - CSV: Shareholding pattern from screener data (Promoter, FII, DII %)
+        """
         try:
-            shareholding_data = f"""
-Stock: {state['stock_symbol']}
-
-Note: Detailed shareholding data (promoter holdings, FII/DII) may be available from the company's latest shareholding reports or regulatory filings.
-
-Currently available data:
-- Company financial metrics for overall company assessment
-- Balance sheet data that may indicate capital structure
-  
-Analysis Point: Provide insights on what shareholding patterns typically mean for investor confidence and company stability.
-"""
+            logger.info(f"Loading shareholding data for {state['stock_symbol']}...")
+            
+            # Get shareholding pattern data from CSV
+            from src.data import format_shareholding_data_for_llm
+            shareholding_data = format_shareholding_data_for_llm(state['stock_symbol'])
+            
             prompt = SHAREHOLDING_ANALYSIS_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
                 shareholding_data=shareholding_data
             )
+            
+            # DEBUG: Print full prompt when debug_mode is True
+            if self.debug_mode:
+                print("\n" + "="*80)
+                print("DEBUG: SHAREHOLDING ANALYSIS PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Data Length: {len(shareholding_data)} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'shareholding_analysis', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
+                return {'shareholding_analysis': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
                 HumanMessage(content=STOCK_ANALYST_SYSTEM_PROMPT),
@@ -363,34 +457,55 @@ Analysis Point: Provide insights on what shareholding patterns typically mean fo
             logger.info(f"Generated shareholding analysis for {state['stock_symbol']}")
             return {'shareholding_analysis': response.content}
         except Exception as e:
-            logger.error(f"Error in shareholding_analysis_node: {e}")
+            logger.error(f"Error in shareholding_analysis_node: {e}", exc_info=True)
             return {'shareholding_analysis': f"Error generating shareholding analysis: {str(e)}"}
     
     def _investment_thesis_node(self, state: AnalysisState) -> dict:
-        """Synthesize investment thesis from all analyses."""
+        """Synthesize investment thesis from all analyses.
+        
+        OPTION 3: Injects price performance metrics for context on recent trends.
+        """
         try:
+            # === OPTION 3: Include price performance context ===
+            price_performance = state.get('price_performance', '')
+            
             prompt = INVESTMENT_THESIS_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
-                quantitative_summary=state.get('quantitative_analysis', 'Not available')[:1000],
-                qualitative_summary=state.get('qualitative_analysis', 'Not available')[:1000],
-                shareholding_summary=state.get('shareholding_analysis', 'Not available')[:500]
+                quantitative_summary=state.get('quantitative_analysis', 'Not available'),
+                qualitative_summary=state.get('qualitative_analysis', 'Not available'),
+                shareholding_summary=state.get('shareholding_analysis', 'Not available')
             )
             
-            # DEBUG: Print prompt before sending
-            print("\n" + "="*80)
-            print("DEBUG: INVESTMENT THESIS PROMPT")
-            print("="*80)
-            print(f"Stock Symbol: {state['stock_symbol']}")
-            print(f"Quantitative Summary Length: {len(state.get('quantitative_analysis', ''))} chars")
-            print(f"Qualitative Summary Length: {len(state.get('qualitative_analysis', ''))} chars")
-            print(f"Shareholding Summary Length: {len(state.get('shareholding_analysis', ''))} chars")
-            print("\nFormatted Prompt (first 2000 chars):")
-            print(prompt[:2000])
-            print("..."*20)
-            print("="*80)
+            # Append price performance to prompt for better context
+            if price_performance:
+                prompt = f"{prompt}\n\n{price_performance}"
             
+            # DEBUG: Print full prompt when debug_mode is True
             if self.debug_mode:
-                print("\n⚠️  DEBUG MODE: Stopping before API call\n")
+                print("\n" + "="*80)
+                print("DEBUG: INVESTMENT THESIS PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Quantitative Summary Length: {len(state.get('quantitative_analysis', ''))} chars")
+                print(f"Qualitative Summary Length: {len(state.get('qualitative_analysis', ''))} chars")
+                print(f"Shareholding Summary Length: {len(state.get('shareholding_analysis', ''))} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'investment_thesis', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
                 return {'investment_thesis': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
@@ -408,31 +523,49 @@ Analysis Point: Provide insights on what shareholding patterns typically mean fo
             return {'investment_thesis': f"Error generating investment thesis: {str(e)}"}
     
     def _valuation_recommendation_node(self, state: AnalysisState) -> dict:
-        """Generate valuation and investment recommendation."""
+        """Generate valuation and investment recommendation.
+        
+        OPTION 3: Injects today's real-time market snapshot for accurate valuation.
+        """
         try:
-            financial_summary = state.get('quantitative_analysis', 'Not available')[:500]
-            market_data = state.get('company_overview', 'Not available')[:300]
+            financial_summary = state.get('quantitative_analysis', 'Not available')
+            market_data = state.get('company_overview', 'Not available')
+            
+            # === OPTION 3: Inject today's market snapshot for accurate valuation ===
+            market_snapshot = state.get('market_snapshot', '')
+            enriched_market_data = f"{market_data}\n\n{market_snapshot}" if market_snapshot else market_data
             
             prompt = VALUATION_AND_RECOMMENDATION_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
                 financial_summary=financial_summary,
-                market_data=market_data
+                market_data=enriched_market_data
             )
             
-            # DEBUG: Print prompt before sending
-            print("\n" + "="*80)
-            print("DEBUG: VALUATION AND RECOMMENDATION PROMPT")
-            print("="*80)
-            print(f"Stock Symbol: {state['stock_symbol']}")
-            print(f"Financial Summary Length: {len(financial_summary)} chars")
-            print(f"Market Data Length: {len(market_data)} chars")
-            print("\nFormatted Prompt (first 2000 chars):")
-            print(prompt[:2000])
-            print("..."*20)
-            print("="*80)
-            
+            # DEBUG: Print full prompt when debug_mode is True
             if self.debug_mode:
-                print("\n⚠️  DEBUG MODE: Stopping before API call\n")
+                print("\n" + "="*80)
+                print("DEBUG: VALUATION AND RECOMMENDATION PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Financial Summary Length: {len(state.get('quantitative_analysis', ''))} chars")
+                print(f"Market Data Length: {len(state.get('investment_thesis', ''))} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'valuation_recommendation', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
                 return {'valuation_recommendation': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
@@ -453,13 +586,39 @@ Analysis Point: Provide insights on what shareholding patterns typically mean fo
         """Generate conclusion section."""
         try:
             full_analysis = f"""
-Investment Thesis: {state.get('investment_thesis', 'Not available')[:300]}
-Valuation: {state.get('valuation_recommendation', 'Not available')[:300]}
+Investment Thesis: {state.get('investment_thesis', 'Not available')}
+Valuation: {state.get('valuation_recommendation', 'Not available')}
 """
             prompt = CONCLUSION_PROMPT.format(
                 stock_symbol=state['stock_symbol'],
                 full_analysis=full_analysis
             )
+            
+            # DEBUG: Print full prompt when debug_mode is True
+            if self.debug_mode:
+                print("\n" + "="*80)
+                print("DEBUG: CONCLUSION PROMPT (FULL)")
+                print("="*80)
+                print(f"Stock Symbol: {state['stock_symbol']}")
+                print(f"Full Analysis Length: {len(full_analysis)} chars")
+                print(f"Prompt Length: {len(prompt)} chars")
+                print("\n" + "-"*80)
+                print("FULL PROMPT CONTENT:")
+                print("-"*80)
+                print(prompt)
+                print("\n" + "="*80)
+                
+                # Save prompt to markdown and HTML files
+                md_file, html_file = save_prompt_to_files(state['stock_symbol'], 'conclusion', prompt)
+                if md_file and html_file:
+                    print(f"✓ Prompt saved:")
+                    print(f"  - Markdown: debug_prompts/{Path(md_file).name}")
+                    print(f"  - HTML: debug_prompts/{Path(html_file).name}")
+                
+                print("⚠️  DEBUG MODE: Stopping before API call")
+                print("To continue, set debug_mode=False when initializing the engine")
+                print("="*80 + "\n")
+                return {'conclusion': '[DEBUG MODE - PROMPT INSPECTION ONLY]'}
             
             response = self.llm.invoke([
                 HumanMessage(content=STOCK_ANALYST_SYSTEM_PROMPT),
@@ -519,12 +678,38 @@ Valuation: {state.get('valuation_recommendation', 'Not available')[:300]}
             return {'final_report': f"Error generating final report: {str(e)}"}
     
     def analyze_stock(self, stock_symbol: str) -> dict:
-        """Run complete 7-section equity analysis using LangGraph workflow."""
+        """Run complete 7-section equity analysis using LangGraph workflow.
+        
+        OPTION 2: Auto-fetches today's real-time stock data before analysis.
+        OPTION 3: Injects real-time snapshots into relevant prompts.
+        """
         logger.info(f"Starting comprehensive analysis for {stock_symbol}")
+        
+        # === OPTION 2: Auto-fetch today's real-time data ===
+        logger.info(f"Fetching today's real-time market data for {stock_symbol}...")
+        try:
+            # Fetch real-time market snapshot (current price, P/E, market cap, etc.)
+            market_snapshot = prepare_today_market_snapshot(stock_symbol)
+            
+            # Fetch price performance metrics (returns, volatility, drawdown)
+            price_performance = get_price_performance_summary(stock_symbol)
+            
+            # Save today's metrics to CSV for record-keeping
+            success, msg = create_realtime_metrics_csv(stock_symbol)
+            if success:
+                logger.info(f"✓ Saved today's real-time metrics to CSV")
+            
+            logger.info(f"✓ Real-time data fetched successfully for {stock_symbol}")
+        except Exception as e:
+            logger.warning(f"Could not fetch real-time data: {e}")
+            market_snapshot = f"⚠️  Could not fetch today's market data: {str(e)}"
+            price_performance = f"⚠️  Could not fetch price performance: {str(e)}"
         
         initial_state: AnalysisState = {
             'stock_symbol': stock_symbol,
             'files_loaded': {},
+            'market_snapshot': market_snapshot,  # Today's real-time data
+            'price_performance': price_performance,  # Price performance metrics
             'company_overview': '',
             'quantitative_analysis': '',
             'qualitative_analysis': '',
@@ -539,6 +724,17 @@ Valuation: {state.get('valuation_recommendation', 'Not available')[:300]}
         try:
             final_state = self.graph.invoke(initial_state)
             logger.info(f"Comprehensive analysis completed for {stock_symbol}")
+            
+            # Save analysis as embeddings for chat/Q&A feature
+            try:
+                success, msg = self.embedding_store.save_analysis_embeddings(stock_symbol, final_state, overwrite=True)
+                if success:
+                    logger.info(f"✓ {msg}")
+                else:
+                    logger.warning(f"Could not save embeddings: {msg}")
+            except Exception as e:
+                logger.warning(f"Could not save embeddings for chat feature: {e}")
+            
             return final_state
         except Exception as e:
             logger.error(f"Analysis failed for {stock_symbol}: {e}")
@@ -547,8 +743,28 @@ Valuation: {state.get('valuation_recommendation', 'Not available')[:300]}
             return final_state
     
     def get_analysis_report(self, stock_symbol: str) -> dict:
-        """Get formatted equity analysis report with all 7 sections."""
-        analysis = self.analyze_stock(stock_symbol)
+        """Get formatted equity analysis report with all 7 sections.
+        
+        Uses cached analysis if available (within 7 days),
+        otherwise runs fresh analysis and caches the result.
+        """
+        # Check cache first
+        cached_analysis = self.cache_manager.load_cache(stock_symbol)
+        if cached_analysis:
+            logger.info(f"✓ Using cached analysis for {stock_symbol}")
+            analysis = cached_analysis
+        else:
+            # Run fresh analysis
+            logger.info(f"No valid cache found, running fresh analysis for {stock_symbol}")
+            analysis = self.analyze_stock(stock_symbol)
+            
+            # Save to cache for next time
+            try:
+                success, msg = self.cache_manager.save_cache(stock_symbol, analysis)
+                if success:
+                    logger.info(f"✓ {msg}")
+            except Exception as e:
+                logger.warning(f"Could not save analysis to cache: {e}")
         
         report = {
             'stock_symbol': stock_symbol,
