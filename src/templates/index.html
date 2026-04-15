@@ -14,8 +14,18 @@
         </header>
 
         <div class="main-content">
-            <!-- LEFT COLUMN: ANALYSIS FEATURE -->
-            <div class="left-panel">
+            <!-- TAB NAVIGATION -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="analysis-tab">
+                    📊 Analyze Stock
+                </button>
+                <button class="tab-btn" data-tab="chat-tab">
+                    💬 Chat with AI Analyst
+                </button>
+            </div>
+
+            <!-- TAB 1: ANALYSIS FEATURE -->
+            <div class="tab-content active" id="analysis-tab">
                 <div class="section-header">
                     <h2>📊 Analyze Stock</h2>
                     <p>Generate comprehensive financial analysis reports</p>
@@ -73,8 +83,8 @@
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: CHAT FEATURE (INDEPENDENT) -->
-            <div class="right-panel">
+            <!-- TAB 2: CHAT FEATURE -->
+            <div class="tab-content" id="chat-tab">
                 <div class="section-header">
                     <h2>💬 Chat with AI Analyst</h2>
                     <p>Ask about any stock or get cross-stock financial insights</p>
@@ -100,6 +110,8 @@
         </div>
     </div>
 
+    <!-- Markdown rendering library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

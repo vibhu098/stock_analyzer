@@ -4,7 +4,7 @@ import logging
 import pandas as pd
 from pathlib import Path
 from typing import Dict, Optional, Tuple
-from src.utils.daily_data_fetcher import (
+from src.data.daily_data_fetcher import (
     fetch_current_stock_data,
     fetch_historical_prices,
     create_realtime_metrics_csv

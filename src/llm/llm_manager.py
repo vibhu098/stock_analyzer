@@ -2,7 +2,7 @@
 
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from src.config import settings
+from src.common import settings
 from typing import List
 import sys
 

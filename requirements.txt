@@ -14,8 +14,10 @@ flask-cors>=4.0.0
 pandas>=3.0.0
 yfinance>=0.2.30
 playwright>=1.40.0
-sentence-transformers>=2.2.0
+langchain-huggingface>=0.0.1
 faiss-cpu>=1.7.4
+
+numpy>=1.24.0
 
 # Vector Database & Semantic Search
 # Chromadb installation can be complex due to dependencies.

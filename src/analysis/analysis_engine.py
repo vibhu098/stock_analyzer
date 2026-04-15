@@ -727,6 +727,12 @@ Valuation: {state.get('valuation_recommendation', 'Not available')}
             
             # Save analysis as embeddings for chat/Q&A feature
             try:
+                # Log what we're about to save
+                analysis_sections = ['company_overview', 'quantitative_analysis', 'qualitative_analysis',
+                                    'shareholding_analysis', 'investment_thesis', 'valuation_recommendation', 'conclusion']
+                section_summary = {s: len(final_state.get(s, '')) for s in analysis_sections}
+                logger.info(f"Attempting to save embeddings. Section lengths: {section_summary}")
+                
                 success, msg = self.embedding_store.save_analysis_embeddings(stock_symbol, final_state, overwrite=True)
                 if success:
                     logger.info(f"✓ {msg}")

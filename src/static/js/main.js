@@ -37,9 +37,12 @@ let availableStocks = [];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('✓ DOMContentLoaded fired - initializing app');
     loadStocks();
     setupAnalysisEventListeners();
     setupChatEventListeners();
+    setupTabEventListeners();
+    console.log('✓ All setup functions called');
 });
 
 // ============================================================
@@ -363,6 +366,49 @@ function setupChatEventListeners() {
 }
 
 /**
+ * Setup tab navigation event listeners
+ * Handles switching between Analysis and Chat tabs
+ */
+function setupTabEventListeners() {
+    console.log('🔧 Setting up tab event listeners...');
+    
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    console.log(`Found ${tabBtns.length} tab buttons`);
+    
+    tabBtns.forEach((btn) => {
+        btn.addEventListener('click', function(e) {
+            console.log('Tab button clicked!');
+            
+            const tabName = btn.getAttribute('data-tab');
+            console.log(`Switching to tab: ${tabName}`);
+            
+            // Remove active class from all tabs and buttons
+            document.querySelectorAll('.tab-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            // Add active class to clicked button and corresponding tab
+            btn.classList.add('active');
+            console.log(`✓ Added .active to button`);
+            
+            const activeTab = document.getElementById(tabName);
+            if (activeTab) {
+                activeTab.classList.add('active');
+                console.log(`✓ Tab ${tabName} activated - display should be flex now`);
+            } else {
+                console.error(`ERROR: Could not find tab element with id: ${tabName}`);
+            }
+        });
+    });
+    
+    console.log('✓ Tab event listeners setup complete');
+}
+
+/**
  * Extract stock symbols from user query
  * Looks for patterns like "INFY", "TCS", or common stock names
  */
@@ -387,7 +433,17 @@ function addChatMessage(sender, text, confidence = null) {
 
     const bubble = document.createElement('div');
     bubble.className = 'chat-bubble';
-    bubble.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
+    
+    // For assistant messages, render markdown; for user messages, escape and preserve text
+    if (sender === 'assistant') {
+        // Render markdown for assistant responses
+        bubble.innerHTML = marked.parse(text);
+        // Add markdown class for styling
+        bubble.classList.add('markdown-content');
+    } else {
+        // User messages: escape HTML but preserve formatting
+        bubble.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
+    }
 
     if (sender === 'assistant' && confidence !== null) {
         const confDiv = document.createElement('div');
@@ -445,16 +501,12 @@ async function sendChatMessage() {
     addLoadingMessage();
 
     try {
-        // Extract stocks mentioned in the query
-        const mentionedStocks = extractStocksFromQuery(question, availableStocks);
-        
-        // Always use multi-query endpoint - it handles both single and multi-stock queries
-        const response = await fetch(`${API_BASE}/api/chat/multi-query`, {
+        // Use unified chat endpoint - it handles both single and multi-stock queries
+        const response = await fetch(`${API_BASE}/api/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                query: question,
-                stocks: mentionedStocks.length > 0 ? mentionedStocks : null
+                query: question
             })
         });
 
