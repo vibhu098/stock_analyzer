@@ -144,4 +144,14 @@ Thumbs.db
 *.db
 redis_data/
 
+.faiss_indices/
 
+llm_responses/
+
+debug_prompts/
+
+# Generated reports and artifacts
+generated_report*.html
+test_*.log
+test_*.py
+embeddings/

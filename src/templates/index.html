@@ -14,62 +14,104 @@
         </header>
 
         <div class="main-content">
-            <!-- Stock Selector Panel -->
-            <div class="selector-panel">
-                <h2>Select Stock</h2>
-
-                <div class="stock-selector">
-                    <label for="stockSelect">Choose a Stock:</label>
-                    <select id="stockSelect">
-                        <option value="">-- Select a Stock --</option>
-                    </select>
-                </div>
-
-                <button class="btn btn-primary" id="analyzeBtn" disabled>
-                    Analyze Stock
+            <!-- TAB NAVIGATION -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="analysis-tab">
+                    📊 Analyze Stock
                 </button>
-
-                <div class="status-indicator" id="statusIndicator">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
-                    </div>
-                    <div id="statusMessage">Processing...</div>
-                </div>
-
-                <div class="stock-info" id="stockInfo" style="display: none;">
-                    <strong>Selected Stock:</strong> <span id="selectedStockName">-</span>
-                </div>
-
-                <button class="btn btn-secondary" id="resetBtn" style="display: none;">
-                    Select Different Stock
-                </button>
-
-                <button class="btn btn-export" id="exportBtn" style="display: none;">
-                    📥 Export as PDF
+                <button class="tab-btn" data-tab="chat-tab">
+                    💬 Chat with AI Analyst
                 </button>
             </div>
 
-            <!-- Report Panel -->
-            <div class="report-panel" id="reportPanel">
-                <div class="report-header">
-                    <h2 id="reportTitle">Analysis Report</h2>
-                    <div class="report-meta">
-                        <span>📅 Generated: <span id="generatedTime">-</span></span>
-                        <span>📈 Stock: <span id="reportStock">-</span></span>
-                    </div>
+            <!-- TAB 1: ANALYSIS FEATURE -->
+            <div class="tab-content active" id="analysis-tab">
+                <div class="section-header">
+                    <h2>📊 Analyze Stock</h2>
+                    <p>Generate comprehensive financial analysis reports</p>
                 </div>
 
-                <div id="reportContent"></div>
+                <!-- Stock Selector Panel -->
+                <div class="selector-panel">
+                    <div class="stock-selector">
+                        <label for="stockSelect">Choose a Stock:</label>
+                        <select id="stockSelect">
+                            <option value="">-- Select a Stock --</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" id="analyzeBtn" disabled>
+                        Analyze Stock
+                    </button>
+
+                    <div class="status-indicator" id="statusIndicator">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div id="statusMessage">Processing...</div>
+                    </div>
+
+                    <div class="stock-info" id="stockInfo" style="display: none;">
+                        <strong>Selected Stock:</strong> <span id="selectedStockName">-</span>
+                    </div>
+
+                    <button class="btn btn-secondary" id="resetBtn" style="display: none;">
+                        Select Different Stock
+                    </button>
+
+                    <button class="btn btn-export" id="exportBtn" style="display: none;">
+                        📥 Export as PDF
+                    </button>
+                </div>
+
+                <!-- Report Panel -->
+                <div class="report-panel" id="reportPanel">
+                    <div class="report-header">
+                        <h2 id="reportTitle">Analysis Report</h2>
+                        <div class="report-meta">
+                            <span>📅 Generated: <span id="generatedTime">-</span></span>
+                            <span>📈 Stock: <span id="reportStock">-</span></span>
+                        </div>
+                    </div>
+                    <div id="reportContent"></div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-state-icon">📋</div>
+                    <p>Select a stock and click "Analyze Stock" to generate an AI-powered financial analysis report.</p>
+                </div>
             </div>
 
-            <!-- Empty State -->
-            <div class="empty-state" id="emptyState">
-                <div class="empty-state-icon">📋</div>
-                <p>Select a stock and click "Analyze Stock" to generate an AI-powered financial analysis report.</p>
+            <!-- TAB 2: CHAT FEATURE -->
+            <div class="tab-content" id="chat-tab">
+                <div class="section-header">
+                    <h2>💬 Chat with AI Analyst</h2>
+                    <p>Ask about any stock or get cross-stock financial insights</p>
+                </div>
+
+                <!-- Chat Panel -->
+                <div class="chat-panel" id="chatPanel">
+                    <!-- Chat Messages Area -->
+                    <div class="chat-messages" id="chatMessages"></div>
+
+                    <!-- Chat Input -->
+                    <div class="chat-input-area">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Ask about stocks: 'Tell me about ASIANPAINT' or 'Which stocks have low P/E ratio?'"
+                            class="chat-text-input"
+                        >
+                        <button class="btn btn-chat" id="chatSendBtn">Send</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Markdown rendering library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

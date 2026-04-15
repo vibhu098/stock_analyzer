@@ -1,509 +1,612 @@
-# Stock Equity Analysis System — Architecture
+# Stock Analyzer - System Architecture
 
 ## Overview
 
-A **7-section parallel LLM pipeline** that generates comprehensive equity research reports. Data flows from Screener.in → CSV extraction → LLM analysis → HTML composition → PDF export.
+Stock Analyzer is an AI-powered financial analysis system that generates comprehensive stock analysis reports and enables semantic search through AI-powered chat. The system uses a modular architecture with clear separation between data processing, analysis, embeddings, and user-facing APIs.
+
+**Key Innovation:** Unified `/api/chat` endpoint that intelligently routes queries to the right backend (analysis embeddings for single-stock questions, screener embeddings for cross-stock queries).
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  WEB UI (Flask)                                                     │
-│  ├─ Stock selection dropdown (NIFTY50)                             │
-│  ├─ "Analyze" button → Background thread                           │
-│  └─ Report viewer + PDF export button                              │
-└────────────────┬────────────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│  Data Loading (analysis_engine.py)                                  │
-│  ├─ Load CSVs from static/{SYMBOL}/                                │
-│  ├─ Trim to last 7 year-columns (token budget)                     │
-│  └─ Format as strings for LLM input                                │
-└────────────────┬────────────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│  LangGraph 7-Section Pipeline (Parallel + Sequential)               │
-│                                                                      │
-│  Stage 1: Load Data (blocking)                                      │
-│  ├─ balance_sheet.csv (7-year snapshot)                            │
-│  ├─ cash_flow.csv (7-year snapshot)                                │
-│  ├─ profit_and_loss_annual.csv (7-year: Sales, OPM%, Net Profit) │
-│  ├─ quarterly_results.csv (6 quarters)                            │
-│  ├─ growth_metrics.csv (CAGR, ROE/ROCE trends)                   │
-│  ├─ key_metrics.csv (P/E, Book Value, current ROE, ROCE)         │
-│  └─ ratios.csv (ROCE% year-wise, efficiency metrics)             │
-│                                                                      │
-│  Stage 2: 4 Parallel LLM Calls (concurrent)                        │
-│  ├─ Company Overview (system + user prompt)                        │
-│  ├─ Quantitative Analysis (all financial data)                     │
-│  ├─ Qualitative Analysis (moat, mgmt, growth, risks)              │
-│  └─ Shareholding Analysis (promoter/FII/DII patterns)             │
-│                                                                      │
-│  Stage 3: Merge Results → Investment Thesis (blocking)             │
-│  └─ Synthesize 4 outputs into unified investment case             │
-│                                                                      │
-│  Stage 4: Valuation & Recommendation (blocking)                    │
-│  └─ Fair value, rating (BUY/HOLD/SELL), target price              │
-│                                                                      │
-│  Stage 5: Conclusion (blocking)                                    │
-│  └─ Bull/base/bear scenarios, key risks, guidance                 │
-│                                                                      │
-│  Stage 6: Executive Summary (blocking)                             │
-│  └─ Not used in final output (legacy)                             │
-│                                                                      │
-└────────────────┬────────────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│  HTML Composition (comprehensive_prompt_new.py)                     │
-│  ├─ Validate & clean LLM HTML output                               │
-│  ├─ Extract recommendation (regex on valuation section)            │
-│  ├─ Compose final report:                                          │
-│  │  ├─ Header (stock, price, recommendation box with target)       │
-│  │  ├─ 7 sections (CO, QA, QLA, SA, IT, VAL, CONC)               │
-│  │  ├─ Compact CSS (13px font, 30px padding, 12-36px margins)    │
-│  │  └─ Print-optimized (page-break-inside: avoid)                 │
-│  └─ Return HTML string                                            │
-│                                                                      │
-└────────────────┬────────────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│  PDF Export (app.py route /report/<symbol>/pdf)                     │
-│  ├─ Launch Playwright Chromium                                      │
-│  ├─ Render HTML to PDF (A4, 15mm margins, print_background=true)  │
-│  ├─ Return file download (attachment; filename=...)               │
-│  └─ Browser downloads PDF                                          │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────┐
+│  REST API Layer (Flask)             │
+│  • /api/analyze  • /api/chat        │
+│  • /api/results  • /report          │
+└────────────┬────────────────────────┘
+             │
+┌────────────▼────────────────────────┐
+│  Application Services               │
+│  • Analysis Engine (LangGraph)      │
+│  • Unified Chat Handler             │
+│  • LLM Manager (Claude/OpenAI)      │
+└────────────┬────────────────────────┘
+             │
+    ┌────────┴──────────┬──────────────┐
+    │                   │              │
+┌───▼────────┐  ┌──────▼──────┐  ┌───▼──────────┐
+│ Analysis   │  │ Embeddings  │  │ Chat         │
+│ (7-step)   │  │ • Analysis  │  │ • Unified    │
+│ • LLM      │  │ • Screener  │  │   Router     │
+│ • LangGraph│  │ • FAISS     │  │ • Analysis   │
+│            │  │ • Metadata  │  │ • Multi-Stock│
+└────────────┘  └─────────────┘  └──────────────┘
+                       │
+                ┌──────▼──────────┐
+                │ Data Layer      │
+                │ • CSV files     │
+                │ • Cache         │
+                │ • Logging       │
+                └─────────────────┘
 ```
 
-## Data Pipeline
+---
 
-### 1. Data Extraction (screener_data_extractor.py)
+## Core Modules
 
-**Source**: Screener.in company pages (via Playwright → saved HTML)
+### 1. API Layer (`src/api/app.py`)
 
-**Extraction Process**:
-```python
-async fetch_and_save_screener_data(url):
-  ├─ Launch Chromium browser
-  ├─ Navigate to Screener URL
-  ├─ Wait for dynamic content (5s)
-  ├─ Scroll to load all sections (12 × 1200px)
-  ├─ Save raw HTML + full page text
-  └─ Extract + save 7 CSV files
+**REST Endpoints:**
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/` | GET | Web interface |
+| `/api/analyze` | POST | Submit stock for analysis |
+| `/api/status/<stock>` | GET | Check analysis progress |
+| `/api/results/<stock>` | GET | Retrieve analysis result |
+| `/api/chat` | POST | **Unified chat endpoint** (all queries) |
+| `/report/<stock>` | GET | View HTML report |
+| `/report/<stock>/pdf` | GET | Export as PDF |
+| `/api/health` | GET | System health |
+
+**Key Feature:** Single `/api/chat` endpoint handles all chat varieties:
+- Request: `{"query": "What is the target price for EICHERMOT?"}`
+- Response: `{"success": true, "answer": "...", "sources": [...], "confidence": 0.85}`
+
+### 2. Analysis Engine (`src/analysis/analysis_engine.py`)
+
+Orchestrates multi-step stock analysis using **LangGraph state machine**.
+
+**Workflow (7 Analysis Sections):**
+1. **Company Overview** - Business, markets, competitors
+2. **Quantitative Analysis** - Metrics, ratios, growth
+3. **Qualitative Analysis** - Management, advantages, risks
+4. **Shareholding** - Promoter, FII, DII holdings
+5. **Investment Thesis** - Case and triggers
+6. **Valuation & Recommendation** - Fair value and rating
+7. **Conclusion** - Summary and outlook
+
+**Features:**
+- Caching: 7-day TTL
+- HTML report generation
+- Auto-embedding after completion
+- Error handling and logging
+
+### 3. Unified Chat Handler (`src/chat/unified_chat.py`)
+
+Smart router that detects query intent and routes appropriately.
+
+**Algorithm:**
+```
+Query: "What is the target price for EICHERMOT?"
+  ↓
+Extract stocks: ['EICHERMOT'] (supports 2-12 char symbols)
+  ↓
+Classify: Single-stock analysis query
+  ↓
+Route to: StockAnalysisChat → Analysis embeddings
+  ↓
+Result: ₹7,695 (Weighted Average Fair Value)
 ```
 
-**Output CSVs** (saved to `static/{SYMBOL}/`):
+**Routing Logic:**
+- **Single-Stock Analysis:** Named stocks + analysis keywords (target price, fair value, ROE, etc.)
+- **Multi-Stock Screener:** No named stock OR comparison/listing keywords (which, compare, top, etc.)
 
-| File | Rows | Columns | Key Metrics |
-|---|---|---|---|
-| `key_metrics.csv` | 9 | 5 | Market Cap, P/E, ROE, ROCE, Div Yield |
-| `profit_and_loss_annual.csv` | 12 | 14 | Sales, OPM%, Operating Profit, Net Profit, EPS, Dividend Payout% (10+ years) |
-| `quarterly_results.csv` | 11 | 8 | Sales, Expenses, Operating Profit, OPM%, Net Profit, EPS (6 quarters) |
-| `balance_sheet.csv` | 11 | 10 | Equity, Reserves, Borrowings, Deposits, Assets (10+ years) |
-| `cash_flow.csv` | 5 | 10 | Operating, Investing, Financing, Net CF (10+ years) |
-| `growth_metrics.csv` | 15 | 4 | CAGR (Sales/Profit/Stock Price), ROE/ROCE trends (10Y/5Y/3Y/1Y) |
-| `ratios.csv` | 7 | 10 | **NEW**: ROCE% (year-wise), Debtor Days, Inventory Days, Days Payable, CCC, WCD (10+ years) |
+### 4. Chat Interfaces
 
-**Key Improvements** (session 2):
-- Extracts **Sales** (was missing)
-- Extracts **Operating Profit** and **OPM%** (margin %) 
-- Extracts **ROCE% year-wise** (was only snapshot before)
-- Extracts efficiency ratios (Debtor/Inventory Days, CCC)
-
-### 2. Data Loading (analysis_engine.py)
+#### StockAnalysisChat (`src/chat/analysis_chat.py`)
+Single-stock Q&A using semantic search over analysis reports.
 
 ```python
-def load_stock_data(stock_symbol):
-  ├─ Read CSVs from static/{symbol}/
-  ├─ Identify year-columns (regex: "Mar 2024", "TTM", etc.)
-  ├─ Keep ALL metric-rows (rows = metrics, columns = years)
-  ├─ Trim to last N year-columns (token budget):
-  │  ├─ P&L, Balance Sheet, Cash Flow, Quarterly: last 7 years
-  │  ├─ Ratios: last 7 years
-  │  └─ Growth/Key Metrics: all (wide format, low token cost)
-  └─ Return as formatted strings
+chat = StockAnalysisChat(llm_provider='claude')
+result = chat.answer_question("What is the target price?", "EICHERMOT")
+# Returns: {answer: "₹7,695...", sources: ["valuation_recommendation"], confidence: 0.85}
 ```
 
-**Rationale**: Earlier loader used `df.tail(5)` on metrics → dropped all sales/OPM rows. Fixed to keep metric-rows, trim year-columns instead.
-
-### 3. LLM Pipeline (analysis_engine.py + prompts.py)
-
-**LangGraph Workflow** (src/stock_analyzer/analysis_engine.py):
-
-```
-load_data (blocking)
-  │
-  ├─→ company_overview (parallel, 2 min)
-  ├─→ quantitative_analysis (parallel, 2 min)
-  ├─→ qualitative_analysis (parallel, 2 min)
-  └─→ shareholding_analysis (parallel, 2 min)
-       ↓ (merge all 4)
-  investment_thesis (blocking, 1 min)
-       ↓
-  valuation_recommendation (blocking, 1 min)
-       ↓
-  conclusion (blocking, 1 min)
-       ↓
-  executive_summary (blocking, legacy, not used)
-
-Total: ~8-10 minutes (4 parallel + 4 sequential sections)
-```
-
-**7 Section Prompts** (src/stock_analyzer/prompts.py):
-
-Each prompt is **compact** (fit within 1 page; 3-15 lines of output):
-
-1. **Company Overview**
-   - Business snapshot (1 para)
-   - Key metrics table (3 rows)
-   - Recent developments (≤4 bullets)
-
-2. **Quantitative Analysis**
-   - P&L summary table (3 rows)
-   - Key ratios table (5 ratios)
-   - 5 analysis bullets
-
-3. **Qualitative Analysis**
-   - Moat bullets (≤5)
-   - Management paragraph
-   - Growth drivers bullets (≤5)
-   - Risks table (3 rows)
-
-4. **Shareholding Analysis**
-   - Shareholding table (3 quarters, 3 categories)
-   - 4 key observations
-
-5. **Investment Thesis**
-   - Core thesis paragraph
-   - Growth catalysts table
-   - Risk bullets (≤5)
-
-6. **Valuation & Recommendation** ⭐
-   - Fair value estimate (₹/share)
-   - **Machine-parseable format**:
-     ```html
-     <p><strong>Recommendation: BUY</strong> | <strong>Target Price Range: ₹XXXX-XXXX</strong> | <strong>Upside: XX%</strong> | ...</p>
-     ```
-
-7. **Conclusion**
-   - Bull/base/bear scenarios (table)
-   - Key risks to monitor (≤5)
-   - Investment guidance paragraph
-
-**System Prompt** (applies to all 7 sections):
-- "CONCISE, high-signal analysis"
-- "Max 4-5 items per list"
-- "Tables > paragraphs"
-- "Latest 5 years focus"
-
-**LLM Model Options**:
-- **Claude 3.5 Sonnet** (recommended) — excellent financial reasoning
-- **GPT-4** — alternative, similar quality
-
-### 4. HTML Report Composition (comprehensive_prompt_new.py)
-
-**Input**: 7 LLM responses (HTML fragments)
-
-**Processing**:
+#### MultiStockChat (`src/chat/multi_stock_chat.py`)
+Cross-stock queries using screener embeddings with hybrid scoring.
 
 ```python
-def generate_comprehensive_html_report(lzm_outputs):
-  ├─ Validate & fix HTML structure
-  │  ├─ Close unclosed <table>, <tr>, <td>
-  │  ├─ Fix broken table rows
-  │  └─ Strip common garbage tags
-  │
-  ├─ Extract recommendation from valuation section
-  │  ├─ _extract_recommendation(valuation_html)
-  │  ├─ Strip HTML tags → plain text
-  │  ├─ Multi-pattern regex:
-  │  │  ├─ Pattern 1: "Recommendation: BUY | Target Price..."
-  │  │  └─ Fallback: Match standalone **STRONG BUY/BUY/HOLD/SELL/REDUCE**
-  │  └─ Return dict: {recommendation, class, target_price_range, upside_downside}
-  │
-  ├─ Compose final HTML
-  │  ├─ Header section
-  │  │  ├─ Stock name & date
-  │  │  └─ **Recommendation box** (3-column grid)
-  │  │     ├─ Recommendation (colored: bullish/bearish/neutral)
-  │  │     ├─ 12M Target Price
-  │  │     └─ Upside/Downside %
-  │  ├─ 7 Content sections (from LLM outputs)
-  │  └─ Footer (disclaimer)
-  │
-  ├─ Apply compact CSS
-  │  ├─ Font: 13px (was 14px)
-  │  ├─ Header padding: 36px (was 50px)
-  │  ├─ Section margins: 36px (was 50px)
-  │  ├─ Table margins: 12px (was 20px)
-  │  ├─ Line-heights: 1.5 (was 1.7)
-  │  └─ List spacing: 4-8px (tight, no bloat)
-  │
-  └─ Return HTML string
+chat = MultiStockChat(llm_provider='claude')
+result = chat.answer_screener_query("Stocks with P/E < 30")
+# Returns: Top 10 stocks with synthesis
 ```
 
-**CSS Optimizations**:
-- **Compact typography**: 13px font, 1.5 line-height
-- **Tight spacing**: 30px content padding, 36px section margins, 12px table margins
-- **Print-friendly**: `page-break-inside: avoid` on sections
-- **Data visibility**: Tables only (no narrative paragraphs except intro)
+### 5. Embedding Stores
 
-**Result**: 8-10 page HTML (was 34 pages before compact refactor)
+#### AnalysisEmbeddingStore (`src/embeddings/analysis_embedding_store.py`)
+- Chunks analysis sections (500-char chunks, 100-char overlap)
+- HTML-to-plain-text conversion (improves semantic quality)
+- FAISS indexing (384-dim hash-based vectors, L2 distance)
+- Storage: `embeddings/{STOCK}/faiss_index.bin`
 
-### 5. PDF Export (app.py)
+#### ScreenerEmbeddingStore (`src/embeddings/screener_embedding_store.py`)
+- Embeds financial metrics from CSV files
+- Hybrid scoring: Vector (40%) + Keyword (60%)
+- Numeric filtering: Range-based for P/E, ROE, etc.
+- Example: "P/E between 50 to 80" with 1.5x boost for matches
 
-**Route**: `GET /report/{symbol}/pdf`
+### 6. Data Pipeline
 
-```python
-@app.route('/report/<stock_symbol>/pdf')
-def export_pdf(stock_symbol):
-  ├─ Fetch cached HTML report
-  ├─ Launch Playwright Chromium
-  ├─ Set page content to HTML
-  ├─ Render to PDF
-  │  ├─ Format: A4
-  │  ├─ Margins: 15mm all
-  │  ├─ print_background: true (colors/gradients preserved)
-  │  └─ Size: ~3-5 MB
-  └─ Return file download (attachment header)
+#### extractor (`src/data/screener_data_extractor.py`)
+- Fetches HTML from Screener.in
+- Extracts financial tables (regex-based)
+- Creates CSVs in `static/{STOCK}/`
+- Auto-triggers embedding creation
+
+#### Cleaner (`src/data/csv_cleaner.py`)
+- Validates financial data
+- Removes nulls, duplicates
+- Checks completeness (80%+ threshold)
+- Standardizes units
+
+#### Formatter (`src/data/csv_data_formatter.py`)
+- Converts CSVs to LLM-friendly tables
+- Output: Markdown/text suitable for context
+
+### 7. LLM Manager (`src/llm/llm_manager.py`)
+
+Abstracts provider selection and inference.
+
+**Supported Providers:**
+- `claude` - Anthropic Claude (default, recommended)
+- `openai` - OpenAI GPT models
+
+---
+
+## Data Flows
+
+### Single-Stock Analysis
+```
+POST /api/analyze {stock: "EICHERMOT"}
+  ↓
+StockAnalysisEngine
+  ├─ Load CSVs from static/EICHERMOT/
+  ├─ Check 7-day cache
+  ├─ Run LangGraph workflow (7 sections)
+  ├─ Each section: Format data → LLM → Parse response
+  ├─ Generate HTML report
+  ├─ Save embeddings via AnalysisEmbeddingStore
+  └─ Cache result (7 days)
+  ↓
+Return HTML report
 ```
 
-**Frontend** (index.html + main.js):
-- "📥 Export as PDF" button
-- On click: `window.location.href = /report/{symbol}/pdf`
-- Browser downloads as `{SYMBOL}_equity_analysis.pdf`
+### Chat - Single Stock
+```
+POST /api/chat {query: "What is the target price for EICHERMOT?"}
+  ↓
+UnifiedChatHandler.answer()
+  ├─ Extract stocks: ['EICHERMOT']
+  ├─ Classify: Single-stock analysis
+  └─ Route: StockAnalysisChat
+  ↓
+StockAnalysisChat.answer_question()
+  ├─ Search: Find 5 similar chunks in EICHERMOT embeddings
+  ├─ Context: Chunks from valuation_recommendation section
+  └─ LLM: "Based on this analysis, the target price is..."
+  ↓
+Return {answer: "₹7,695...", sources: [...], confidence: 0.85}
+```
 
-## Directory Structure
+### Chat - Multi-Stock
+```
+POST /api/chat {query: "Which stocks have P/E between 50 to 80?"}
+  ↓
+UnifiedChatHandler.answer()
+  ├─ Extract stocks: [] (no named stocks)
+  ├─ Classify: Multi-stock screener
+  └─ Route: MultiStockChat
+  ↓
+ScreenerEmbeddingStore.answer_screener_query()
+  ├─ Search all stocks' embeddings
+  ├─ Hybrid score: Vector (40%) + Keyword (60%) + Numeric filter
+  ├─ Boost 1.5x if 50 ≤ P/E ≤ 80
+  └─ Return top 10 stocks
+  ↓
+LLM: Synthesize results with explanation
+  ↓
+Return {answer: "Top stocks: ...", sources: [...], confidence: 0.78}
+```
+
+---
+
+## File Structure
 
 ```
-rtfm/
+stock_annalyzer/
 ├── src/
-│   ├── config.py                           # Global settings (LLM, logging)
-│   ├── run.py                              # Flask app + arg parsing
-│   │
-│   ├── stock_analyzer/
-│   │   ├── __init__.py
-│   │   ├── app.py                          # Flask routes
-│   │   │   ├─ GET  /                       # Serve index.html
-│   │   │   ├─ GET  /api/stocks             # List NIFTY50 stocks
-│   │   │   ├─ POST /api/analyze            # Start background analysis
-│   │   │   ├─ GET  /api/status/{symbol}    # Poll status
-│   │   │   ├─ GET  /api/results/{symbol}   # Get analysis results
-│   │   │   ├─ GET  /report/{symbol}        # View HTML report
-│   │   │   └─ GET  /report/{symbol}/pdf    # PDF download
-│   │   │
-│   │   ├── analysis_engine.py              # LangGraph 7-section pipeline
-│   │   │   ├─ load_stock_data()            # CSV loader
-│   │   │   ├─ _build_graph()               # LangGraph setup
-│   │   │   ├─ _*_node()                     # 7 section functions + summary
-│   │   │   └─ get_analysis_report()        # Main entry
-│   │   │
-│   │   ├── prompts.py                      # LLM prompts
-│   │   │   ├─ STOCK_ANALYST_SYSTEM_PROMPT
-│   │   │   ├─ COMPANY_OVERVIEW_PROMPT
-│   │   │   ├─ QUANTITATIVE_ANALYSIS_PROMPT
-│   │   │   ├─ QUALITATIVE_ANALYSIS_PROMPT
-│   │   │   ├─ SHAREHOLDING_ANALYSIS_PROMPT
-│   │   │   ├─ INVESTMENT_THESIS_PROMPT
-│   │   │   ├─ VALUATION_AND_RECOMMENDATION_PROMPT  ⭐ (has machine-parseable format)
-│   │   │   ├─ CONCLUSION_PROMPT
-│   │   │   └─ __all__ (export list)
-│   │   │
-│   │   ├── comprehensive_prompt_new.py     # Report composition
-│   │   │   ├─ validate_html()              # Clean LLM HTML
-│   │   │   ├─ _extract_recommendation()    # Parse rec box
-│   │   │   ├─ generate_comprehensive_html_report()
-│   │   │   └─ CSS (compact styling)
-│   │   │
-│   │   └── report_generator.py             # (unused, legacy)
-│   │
-│   ├── utils/
-│   │   ├── screener_data_extractor.py      # ⭐ Main data source
-│   │   │   ├─ fetch_and_save_screener_data()  # Async Playwright scraper
-│   │   │   ├─ extract_key_metrics()
-│   │   │   ├─ extract_quarterly_results()
-│   │   │   ├─ extract_profit_and_loss_annual()
-│   │   │   ├─ extract_balance_sheet()
-│   │   │   ├─ extract_cash_flow()
-│   │   │   ├─ extract_growth_metrics()
-│   │   │   ├─ extract_ratios()             # ⭐ NEW: ROCE% year-wise
-│   │   │   ├─ regen_all_csvs()             # ⭐ NEW: Batch regen
-│   │   │   └─ main() with --regen-all flag
-│   │   │
-│   │   └── helpers.py                      # pretty_print_dict, batch_list, truncate_text
-│   │
+│   ├── api/
+│   │   └── app.py                       # Flask REST API
+│   ├── analysis/
+│   │   ├── analysis_engine.py           # Orchestrates 7-step analysis
+│   │   ├── prompts.py                   # LLM prompts
+│   │   └── comprehensive_prompt_new.py  # HTML report generation
+│   ├── chat/
+│   │   ├── unified_chat.py              # Unified router (entry point)
+│   │   ├── analysis_chat.py             # Single-stock Q&A (NO unused methods)
+│   │   └── multi_stock_chat.py          # Multi-stock Q&A (NO unused methods)
+│   ├── embeddings/
+│   │   ├── analysis_embedding_store.py  # Report embeddings + FAISS
+│   │   └── screener_embedding_store.py  # Screener embeddings + hybrid search
+│   ├── data/
+│   │   ├── screener_data_extractor.py   # Data extraction pipeline
+│   │   ├── csv_cleaner.py               # Data validation
+│   │   ├── csv_data_formatter.py        # Data formatting
+│   │   └── daily_data_fetcher.py        # Real-time data
+│   ├── llm/
+│   │   └── llm_manager.py               # Provider abstraction
+│   ├── common/
+│   │   ├── config.py                    # Configuration
+│   │   ├── cache_manager.py             # Result caching (7-day TTL)
+│   │   └── debug_logger.py              # Prompt/response logging
 │   ├── templates/
-│   │   ├── index.html                      # Web UI
-│   │   └── report_template.html            # (not used, report composed in Python)
-│   │
+│   │   └── index.html                   # Web interface
 │   └── static/
-│       ├── css/
-│       │   └── style.css                   # Web UI styles
-│       ├── js/
-│       │   └── main.js                     # Web UI logic + PDF export button
-│       └── *NO STOCK DATA HERE*             (see static/ below)
-│
-├── static/                                 # ⭐ Main stock data directory
-│   ├── NIFTY50.csv                         # Stock universe (51 stocks: 50 + 1 test)
-│   ├── EQUITY_L.csv                        # Equity list (for reference)
-│   ├── nifty50.csv                         # Alternative format
-│   │
-│   ├── ASIANPAINT/
-│   │   ├─ key_metrics.csv
-│   │   ├─ profit_and_loss_annual.csv       # ✓ Has Sales, OPM%, Operating Profit
-│   │   ├─ quarterly_results.csv            # ✓ Has Sales, Operating Profit, OPM%
-│   │   ├─ balance_sheet.csv
-│   │   ├─ cash_flow.csv
-│   │   ├─ growth_metrics.csv
-│   │   ├─ ratios.csv                       # ✓ NEW: ROCE%, Debtor/Inventory Days, CCC
-│   │   ├─ screener_page_content.html       # Saved raw HTML
-│   │   ├─ screener_page_content.txt        # Saved raw text
-│   │   └─ source_reference.csv
-│   │
-│   ├── HDFCBANK/
-│   ├── INFY/
-│   ├── TCS/
-│   └── ... (51 stocks total)
-│
-├── llm_responses/                          # Cached LLM section outputs
-│   ├── {SYMBOL}/
-│   │   ├─ company_overview.txt
-│   │   ├─ quantitative_analysis.txt
-│   │   ├─ qualitative_analysis.txt
-│   │   ├─ shareholding_analysis.txt
-│   │   ├─ investment_thesis.txt
-│   │   ├─ valuation_recommendation.txt     # ⭐ Contains extraction source
-│   │   └─ conclusion.txt
-│   └─ ... (for each analyzed stock)
-│
-├── ARCHITECTURE.md                         # This file
-├── README.md                               # Quick start & usage
-├── requirements.txt                        # Dependencies
-├── pyproject.toml                          # Project config
-├── run.py                                  # Entry point: python run.py --provider claude
-│
-└── tests/                                  # Test suite
-    ├── __init__.py
-    └── test_config.py
+│       ├── js/main.js                   # Frontend (uses /api/chat)
+│       └── css/style.css                # Styling
+├── static/
+│   ├── ASIANPAINT/                      # Financial data (CSV)
+│   ├── EICHERMOT/
+│   └── ... (50 stocks total)
+├── embeddings/
+│   ├── ASIANPAINT/                      # Analysis embeddings
+│   ├── EICHERMOT/
+│   └── screener/                        # Screener embeddings
+├── debug_prompts/                       # LLM prompts (debug mode)
+├── llm_responses/                       # LLM responses + cache
+├── requirements.txt
+└── ARCHITECTURE.md                      # This file
 ```
 
-## Data Flow Summary
-
-```
-Stock Selection (Web UI)
-         ↓
-   Screener.in (live or cached HTML)
-         ↓
-   screener_data_extractor.py
-   (Playwright scraper)
-         ↓
-   CSVs: static/{SYMBOL}/*.csv
-   ├─ Key Metrics
-   ├─ P&L Annual (Sales, OPM%, Net Profit)
-   ├─ Quarterly Results
-   ├─ Balance Sheet
-   ├─ Cash Flow
-   ├─ Growth Metrics
-   └─ Ratios (ROCE% year-wise)
-         ↓
-   analysis_engine.load_stock_data()
-   (Trim to 7-year columns)
-         ↓
-   LangGraph Pipeline
-   (7 concurrent→sequential LLM calls)
-         ↓
-   7 HTML fragments
-   (1 per section)
-         ↓
-   comprehensive_prompt_new.py
-   (HTML validation + recommendation extraction)
-         ↓
-   Final HTML report
-   (8-10 pages, compact CSS)
-         ↓
-   Browser OR Playwright.pdf export
-```
+---
 
 ## Key Design Decisions
 
-| Decision | Rationale |
-|---|---|
-| **7 parallel → sequential sections** | Parallel = speed (4 min), sequential = context reuse (thesis depends on 4 analyses) |
-| **Keep all metric-rows, trim year-columns** | Metrics = rows (Sales, OPM, Net Profit). Years = columns. Old `df.tail(5)` dropped metrics. |
-| **Compact CSS** | 34-page verbose → 8-10 page actionable reports. Tighter spacing, smaller fonts, tables over prose. |
-| **Machine-parseable rec format** | Valuation section outputs specific format so regex reliably extracts Recommendation, Target, Upside. |
-| **Playwright for PDF** | No extra library (already used for scraping). Uses Chromium (reliable) vs. WeasyPrint (CSS gaps). |
-| **Static CSV data** | Scraper runs once, CSVs cached. Fast iteration on prompts/pipeline without re-scraping.  |
-| **Save LLM responses** | `llm_responses/{symbol}/*.txt` for debugging recommendation box issues, tweaking prompts. |
+### 1. Unified Chat Endpoint
+Instead of 6 specialized endpoints (`/api/chat/ask`, `/api/chat/search`, `/api/chat/compare`, etc.), we have ONE endpoint that intelligently routes:
+- **Benefit:** Single source of truth, less confusion, easier to maintain
+- **Trade-off:** Slight added complexity in routing logic (well worth it)
 
-## Extending the System
+### 2. HTML-to-Plain-Text Conversion
+Analysis sections are converted from HTML to plain text BEFORE embedding:
+- **Benefit:** Better semantic quality, LLM can read text easily
+- **Implementation:** `_html_to_plain_text()` in AnalysisEmbeddingStore
 
-### Add a New Stock
-```bash
-python src/utils/screener_data_extractor.py "https://www.screener.in/company/NEWSTOCK/"
-```
+### 3. Stock Symbol Length (2-12 chars)
+Supports both short (INFY, TCS) and long (EICHERMOT, TATAMOTORS) symbols:
+- **Previous limit:** 2-6 chars (too restrictive)
+- **Current limit:** 2-12 chars (covers all Indian stocks)
 
-### Regenerate All CSVs After Extractor Fix
-```bash
-python src/utils/screener_data_extractor.py --regen-all
-```
+### 4. Embedding Architecture
+Separate stores for different data:
+- **Analysis Embeddings:** Text chunks from reports (RAG for Q&A)
+- **Screener Embeddings:** Financial metrics (hybrid scoring for cross-stock)
+- **Benefit:** Optimized for each use case
 
-### Adjust Report Compactness
-Edit `comprehensive_prompt_new.py` CSS section:
-- `font-size: 12px` (smaller)
-- `padding: 20px` (tigher)
-- `margin: 10px` (tighter)
+### 5. Caching Strategy
+- **Analysis results:** 7-day TTL (expensive LLM operations)
+- **Embeddings:** Persisted to disk (recreated on data changes)
+- **LLM responses:** Logged for debugging and monitoring
 
-### Tweak Prompts
-Edit `src/stock_analyzer/prompts.py` section prompts, then regenerate or re-run analysis.
+---
 
-### Switch LLM Model
-```bash
-python run.py --provider openai  # Switches to GPT-4
-```
+## Cleaned-Up Code
 
-Or edit `src/config.py` to change default model/provider.
+**Removed Unused Methods:**
+- `StockAnalysisChat.multi_stock_search()` - Legacy cross-stock search
+- `StockAnalysisChat.get_comparative_answer()` - Legacy comparison
+- `StockAnalysisChat.interactive_chat()` - Legacy CLI interface
+- `MultiStockChat.detect_query_type()` - Routing now in UnifiedChatHandler
+- `MultiStockChat.answer_analysis_query()` - Not called anywhere
 
-## Performance Metrics
+**Removed Unused Exports:**
+- `interactive_chat` from `src/chat/__init__.py`
 
-| Metric | Value |
-|---|---|
-| Data extraction per stock | 1-2 min (Playwright + parsing) |
-| LLM pipeline total | 8-10 min (4 parallel 2min + 4 sequential 1min) |
-| Report file size | ~50-80 KB HTML, ~3-5 MB PDF |
-| Token usage per report | ~10K-15K tokens (compact prompts) |
-| Cost per report (Claude) | ~$0.15-0.20 |
-| Cost per report (GPT-4) | ~$0.30-0.50 |
+**Result:** Cleaner codebase with no dead code, easier to understand and maintain.
+
+---
+
+## Performance Optimization
+
+### Caching
+- Analysis results: 7-day TTL
+- Embeddings: FAISS binary format (.bin) cached to disk
+- LLM responses: Logged for monitoring
+
+### Search
+- FAISS IndexFlatL2: Fast similarity search
+- Hybrid scoring: Balances vector + keyword + numeric relevance
+- Top-k limitation: Prevents excessive results
+
+### API
+- Async analysis: Doesn't block frontend (polling-based)
+- Sync chat: Immediate response via RAG
+- Streaming: HTML reports sent directly
+
+---
+
+## Extension Points
+
+### Add Analysis Section
+1. Add prompt in `src/analysis/prompts.py`
+2. Add node in `src/analysis/analysis_engine.py` workflow
+3. Update report generator in `src/analysis/comprehensive_prompt_new.py`
+
+### Add LLM Provider
+1. Extend `src/llm/llm_manager.py`
+2. Add config in `src/common/config.py`
+
+### Add Embedding Store
+1. Create new class inheriting base pattern
+2. Register in API: `src/api/app.py`
+
+---
 
 ## Troubleshooting
 
-**Issue**: Missing ROCE% year-wise or Sales/OPM%
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Chat returns wrong stock | Symbol extraction failed | Check `unified_chat.py` line 37-40 |
+| Embeddings not found | Analysis run without embedding | Run `AnalysisEmbeddingStore.save_analysis_embeddings()` |
+| LLM returns wrong format | Prompt template mismatch | Check `src/analysis/prompts.py` or chat files |
+| Analysis takes too long | Cache miss + LLM processing | Check logging; consider increasing cache TTL |
 
-→ CSVs need regeneration after extractor fix:
-  ```bash
-  python src/utils/screener_data_extractor.py --regen-all
-  ```
+---
 
-**Issue**: Recommendation box empty in HTML report
+## Dependencies & Packages
 
-→ Check `llm_responses/{symbol}/valuation_recommendation.txt`
+### Core LLM & AI Framework
 
-→ Ensure LLM output includes: `Recommendation: BUY | Target Price Range: ₹X-X | Upside: X%`
+#### **langchain** (>=0.1.0)
+- **Purpose:** Universal framework for building LLM applications
+- **Why Required:** Provides abstraction layer for prompts, chains, memory, and document loaders
+- **Used In:**
+  - `src/llm/llm_manager.py` - LLM provider abstraction
+  - `src/chat/analysis_chat.py` - Q&A chains with context
+  - `src/chat/multi_stock_chat.py` - Cross-stock query processing
+  - `src/analysis/analysis_engine.py` - Prompt templating
+- **Key Benefits:** Standardized interfaces, makes LLM switching easy (Claude ↔ OpenAI)
 
-→ Regex fallback is in `_extract_recommendation()`
+#### **langchain-anthropic** (>=0.1.0)
+- **Purpose:** Official Anthropic Claude integration for LangChain
+- **Why Required:** Enables using Claude as primary LLM provider
+- **Used In:** `src/llm/llm_manager.py` when `provider='claude'`
+- **Key Benefits:** Full support for Claude 3 models, streaming support, token counting
 
-**Issue**: PDF export fails
+#### **langchain-openai** (>=0.0.1)
+- **Purpose:** Official OpenAI GPT integration for LangChain
+- **Why Required:** Enables using OpenAI as alternative LLM provider
+- **Used In:** `src/llm/llm_manager.py` when `provider='openai'`
+- **Key Benefits:** Support for GPT-4, GPT-3.5-turbo, function calling
 
-→ Install Playwright Chromium:
-  ```bash
-  playwright install chromium
-  ```
+#### **langchain-community** (>=0.1.0)
+- **Purpose:** Community integrations for various tools and services
+- **Why Required:** Provides HuggingFace embeddings integration
+- **Used In:** `src/embeddings/analysis_embedding_store.py` - text embedding fallback
+- **Key Benefits:** Lightweight embeddings locally without external APIs
 
-**Issue**: Report too long or too short
+#### **langchain-huggingface** (>=0.0.1)
+- **Purpose:** HuggingFace embeddings through LangChain
+- **Why Required:** Primary embeddings provider for semantic search
+- **Used In:** `src/embeddings/analysis_embedding_store.py` and `src/embeddings/screener_embedding_store.py`
+- **Model Used:** `sentence-transformers/all-MiniLM-L6-v2` (384-dimensional vectors)
+- **Key Benefits:** High-quality embeddings, no API key needed, runs locally on CPU
 
-→ Adjust prompt word limits in `prompts.py`
+#### **langgraph** (>=0.1.0)
+- **Purpose:** State machine framework for complex AI workflows
+- **Why Required:** Orchestrates the 7-step analysis workflow
+- **Used In:** `src/analysis/analysis_engine.py` - LangGraph workflow definition
+- **Key Components:**
+  - `StateGraph` - Defines workflow states and transitions
+  - `Node` - Each analysis section (company overview, quantitative, etc.)
+  - `edges` - Connections between nodes
+- **Key Benefits:** Builds complex multi-step AI pipelines, handles conditionals and loops
 
-→ Or adjust CSS padding/font-size in `comprehensive_prompt_new.py`
+---
+
+### Vector Database & Semantic Search
+
+#### **faiss-cpu** (>=1.7.4)
+- **Purpose:** Facebook AI Similarity Search - vector similarity library
+- **Why Required:** Enables semantic search over embeddings for Q&A
+- **Used In:**
+  - `src/embeddings/analysis_embedding_store.py` - Analysis report search
+  - `src/embeddings/screener_embedding_store.py` - Cross-stock metrics search
+- **How It Works:**
+  - Stores 384-dimensional vectors (embeddings) in FAISS indices
+  - Efficient L2 distance computation for finding similar chunks
+  - Persists indices to disk as binary files (`embeddings/{STOCK}/faiss_index.bin`)
+- **Key Benefits:** Extremely fast similarity search, low memory footprint, no external DB needed
+- **Alternative:** `faiss-gpu` for GPU acceleration (optional)
+
+#### **redisvl** (>=0.1.0)
+- **Purpose:** Redis vector library for semantic search with Redis
+- **Why Required:** Alternative vector DB backend (currently used for potential scaling)
+- **Used In:** Configuration but not actively used in current implementation
+- **Future Use:** When Redis becomes primary vector store for distributed caching
+
+#### **redis** (>=5.0.0)
+- **Purpose:** In-memory data store and cache
+- **Why Required:** Potential caching layer for embeddings and LLM responses
+- **Used In:** Could be used in `src/common/cache_manager.py` for distributed caching
+- **Current Status:** Installed but file-based JSON caching used instead for simplicity
+
+---
+
+### Web Framework & API
+
+#### **flask** (>=2.3.0)
+- **Purpose:** Lightweight Python web framework
+- **Why Required:** Builds REST API endpoints for analysis and chat
+- **Used In:** `src/api/app.py` - main Flask application
+- **Endpoints Provided:**
+  - `GET /` - Web interface
+  - `POST /api/analyze` - Submit stock for analysis
+  - `POST /api/chat` - Unified chat endpoint
+  - `GET /api/results/<stock>` - Retrieve results
+  - `GET /report/<stock>` - HTML report viewer
+- **Key Benefits:** Minimal dependencies, built-in thread support, easy to understand
+
+#### **flask-cors** (>=4.0.0)
+- **Purpose:** Enable Cross-Origin Resource Sharing for Flask
+- **Why Required:** Allows frontend (JavaScript) to make API calls from different origin
+- **Used In:** `src/api/app.py` - middleware for `/api/chat`, `/api/analyze` endpoints
+- **Key Benefits:** Prevents CORS errors when frontend and API are on different domains
+
+---
+
+### Data Processing & Analysis
+
+#### **pandas** (>=3.0.0)
+- **Purpose:** Data manipulation and analysis library
+- **Why Required:** Process financial CSV data (P&L, balance sheet, cash flow, etc.)
+- **Used In:**
+  - `src/data/csv_cleaner.py` - Data cleaning and validation
+  - `src/data/csv_data_formatter.py` - Converting CSVs to LLM-friendly tables
+  - `src/analysis/analysis_engine.py` - Loading stock data
+- **Key Operations:**
+  - Read CSV files from `static/{STOCK}/`
+  - Handle missing values
+  - Compute growth rates and trends
+  - Format data as markdown/HTML tables
+
+#### **scikit-learn** (>=1.3.0)
+- **Purpose:** Machine learning library with text/data utilities
+- **Why Required:** Text preprocessing and feature scaling for embeddings
+- **Used In:**
+  - `src/embeddings/screener_embedding_store.py` - Numeric filtering and normalization
+  - Potential TF-IDF text preprocessing for hybrid search
+- **Key Benefits:** Robust algorithms for text and numeric feature handling
+
+#### **yfinance** (>=0.2.30)
+- **Purpose:** Fetch real-time stock market data from Yahoo Finance
+- **Why Required:** Get current stock prices, volume, and performance metrics
+- **Used In:** `src/common/realtime_data_integration.py` - Market snapshot
+- **Data Fetched:**
+  - Current price and % change
+  - 52-week range
+  - Trading volume
+  - Dividend yield
+  - Market cap
+- **Key Benefits:** Free API, no key required, widely used for real-time data
+
+#### **playwright** (>=1.40.0)
+- **Purpose:** Browser automation framework for scraping dynamic content
+- **Why Required:** Fetch financial data from Screener.in (JavaScript-heavy site)
+- **Used In:** `src/data/screener_data_extractor.py` - Data extraction pipeline
+- **How It Works:**
+  - Opens Screener.in URLs in headless browser
+  - Waits for dynamic content to load
+  - Extracts financial tables via DOM parsing
+- **Key Benefits:** Handles JavaScript-rendered content (faster than Selenium)
+- **Alternative:** Could switch to Selenium if needed
+
+---
+
+### Utilities & Configuration
+
+#### **python-dotenv** (>=1.0.0)
+- **Purpose:** Load environment variables from `.env` file
+- **Why Required:** Manage API keys and configuration securely
+- **Used In:** `src/common/config.py` - Load credentials
+- **Environment Variables Configured:**
+  - `LLM_PROVIDER` - Claude or OpenAI
+  - `ANTHROPIC_API_KEY` - Claude API key
+  - `OPENAI_API_KEY` - OpenAI API key
+  - `DEBUG_MODE` - Enable debug logging
+  - `CACHE_TTL_DAYS` - Analysis cache expiry
+- **Key Benefits:** Keeps secrets out of code, easy to switch configs
+
+#### **pydantic** (>=2.0.0)
+- **Purpose:** Data validation and settings using Python type hints
+- **Why Required:** Validate configuration, API request/response schemas
+- **Used In:**
+  - `src/common/config.py` - Settings validation
+  - Chat request/response models
+  - Analysis result schemas
+- **Key Benefits:** Runtime validation, auto-generated docs, type safety
+
+#### **requests** (>=2.31.0)
+- **Purpose:** HTTP library for making API calls
+- **Why Required:** Fetch data, make external API requests
+- **Used In:**
+  - `src/data/screener_data_extractor.py` - Fetch Screener.in URLs
+  - Real-time data fetching
+  - Fallback for API calls when LangChain not sufficient
+- **Key Benefits:** Simple and robust HTTP handling
+
+---
+
+### Development & Testing
+
+#### **pytest** (>=7.0.0)
+- **Purpose:** Testing framework
+- **Why Required:** Write and run unit tests for modules
+- **Used In:** `tests/` directory - test suite
+- **Key Features:** Fixtures, parametrization, detailed output
+- **Example:** `pytest tests/ -v` runs all tests
+
+#### **pytest-asyncio** (>=0.21.0)
+- **Purpose:** Async test support for pytest
+- **Why Required:** Test async functions in chat and analysis modules
+- **Used In:** Tests for async LLM calls and embeddings
+
+#### **black** (>=23.0.0)
+- **Purpose:** Code formatter
+- **Why Required:** Maintain consistent code style (PEP 8)
+- **Usage:** `black src/` formats all Python files
+- **Integrated:** Pre-commit hooks for automatic formatting
+
+#### **isort** (>=5.12.0)
+- **Purpose:** Import statement organizer
+- **Why Required:** Sort and organize imports consistently
+- **Usage:** `isort src/` organizes imports
+- **Integrated:** Works with black for code consistency
+
+#### **flake8** (>=6.0.0)
+- **Purpose:** Style guide enforcement tool
+- **Why Required:** Catch PEP 8 violations and code smells
+- **Usage:** `flake8 src/` checks code quality
+- **Config:** Can be configured via `.flake8` file
+
+---
+
+## Technology Stack Summary
+
+| Tier | Component | Technology | Purpose |
+|------|-----------|-----------|---------|
+| **API** | REST Framework | Flask + Flask-CORS | HTTP endpoints, CORS handling |
+| **LLM** | Model Providers | Claude, OpenAI | AI inference for analysis |
+| **LLM Framework** | Orchestration | LangChain + LangGraph | Prompt management, workflows |
+| **Vector Search** | Embeddings | HuggingFace (sentence-transformers) | Text-to-vector conversion |
+| **Vector Search** | Similarity Index | FAISS | Fast semantic search |
+| **Data Processing** | Analysis | Pandas | CSV processing, tables |
+| **Data Processing** | Web Scraping | Playwright | Extract financial data |
+| **Data Processing** | Real-time Data | YFinance | Stock prices & volumes |
+| **Configuration** | Secrets | python-dotenv | Environment management |
+| **Validation** | Schemas | Pydantic | Request/response validation |
+| **Testing** | Unit Tests | Pytest + pytest-asyncio | Test suite |
+| **Quality** | Code Style | Black, isort, flake8 | Code formatting & linting |
+
+---
+
+## Summary
+
+Stock Analyzer is a **clean, modular system** that separates concerns effectively:
+
+- **Analysis:** Multi-step LangGraph workflow for comprehensive reports
+- **Embeddings:** FAISS-based semantic search with RAG for Q&A
+- **Chat:** Unified router with intelligent query classification
+- **API:** RESTful Flask interface for web and mobile
+
+The removal of unused code and consolidation to a single chat endpoint resulted in a **cleaner, more maintainable codebase** that's easier to understand and extend.

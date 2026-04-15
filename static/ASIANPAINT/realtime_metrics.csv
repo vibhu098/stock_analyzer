@@ -1,0 +1,2 @@
+current_price,market_cap_crores,pe_ratio,prev_close,day_high,day_low,week52_high,week52_low,dividend_yield,volume,fetch_timestamp,data_age,source
+2169.0,207919.1072768,54.04934,2225.8,2185.1,2142.4,2985.7,2115.0,114.99999999999999,1853997,2026-04-03T23:27:37.887365,Real-time (2-min delayed NSE),Yahoo Finance

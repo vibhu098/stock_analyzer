@@ -19,7 +19,7 @@ except ImportError:
     exit(1)
 
 from .csv_cleaner import CSVCleaner
-from .screener_embedding_store import ScreenerEmbeddingStore
+from src.embeddings import ScreenerEmbeddingStore
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')
