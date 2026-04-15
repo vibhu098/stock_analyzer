@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAIL (India) Ltd – Equity Analysis Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --dark-navy: #060e1d;
+    --mid-navy: #112240;
+    --accent-gold: #c9a84c;
+    --accent-gold-light: #e8c97a;
+    --accent-teal: #1e8a7a;
+    --accent-teal-light: #2ab8a4;
+    --green: #1a9e5f;
+    --green-bg: #e8f7f0;
+    --red: #c0392b;
+    --red-bg: #fdf0ee;
+    --orange: #d97706;
+    --orange-bg: #fef3e2;
+    --blue-accent: #2563eb;
+    --light-bg: #f8f9fc;
+    --white: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+    --border-light: #f1f5f9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--light-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  @media print {
+    body { background: white; font-size: 12px; }
+    .page-break { page-break-before: always; }
+    .no-print { display: none; }
+    .section { box-shadow: none !important; }
+  }
+
+  /* ── COVER HEADER ── */
+  .cover {
+    background: linear-gradient(135deg, var(--dark-navy) 0%, var(--mid-navy) 50%, #0d2d55 100%);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(30,138,122,0.2);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .cover-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 52px 48px 44px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .report-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 18px;
+    opacity: 0.9;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+    color: white;
+  }
+
+  .cover-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 24px;
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .meta-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .meta-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* Quick Metrics Strip */
+  .metrics-strip {
+    background: white;
+    border-bottom: 3px solid var(--accent-gold);
+    padding: 0;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .metrics-strip-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .metric-chip {
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .metric-chip:last-child { border-right: none; }
+  .metric-chip .chip-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 4px;
+  }
+  .metric-chip .chip-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.1;
+  }
+  .metric-chip .chip-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ── RECOMMENDATION BOX ── */
+  .rec-box {
+    background: linear-gradient(135deg, #0a2d1a 0%, #0f3d25 100%);
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+    padding: 20px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .rec-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--accent-teal-light));
+  }
+  .rec-badge {
+    background: var(--green);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border-radius: 4px;
+  }
+  .rec-details { display: flex; flex-direction: column; gap: 5px; }
+  .rec-details .rec-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .rec-details .rec-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+  }
+  .rec-right { text-align: right; }
+  .rec-right .rec-target {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1;
+  }
+  .rec-right .rec-upside {
+    font-size: 13px;
+    color: #4ade80;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+  .rec-right .rec-horizon {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 36px 24px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .section-header {
+    background: var(--navy);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    opacity: 0.85;
+    min-width: 32px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .section-body { padding: 24px 28px; }
+
+  /* ── SUBSECTION ── */
+  .subsection { margin-bottom: 28px; }
+  .subsection:last-child { margin-bottom: 0; }
+  .subsection-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  thead tr { background: var(--navy); }
+  thead th {
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  thead th:not(:first-child) { text-align: right; }
+  tbody tr { border-bottom: 1px solid var(--border-light); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--light-bg); }
+  tbody td { padding: 9px 12px; color: var(--text-primary); }
+  tbody td:not(:first-child) { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  tbody td:first-child { font-weight: 500; }
+
+  .table-highlight { background: rgba(201,168,76,0.07) !important; }
+  .tfoot-row td {
+    background: var(--mid-navy) !important;
+    color: white !important;
+    font-weight: 700;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tfoot-row td:first-child { font-family: 'Source Sans 3', sans-serif; }
+
+  /* ── TREND TAGS ── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-orange { background: var(--orange-bg); color: var(--orange); }
+  .tag-blue { background: #eff6ff; color: var(--blue-accent); }
+  .tag-navy { background: #eef2ff; color: var(--navy); }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 3px solid var(--accent-teal);
+    background: #f0faf8;
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .callout strong { color: var(--text-primary); }
+  .callout-warn {
+    border-color: var(--orange);
+    background: var(--orange-bg);
+  }
+  .callout-danger {
+    border-color: var(--red);
+    background: var(--red-bg);
+  }
+  .callout-info {
+    border-color: var(--blue-accent);
+    background: #eff6ff;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .stat-card {
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .stat-card .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 5px;
+  }
+  .stat-card .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .stat-card .stat-trend {
+    font-size: 11px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .neutral { color: var(--orange); }
+
+  /* ── SHAREHOLDING GRID ── */
+  .sh-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .sh-card {
+    text-align: center;
+    background: var(--light-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 10px;
+  }
+  .sh-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .sh-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .sh-trend { font-size: 11px; margin-top: 4px; font-weight: 600; }
+
+  /* ── INVESTMENT THESIS ITEMS ── */
+  .thesis-list { list-style: none; padding: 0; }
+  .thesis-list li {
+    padding: 11px 14px;
+    border-left: 3px solid var(--accent-gold);
+    background: var(--light-bg);
+    margin-bottom: 8px;
+    border-radius: 0 5px 5px 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .thesis-list li strong { color: var(--navy); display: block; margin-bottom: 3px; font-size: 13.5px; }
+  .thesis-list.catalysts li { border-color: var(--accent-teal); }
+  .thesis-list.risks li { border-color: var(--red); background: #fdf5f5; }
+
+  /* ── VALUATION ── */
+  .val-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .val-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .val-card h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 10px;
+  }
+  .val-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .val-note { font-size: 12px; color: var(--text-secondary); margin-top: 5px; }
+
+  /* ── FINAL RECOMMENDATION ── */
+  .final-rec {
+    background: linear-gradient(135deg, #0a1f12 0%, #0e2e1c 100%);
+    border: 2px solid var(--green);
+    border-radius: 8px;
+    padding: 28px 32px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-rec::before {
+    content: 'EQUITY RESEARCH RECOMMENDATION';
+    position: absolute;
+    top: 12px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.25);
+    white-space: nowrap;
+  }
+  .final-rec .big-rec {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+    margin-top: 14px;
+  }
+  .final-rec .rec-trio {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 20px;
+  }
+  .trio-item { text-align: center; }
+  .trio-item .trio-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .trio-item .trio-val {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    margin-top: 4px;
+  }
+  .trio-item .trio-sub {
+    font-size: 11px;
+    color: #4ade80;
+    margin-top: 3px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--dark-navy);
+    color: rgba(255,255,255,0.35);
+    padding: 20px 48px;
+    font-size: 10px;
+    line-height: 1.7;
+    margin-top: 8px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .footer-disclaimer { margin-bottom: 8px; }
+  .footer-credits {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .footer-credits span { color: rgba(255,255,255,0.5); font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+
+  /* ── BODY TEXT ── */
+  p { margin-bottom: 10px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--text-primary); }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 20px 0;
+  }
+
+  .analysis-block {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: var(--light-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .analysis-block .ab-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .analysis-block p { font-size: 13px; }
+
+  .key-takeaway {
+    background: rgba(10,22,40,0.04);
+    border: 1px solid var(--navy);
+    border-radius: 5px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 12.5px;
+  }
+  .key-takeaway::before {
+    content: '▸ KEY TAKEAWAY  ';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ── WRAPPERS ── */
+  .content-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+  }
+
+  /* Revenue bar chart */
+  .bar-chart { margin: 16px 0; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .bar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    width: 48px;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: var(--border-light);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), #1e4080);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    transition: width 0.3s;
+  }
+  .bar-fill.profit { background: linear-gradient(90deg, var(--green), #2ea86a); }
+  .bar-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: white;
+    white-space: nowrap;
+  }
+  .bar-val-outside {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    min-width: 80px;
+  }
+
+  .peer-table thead th:first-child { text-align: left; }
+  .gail-peer { background: rgba(201,168,76,0.08) !important; font-weight: 700; }
+
+</style>
+</head>
+<body>
+
+<div class="content-wrapper">
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="report-label">Equity Research Report · Gas Transmission & Marketing</div>
+    <h1>GAIL (India) Ltd</h1>
+    <div class="cover-subtitle">Gas Authority of India Limited &nbsp;·&nbsp; NSE: GAIL &nbsp;·&nbsp; Maharatna PSU</div>
+
+    <div class="cover-meta">
+      <div class="meta-item">
+        <span class="meta-label">Sector</span>
+        <span class="meta-value">Oil, Gas &amp; Consumable Fuels</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Industry</span>
+        <span class="meta-value">Gas Transmission / Marketing</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Exchange</span>
+        <span class="meta-value">NSE / BSE</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Mkt Cap</span>
+        <span class="meta-value">₹97,114 Cr</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">CMP</span>
+        <span class="meta-value">₹148</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">52W Range</span>
+        <span class="meta-value">₹145 – ₹203</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Metrics Strip -->
+<div class="metrics-strip">
+  <div class="metrics-strip-inner">
+    <div class="metric-chip">
+      <div class="chip-label">P/E Ratio</div>
+      <div class="chip-value">11.3x</div>
+      <div class="chip-sub">TTM</div>
+    </div>
+    <div class="metric-chip">
+      <div class="chip-label">ROCE</div>
+      <div class="chip-value">14.0%</div>
+      <div class="chip-sub">FY24</div>
+    </div>
+    <div class="metric-chip">
+      <div class="chip-label">ROE</div>
+      <div class="chip-value">13.1%</div>
+      <div class="chip-sub">FY24</div>
+    </div>
+    <div class="metric-chip">
+      <div class="chip-label">Div Yield</div>
+      <div class="chip-value">5.08%</div>
+      <div class="chip-sub">Current</div>
+    </div>
+    <div class="metric-chip">
+      <div class="chip-label">D/E Ratio</div>
+      <div class="chip-value">0.25x</div>
+      <div class="chip-sub">FY24</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN CONTENT ══ -->
+<div class="main-wrapper">
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Company Overview</span>
+    </div>
+    <div class="section-body">
+
+      <!-- Rec Box -->
+      <div class="rec-box">
+        <div class="rec-badge">BUY</div>
+        <div class="rec-details">
+          <span class="rec-title">Investment Recommendation</span>
+          <span class="rec-text">Compelling valuation at a ~40% discount to 52-week highs; strong dividend yield, expanding pipeline network, and India's gas penetration upcycle as tailwinds.</span>
+        </div>
+        <div class="rec-right">
+          <div class="rec-target">₹205</div>
+          <div class="rec-upside">▲ 38.5% Upside</div>
+          <div class="rec-horizon">12–18 Month Horizon</div>
+        </div>
+      </div>
+
+      <p>Incorporated in 1984 as a Government of India undertaking, <strong>GAIL (India) Limited</strong> is India's dominant natural gas utility — an integrated company spanning sourcing, trading, transmission, LPG production, petrochemicals, and city-gas distribution. Headquartered in New Delhi, GAIL holds Maharatna PSU status and is listed on both NSE and BSE.</p>
+
+      <p>GAIL owns and operates over <strong>11,500 km of natural gas pipelines</strong> and over 2,300 km of LPG pipelines — the backbone of India's gas infrastructure grid. Its diversified portfolio includes six LPG gas-processing units, a petrochemicals facility at Pata (Uttar Pradesh) with 810 KT/annum polymer capacity, joint-venture stakes in Petronet LNG, Ratnagiri Gas & Power, and significant city-gas distribution (CGD) interests through GAIL Gas and its subsidiaries. The company holds a dominant ~70% market share in India's natural gas transmission segment.</p>
+
+      <p>Revenue mix is broadly split across: <strong>Natural Gas Trading (~70.5%)</strong>, Gas Transmission (6.8%), Petrochemicals (7.1%), Exploration & Production (5.4%), and Other (10.2%). The company has wholly owned international subsidiaries in Singapore and the US focused on LNG, petrochemical trading, and shale gas assets.</p>
+
+      <p><strong>Recent Developments:</strong> In March 2026, GAIL signed an MoU with RailTel for digital infrastructure and telecom collaboration. GAIL also entered into a long-term LNG carrier charter agreement with Mitsui O.S.K. Lines for the vessel 'GAIL BHUWAN'. The Board declared an interim dividend of ₹5 per share (50%) for FY26 at its January 2026 meeting. On the macro front, the West Asia conflict (Iran) in early 2026 significantly disrupted India's LNG supply chain, as ~69% of India's LNG imports pass through or near the Strait of Hormuz — creating near-term earnings headwinds but also underlying long-term argument for domestic gas infrastructure build-out.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section page-break">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Quantitative Analysis</span>
+    </div>
+    <div class="section-body">
+
+      <!-- 2a -->
+      <div class="subsection">
+        <span class="subsection-title">a) Market Valuation &amp; Price Metrics</span>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-label">Market Cap</div>
+            <div class="stat-val">₹97,114 Cr</div>
+            <div class="stat-trend down">▼ Down ~40% from peak</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Current Stock Price</div>
+            <div class="stat-val">₹148</div>
+            <div class="stat-trend down">▼ -27% from 52W High ₹203</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">P/E Ratio (TTM)</div>
+            <div class="stat-val">11.3x</div>
+            <div class="stat-trend neutral">Below sector median</div>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>FY20</th>
+              <th>FY21</th>
+              <th>FY22</th>
+              <th>FY23</th>
+              <th>FY24</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Market Cap (₹ Cr)</td>
+              <td>~34,480</td>
+              <td>~43,200</td>
+              <td>~53,000</td>
+              <td>~79,500</td>
+              <td>~1,19,107</td>
+              <td><span class="tag tag-green">↑ Strong Growth</span></td>
+            </tr>
+            <tr>
+              <td>Stock Price (₹) at FY-end</td>
+              <td>~76</td>
+              <td>~131</td>
+              <td>~152</td>
+              <td>~93</td>
+              <td>~181</td>
+              <td><span class="tag tag-orange">Volatile</span></td>
+            </tr>
+            <tr>
+              <td>P/E Ratio</td>
+              <td>3.7x</td>
+              <td>7.2x</td>
+              <td>6.1x</td>
+              <td>8.2x</td>
+              <td>14.8x</td>
+              <td><span class="tag tag-green">↑ Re-rating</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>GAIL's market capitalization grew at a ~28% CAGR over five years from FY20 to FY24, reflecting strong earnings recovery and investor re-rating of the gas sector. The P/E has expanded meaningfully from 3.7x in FY20 to a peak of 14.8x in FY24 — though current TTM P/E has compressed to ~11.3x following recent geopolitical events (Strait of Hormuz crisis) and near-term earnings weakness in Q3 FY26. Stock has corrected ~27% from its 52-week high, creating a potential entry opportunity.</p>
+        </div>
+        <div class="key-takeaway">At ₹148, GAIL trades at just 1.1x book value and 11.3x trailing earnings — a meaningful discount relative to its earnings power and infrastructure asset base. The stock's 5-year price CAGR of ~9% has lagged its earnings trajectory, suggesting potential valuation catch-up.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2b -->
+      <div class="subsection">
+        <span class="subsection-title">b) Profitability &amp; Returns</span>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>FY20</th>
+              <th>FY21</th>
+              <th>FY22</th>
+              <th>FY23</th>
+              <th>FY24</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Return on Equity (ROE)</td>
+              <td>~19%</td>
+              <td>9.5%</td>
+              <td>20.3%</td>
+              <td>8.6%</td>
+              <td>12.9%</td>
+              <td><span class="tag tag-orange">Volatile — recovering</span></td>
+            </tr>
+            <tr>
+              <td>Return on Capital Employed (ROCE)</td>
+              <td>20%</td>
+              <td>13%</td>
+              <td>23%</td>
+              <td>10%</td>
+              <td>15%</td>
+              <td><span class="tag tag-orange">Volatile — improving</span></td>
+            </tr>
+            <tr>
+              <td>Net Profit Margin</td>
+              <td>13.1%</td>
+              <td>10.7%</td>
+              <td>13.3%</td>
+              <td>3.8%</td>
+              <td>7.4%</td>
+              <td><span class="tag tag-orange">Recovery from FY23 trough</span></td>
+            </tr>
+            <tr>
+              <td>Operating Profit Margin</td>
+              <td>12%</td>
+              <td>13%</td>
+              <td>16%</td>
+              <td>5%</td>
+              <td>11%</td>
+              <td><span class="tag tag-green">↑ Sharp recovery FY24</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>GAIL's profitability was severely disrupted in FY23 when elevated global LNG prices led to loss-making natural gas trading activities (buying spot LNG at high prices vs. selling to consumers at regulated/contracted rates). This caused OPM to collapse to just 5% and ROE to fall to 8.6%. FY24 saw a sharp recovery — OPM recovered to 11%, net profit rose 77% YoY to ₹9,903 Cr, and ROCE improved to 15%. FY25 continued the upswing, with ROE reaching 14.7% and net profit growing another 26% to ₹12,463 Cr, aided by an arbitration settlement gain of ₹2,440 Cr.</p>
+        </div>
+        <div class="key-takeaway">The FY23 margin dislocation was largely exogenous — driven by the global LNG price spike. The subsequent strong recovery confirms GAIL's underlying business economics are sound. The core pipeline transmission business continues to deliver stable, regulated returns irrespective of commodity cycle.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2c -->
+      <div class="subsection">
+        <span class="subsection-title">c) Growth Metrics</span>
+
+        <div class="bar-chart">
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px; font-family:'JetBrains Mono',monospace;">REVENUE (₹ Cr)</p>
+          <div class="bar-row"><span class="bar-label">FY20</span><div class="bar-track"><div class="bar-fill" style="width:47%"><span class="bar-val">72,518</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">FY21</span><div class="bar-track"><div class="bar-fill" style="width:37%"><span class="bar-val">57,372</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">FY22</span><div class="bar-track"><div class="bar-fill" style="width:60%"><span class="bar-val">92,770</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">FY23</span><div class="bar-track"><div class="bar-fill" style="width:100%"><span class="bar-val">1,45,668</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">FY24</span><div class="bar-track"><div class="bar-fill" style="width:87%"><span class="bar-val">1,33,228</span></div></div></div>
+          <div class="bar-row"><span class="bar-label">FY25</span><div class="bar-track"><div class="bar-fill" style="width:92%"><span class="bar-val">1,41,903</span></div></div></div>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>5-Year CAGR</th><th>3-Year CAGR</th><th>TTM</th><th>Trend</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Revenue Growth Rate</td>
+              <td>14%</td>
+              <td>15%</td>
+              <td>3%</td>
+              <td><span class="tag tag-orange">Moderating (LNG price base)</span></td>
+            </tr>
+            <tr>
+              <td>EPS Growth Rate</td>
+              <td>2% (5-yr)</td>
+              <td>-5% (3-yr)</td>
+              <td>-18%</td>
+              <td><span class="tag tag-red">Near-term headwinds</span></td>
+            </tr>
+            <tr class="table-highlight">
+              <td>Net Profit Growth (FY24 YoY)</td>
+              <td colspan="2">+77% YoY</td>
+              <td>Strong</td>
+              <td><span class="tag tag-green">↑ Significant recovery</span></td>
+            </tr>
+            <tr>
+              <td>Net Profit Growth (FY25 YoY)</td>
+              <td colspan="2">+26% YoY</td>
+              <td>—</td>
+              <td><span class="tag tag-green">↑ Continued recovery</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>Revenue growth benefited from high LNG/natural gas prices in FY22–FY23 (revenue jumped 57% YoY in FY22 and 57% again in FY23). However, this inflated the base; FY24 revenue fell 8.6% YoY as LNG spot prices normalized. The 5-year revenue CAGR of 14% reflects the underlying volumetric growth in India's gas sector. Earnings have been more volatile — the 3-year profit CAGR is negative due to the FY23 trough. The 10-year profit CAGR of 13% is a better indicator of long-term earnings compounding. Current TTM weakness in EPS (-18%) is primarily attributable to the Q3 FY26 profit drop due to gas supply disruptions from the West Asia conflict and lower APM allocations.</p>
+        </div>
+        <div class="key-takeaway">The short-term EPS weakness is driven by exogenous geopolitical factors rather than structural deterioration. India's natural gas demand trajectory (government target of raising gas share in energy mix from 6% to 15%) provides a multiyear volume growth runway for GAIL.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2d -->
+      <div class="subsection">
+        <span class="subsection-title">d) Balance Sheet Strength</span>
+
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>Trend</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Debt (₹ Cr)</td>
+              <td>6,912</td>
+              <td>7,873</td>
+              <td>9,216</td>
+              <td>17,816</td>
+              <td>21,794</td>
+              <td><span class="tag tag-orange">Rising but manageable</span></td>
+            </tr>
+            <tr>
+              <td>Equity + Reserves (₹ Cr)</td>
+              <td>49,268</td>
+              <td>53,182</td>
+              <td>64,114</td>
+              <td>64,927</td>
+              <td>76,997</td>
+              <td><span class="tag tag-green">↑ Growing</span></td>
+            </tr>
+            <tr class="table-highlight">
+              <td><strong>Debt-to-Equity Ratio</strong></td>
+              <td>0.14</td>
+              <td>0.15</td>
+              <td>0.14</td>
+              <td>0.27</td>
+              <td><strong>0.25</strong></td>
+              <td><span class="tag tag-green">Low / Conservative</span></td>
+            </tr>
+            <tr>
+              <td>Book Value per Share (₹)</td>
+              <td>~110</td>
+              <td>~120</td>
+              <td>~144</td>
+              <td>~140</td>
+              <td>~117</td>
+              <td><span class="tag tag-navy">Stable</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>GAIL has maintained a conservative balance sheet throughout its history. Despite rising absolute debt levels — driven by ongoing capex on pipeline expansion projects and the Jagdishpur-Haldia-Bokaro-Dhamra (JHBDPL) pipeline — the debt-to-equity ratio has remained well under 0.30x. Total debt rose from ₹6,912 Cr in FY20 to ₹21,794 Cr in FY24 as the company invested aggressively in capacity expansion, but this is well-covered by its operating cash flows and equity base. The current ratio remains healthy, and the company carries no significant refinancing risk.</p>
+        </div>
+        <div class="key-takeaway">With a D/E of just 0.25x and strong operating cash flows, GAIL's balance sheet is one of the sector's strongest. The capex-heavy pipeline investments are long-duration regulated assets that will generate stable toll-based revenues for decades — making this leverage expansion a productive use of capital.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2e -->
+      <div class="subsection">
+        <span class="subsection-title">e) Cash Flow Analysis</span>
+
+        <table>
+          <thead>
+            <tr><th>Cash Flow (₹ Cr)</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>From Operating Activities</td>
+              <td>8,345</td>
+              <td>8,993</td>
+              <td>9,420</td>
+              <td>3,205</td>
+              <td>12,586</td>
+              <td>15,735</td>
+            </tr>
+            <tr>
+              <td>From Investing Activities</td>
+              <td>-8,299</td>
+              <td>-4,640</td>
+              <td>-5,490</td>
+              <td>-7,453</td>
+              <td>-8,226</td>
+              <td>-6,623</td>
+            </tr>
+            <tr>
+              <td>From Financing Activities</td>
+              <td>281</td>
+              <td>-3,471</td>
+              <td>-3,917</td>
+              <td>2,972</td>
+              <td>-3,457</td>
+              <td>-8,941</td>
+            </tr>
+            <tr class="table-highlight">
+              <td><strong>Free Cash Flow (approx.)</strong></td>
+              <td>46</td>
+              <td>4,353</td>
+              <td>3,930</td>
+              <td>-4,248</td>
+              <td>4,360</td>
+              <td>9,112</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>Operating cash flows jumped significantly in FY24 (₹12,586 Cr) and again in FY25 (₹15,735 Cr), after the anomalous FY23 dip to ₹3,205 Cr caused by working capital stress during the LNG price spike. Investing outflows have been consistently high (~₹5,000–8,000 Cr/year), reflecting ongoing pipeline network capex. Financing activities in FY25 turned sharply negative (-₹8,941 Cr), driven by substantial dividend payouts (including interim dividends) — a sign of strong underlying cash generation. Free cash flow has recovered strongly, giving management flexibility for both capex and shareholder returns.</p>
+        </div>
+        <div class="key-takeaway">FY25 marked GAIL's strongest operational cash flow in recent history at ₹15,735 Cr. With FCF normalizing at ₹8,000–9,000 Cr annually, the company can comfortably fund both its capex pipeline and the ~₹5,000 Cr annual dividend payout without straining its balance sheet.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2f -->
+      <div class="subsection">
+        <span class="subsection-title">f) Dividend Analysis</span>
+
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dividend Per Share (₹)</td>
+              <td>~5.0</td>
+              <td>~5.5</td>
+              <td>~7.0</td>
+              <td>~5.0</td>
+              <td>~7.5</td>
+              <td>~8.5</td>
+            </tr>
+            <tr class="table-highlight">
+              <td><strong>Dividend Yield (Current)</strong></td>
+              <td colspan="4">—</td>
+              <td>~4.1%</td>
+              <td><strong>5.1%</strong></td>
+            </tr>
+            <tr>
+              <td>Dividend Payout Ratio</td>
+              <td>31%</td>
+              <td>36%</td>
+              <td>36%</td>
+              <td>59%</td>
+              <td>37%</td>
+              <td>40%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>GAIL has maintained a consistent and growing dividend track record. The current dividend yield of ~5.1% stands out in the PSU energy space as one of the most attractive among Nifty-listed companies. The payout ratio has been maintained in the 36–44% range historically (excluding the anomalous FY23 where a lower profit base elevated it to 59%). The Board declared an interim dividend of ₹5/share for FY26 in January 2026. GAIL's dividend payout aligns with the GoI's policy of encouraging PSUs to distribute surplus capital to shareholders, particularly as a Maharatna company.</p>
+        </div>
+        <div class="key-takeaway">At a ~5.1% dividend yield with near-certain continuity given government ownership, GAIL offers an income return that provides meaningful downside protection. The dividend yield exceeds prevailing 10-year government bond yields by ~50 bps, supporting the investment case even under a conservative scenario.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2g -->
+      <div class="subsection">
+        <span class="subsection-title">g) Efficiency Ratios</span>
+
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>FY20</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>Trend</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cash Conversion Cycle (Days)</td>
+              <td>20</td>
+              <td>10</td>
+              <td>20</td>
+              <td>23</td>
+              <td>24</td>
+              <td><span class="tag tag-orange">Stable / Slight uptick</span></td>
+            </tr>
+            <tr>
+              <td>Working Capital Days</td>
+              <td>-10</td>
+              <td>-24</td>
+              <td>-6</td>
+              <td>-6</td>
+              <td>-8</td>
+              <td><span class="tag tag-green">Consistently negative (favorable)</span></td>
+            </tr>
+            <tr>
+              <td>Debtor Days</td>
+              <td>24</td>
+              <td>22</td>
+              <td>29</td>
+              <td>27</td>
+              <td>26</td>
+              <td><span class="tag tag-green">Stable / Improving</span></td>
+            </tr>
+            <tr>
+              <td>Asset Turnover Ratio</td>
+              <td>1.0x</td>
+              <td>0.8x</td>
+              <td>1.1x</td>
+              <td>1.6x</td>
+              <td>1.3x</td>
+              <td><span class="tag tag-orange">Elevated on LNG price cycle</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>GAIL consistently maintains negative working capital days — an indicator of operational efficiency and strong counterparty relationships. Being a state-owned transmission utility with long-term contracts, it generally collects receivables faster than it pays payables. The asset turnover ratio spiked in FY23 due to elevated LNG revenues but has normalized in FY24. The CCC of 24 days in FY24 reflects manageable inventory holding and a healthy receivables cycle.</p>
+        </div>
+        <div class="key-takeaway">Negative working capital is a structural advantage of GAIL's business model — it operates largely as a regulated utility with contracted volumes, reducing the capital intensity of day-to-day operations.</div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- 2h -->
+      <div class="subsection">
+        <span class="subsection-title">h) Valuation Metrics – Peer Comparison</span>
+
+        <table class="peer-table">
+          <thead>
+            <tr><th>Company</th><th>P/E Ratio</th><th>ROCE (%)</th><th>ROE (%)</th><th>D/E Ratio</th><th>Div Yield</th></tr>
+          </thead>
+          <tbody>
+            <tr class="gail-peer">
+              <td>★ GAIL (India)</td>
+              <td>11.3x</td>
+              <td>14.0%</td>
+              <td>13.1%</td>
+              <td>0.25x</td>
+              <td>5.1%</td>
+            </tr>
+            <tr>
+              <td>Petronet LNG</td>
+              <td>~10.8x</td>
+              <td>~30%+</td>
+              <td>~26%</td>
+              <td>~0.0x</td>
+              <td>~4.5%</td>
+            </tr>
+            <tr>
+              <td>Gujarat State Petronet (GSPL)</td>
+              <td>~12x</td>
+              <td>~18%</td>
+              <td>~15%</td>
+              <td>~0.05x</td>
+              <td>~1.5%</td>
+            </tr>
+            <tr>
+              <td>Indraprastha Gas (IGL)</td>
+              <td>~18x</td>
+              <td>~25%</td>
+              <td>~22%</td>
+              <td>Nil</td>
+              <td>~1.5%</td>
+            </tr>
+            <tr>
+              <td>Mahanagar Gas (MGL)</td>
+              <td>~12x</td>
+              <td>~28%</td>
+              <td>~25%</td>
+              <td>Nil</td>
+              <td>~3.5%</td>
+            </tr>
+            <tr class="tfoot-row">
+              <td>Sector Median (approx.)</td>
+              <td>~12x</td>
+              <td>~22%</td>
+              <td>~20%</td>
+              <td>~0.05x</td>
+              <td>~3.0%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-block">
+          <div class="ab-title">Trend Analysis</div>
+          <p>GAIL trades in line with the sector median P/E (~12x), but its return metrics (ROCE 14%, ROE 13%) lag pure-play CGD companies like IGL and MGL. This is partly structural: GAIL's large gas trading segment carries thin and variable margins, which dilutes consolidated ROCE. Its pipeline transmission business, if valued standalone, would command significantly higher multiples. The most striking valuation advantage is GAIL's superior dividend yield — 5.1% vs. the sector median of ~3% — offering investors an attractive income cushion.</p>
+        </div>
+        <div class="key-takeaway">GAIL's P/E discount versus high-return CGD peers like IGL is partially justified due to trading segment margin variability. However, the pipeline transmission business (the company's crown jewel) is meaningfully undervalued at current prices. A sum-of-parts valuation that disaggregates the regulated pipeline business from the trading book reveals significant upside.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section page-break">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Qualitative Analysis</span>
+    </div>
+    <div class="section-body">
+
+      <div class="subsection">
+        <span class="subsection-title">a) Business Model</span>
+
+        <p><strong>Core Products &amp; Services:</strong> GAIL operates across five key business lines — (i) Natural Gas Trading &amp; Marketing, (ii) Natural Gas Pipeline Transmission (the regulated, toll-based backbone), (iii) LPG &amp; Liquid Hydrocarbons Production, (iv) Petrochemicals (polymer production at Pata complex, 810 KT/annum capacity), and (v) City Gas Distribution &amp; Renewable Energy. As Asia's largest natural gas transmission company, GAIL's 11,500+ km pipeline network is a near-irreplicable infrastructure moat.</p>
+
+        <p><strong>Revenue Streams:</strong> The natural gas trading segment contributes ~70.5% of revenues but at thin, volatile margins. Gas transmission (~6.8% of revenues) operates under PNGRB-regulated tariffs and generates high, predictable EBITDA with ~40–50% margins. Petrochemicals contributes ~7.1% of revenues and represents a higher-risk, more cyclical business. CGD and other segments account for the remainder. The government is currently deliberating a "One Nation, One Tariff" regime under PNGRB — which could restructure pipeline transmission economics going forward.</p>
+
+        <p><strong>Competitive Advantages:</strong></p>
+        <ul style="margin: 10px 0 0 18px; color: var(--text-secondary); font-size: 13.5px; line-height: 1.7;">
+          <li><strong>Pipeline monopoly:</strong> GAIL owns ~70% of India's natural gas transmission infrastructure — a natural monopoly that cannot be replicated by private players without multi-decade timelines and massive capital.</li>
+          <li><strong>Government backing:</strong> As a Maharatna PSU, GAIL benefits from priority gas allocation, state guarantees, and a strategic role in India's energy security policy.</li>
+          <li><strong>LNG import diversification:</strong> Long-term LNG supply contracts from the US, Qatar, and Australia de-risk supply volatility.</li>
+          <li><strong>Vertical integration:</strong> From gas sourcing to transmission to CGD to petrochemicals, GAIL captures value across the entire natural gas chain.</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <span class="subsection-title">b) Management Quality</span>
+
+        <p>GAIL is led by <strong>Shri Sandeep Kumar Gupta</strong> as Chairman and Managing Director. As a PSU, its management team is composed of IAS/IRS officers and domain experts appointed by the Government of India. The company has a track record of disciplined capital allocation, consistent dividend policies, and managing through complex commodity cycles.</p>
+
+        <p>The management team has demonstrated strategic foresight in several key decisions: (1) building diversified international LNG sourcing portfolios to reduce supply concentration, (2) proactively expanding pipeline capacity ahead of demand, and (3) beginning the transition to renewable energy and green hydrogen. A recent Board-level development includes the nomination of Shri Rohit Mathur as a Government nominee director in March 2026.</p>
+
+        <p><strong>Corporate Governance:</strong> Being government-owned, GAIL's corporate governance is subject to CAG audits, parliamentary oversight, and GoI guidelines. The company maintains regular dividend payments and transparent disclosures. However, PSU governance dynamics — including government influence on pricing, capex decisions, and management tenure — remain a structural factor that institutional investors account for in their valuations.</p>
+      </div>
+
+      <div class="subsection">
+        <span class="subsection-title">c) Growth Strategy</span>
+
+        <p><strong>Expansion Plans:</strong> GAIL is aggressively expanding pipeline capacity — the National Gas Grid infrastructure investment is expected to exceed ₹35,000 Cr over FY24–FY27. Key projects include the JHBDPL pipeline (1,869 km, eastern India) and the Kochi-Koottanad-Bangalore-Mangaluru pipeline. GAIL is also India's largest CGD operator through GAIL Gas, with CGD networks across 52+ Geographical Areas.</p>
+
+        <p><strong>Renewable Energy &amp; Green Hydrogen:</strong> GAIL has set targets to develop 1,000 MW of renewable energy capacity by FY27 and is investing in green hydrogen production and blending infrastructure. A recent MoU with RailTel (March 2026) aims to leverage AI and digital infrastructure for operational efficiency. GAIL has also signed an MoU with Argentina's YPF and entered a long-term LNG carrier charter with Mitsui O.S.K. Lines — reflecting a more globally integrated sourcing strategy.</p>
+
+        <p><strong>Petrochemicals Expansion:</strong> GAIL is exploring expansion of its Pata complex polymer capacity and potentially a new petrochemicals plant in partnership with another PSU. The petrochemicals segment has historically been drag on ROCE due to high feedstock costs and cyclical product prices, but management expects margin normalization as domestic polymer demand grows.</p>
+
+        <div class="callout">
+          <strong>Government Policy Tailwind:</strong> India's National Gas Grid policy aims to raise natural gas's share of the energy mix from the current ~6% to <strong>15% by 2030</strong>. This implies a near-tripling of gas volumes — the vast majority of which would flow through GAIL's pipeline network. This structural demand growth is the single most important long-term driver for the company.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Shareholding Pattern Analysis</span>
+    </div>
+    <div class="section-body">
+
+      <div class="sh-grid">
+        <div class="sh-card">
+          <div class="sh-pct">51.9%</div>
+          <div class="sh-label">Promoter (GoI)</div>
+          <div class="sh-trend neutral">→ Stable</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-pct">14.1%</div>
+          <div class="sh-label">FIIs</div>
+          <div class="sh-trend down">▼ Declining</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-pct">19.8%</div>
+          <div class="sh-label">DIIs</div>
+          <div class="sh-trend up">▲ Rising</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-pct">7.6%</div>
+          <div class="sh-label">Government</div>
+          <div class="sh-trend neutral">→ Stable</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-pct">6.7%</div>
+          <div class="sh-label">Public</div>
+          <div class="sh-trend up">▲ Rising</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Dec 2023</th><th>Mar 2024</th><th>Jun 2024</th><th>Sep 2024</th><th>Dec 2025</th><th>Trend</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Promoters (GoI)</td>
+            <td>51.90%</td>
+            <td>51.90%</td>
+            <td>51.92%</td>
+            <td>51.92%</td>
+            <td>51.88%</td>
+            <td><span class="tag tag-navy">Stable ~52%</span></td>
+          </tr>
+          <tr>
+            <td>FIIs</td>
+            <td>14.24%</td>
+            <td>14.17%</td>
+            <td>15.20%</td>
+            <td>16.79%</td>
+            <td>14.07%</td>
+            <td><span class="tag tag-red">↓ Declining</span></td>
+          </tr>
+          <tr>
+            <td>DIIs</td>
+            <td>19.37%</td>
+            <td>19.56%</td>
+            <td>18.13%</td>
+            <td>16.92%</td>
+            <td>19.76%</td>
+            <td><span class="tag tag-green">↑ Increasing</span></td>
+          </tr>
+          <tr>
+            <td>Government (Other)</td>
+            <td>7.92%</td>
+            <td>7.63%</td>
+            <td>7.63%</td>
+            <td>7.62%</td>
+            <td>7.61%</td>
+            <td><span class="tag tag-navy">Stable</span></td>
+          </tr>
+          <tr>
+            <td>Public</td>
+            <td>6.58%</td>
+            <td>6.75%</td>
+            <td>7.14%</td>
+            <td>6.76%</td>
+            <td>6.69%</td>
+            <td><span class="tag tag-green">↑ Rising (retail interest)</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="analysis-block">
+        <div class="ab-title">Analysis</div>
+        <p><strong>Promoter Holding:</strong> The Government of India's ~51.9% stake has been rock-steady for several years — there is no indication of disinvestment intent in the near term, providing ownership stability. Government's combined stake (promoter + other government entities) stands at ~59.5%.</p>
+        <p style="margin-top:8px;"><strong>FII vs. DII Dynamics:</strong> Foreign institutional holdings have drifted lower from ~16.4% in Mar 2023 to ~14.1% in Dec 2025, reflecting broader EM capital outflows and sector-specific concerns around commodity cycle risk. Domestic institutional investors (LIC, mutual funds, insurance companies) have been net buyers — DII holdings have risen from ~18% to ~20% over the same period — signaling domestic fund managers' conviction in GAIL's long-term infrastructure value.</p>
+        <p style="margin-top:8px;"><strong>Retail Participation:</strong> Public shareholding has risen from ~5.8% in Mar 2023 to ~6.7%, with total shareholders growing from ~9.25 lakh to ~15.88 lakh — a 72% increase. This broadening retail participation suggests increasing awareness of GAIL's dividend yield and long-term infrastructure story.</p>
+      </div>
+      <div class="key-takeaway">The increasing domestic institutional and retail participation amidst stable promoter holding and moderate FII exit is a constructive signal. DIIs — typically long-horizon investors — becoming net buyers while FIIs reduce exposure suggests a rotation of holding to more patient, value-oriented capital.</div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section page-break">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Investment Thesis</span>
+    </div>
+    <div class="section-body">
+
+      <div class="subsection">
+        <span class="subsection-title">Key Drivers for Future Growth</span>
+        <ul class="thesis-list">
+          <li>
+            <strong>India's Gas Penetration Upcycle</strong>
+            India's natural gas share in primary energy mix is ~6% vs. the global average of ~23%. The government's target to reach 15% by 2030 implies near-tripling of demand volumes. As the owner of 70%+ of India's gas transmission infrastructure, GAIL is the primary toll-road beneficiary of this demand surge.
+          </li>
+          <li>
+            <strong>Regulated Pipeline Expansion – Recurring Revenue Engine</strong>
+            GAIL's capex on the National Gas Grid (₹35,000+ Cr over FY24–FY27) will add significant new regulated transmission capacity. Each new pipeline km adds long-term contracted tariff revenues with 25–30 year asset life, compounding GAIL's infrastructure annuity income.
+          </li>
+          <li>
+            <strong>CGD Sector Tailwinds</strong>
+            As India's largest CGD operator through GAIL Gas (52+ GAs), the company is well-placed to monetize the rapid expansion of CNG and PNG networks across Tier 2/3 cities and new industrial corridors.
+          </li>
+          <li>
+            <strong>Petrochemicals Margin Recovery</strong>
+            The Pata complex has historically operated below potential due to feedstock costs and cyclical headwinds. Management expects improved margins as domestic polymer demand grows, LNG feedstock costs normalize, and potential capacity additions come online.
+          </li>
+          <li>
+            <strong>Green Hydrogen &amp; Renewable Energy – Future Optionality</strong>
+            GAIL's early moves into green hydrogen (production, blending, and infrastructure) position it as a potential beneficiary of India's National Hydrogen Mission. While commercial scale is still years away, this provides meaningful long-term upside optionality.
+          </li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <span class="subsection-title">Potential Catalysts for Stock Price Movement</span>
+        <ul class="thesis-list catalysts">
+          <li>
+            <strong>PNGRB Pipeline Tariff Revision</strong>
+            A long-pending tariff revision for gas transmission (APM tariff rationalization) could be a significant positive catalyst — a 10–15% tariff hike would directly boost EBITDA from the high-margin transmission segment.
+          </li>
+          <li>
+            <strong>Strait of Hormuz Conflict Resolution</strong>
+            A de-escalation of the Iran-US conflict and normalization of LNG supply chains through the Strait of Hormuz would remove the key near-term overhang on GAIL's earnings and stock price.
+          </li>
+          <li>
+            <strong>Petrochemical Plant Turnaround</strong>
+            Improvement in polymer realization prices and domestic demand would accelerate margin recovery in the petrochemicals segment, providing an upside surprise to consensus earnings estimates.
+          </li>
+          <li>
+            <strong>Government Disinvestment / Listing of Subsidiary</strong>
+            Any move to separately list GAIL Gas or other subsidiaries could unlock hidden value and trigger a re-rating of GAIL's consolidated holdings.
+          </li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <span class="subsection-title">Key Risks &amp; Challenges</span>
+        <ul class="thesis-list risks">
+          <li>
+            <strong>Geopolitical Supply Chain Risk (Near-Term)</strong>
+            The West Asia conflict and risk of Strait of Hormuz closure is an ongoing material risk — GAIL has ~66% effective LNG import exposure through this corridor. Prolonged disruption would compress margins and volumes.
+          </li>
+          <li>
+            <strong>Regulatory Risk – "One Nation, One Tariff"</strong>
+            PNGRB's proposed uniform pipeline tariff framework could potentially reduce GAIL's tariff income on certain routes, creating regulatory uncertainty for the transmission segment.
+          </li>
+          <li>
+            <strong>LNG Trading Margin Volatility</strong>
+            The FY23 experience demonstrated how sudden global LNG price spikes can cause significant losses in the trading segment. While risk management has improved, this structural vulnerability remains.
+          </li>
+          <li>
+            <strong>PSU Governance &amp; Execution Risk</strong>
+            Large capex projects in GAIL's pipeline (JHBDPL, etc.) have historically faced delays, cost overruns, and regulatory hurdles — delaying the revenue contribution from new infrastructure.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Valuation &amp; Recommendation</span>
+    </div>
+    <div class="section-body">
+
+      <div class="subsection">
+        <span class="subsection-title">Fair Value Estimate – Sum-of-Parts Approach</span>
+
+        <table>
+          <thead>
+            <tr><th>Business Segment</th><th>Methodology</th><th>EBITDA / Base (₹ Cr)</th><th>Multiple</th><th>Value (₹ Cr)</th><th>Per Share (₹)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pipeline Transmission</td>
+              <td>10x EV/EBITDA</td>
+              <td>~7,500</td>
+              <td>10x</td>
+              <td>75,000</td>
+              <td>~114</td>
+            </tr>
+            <tr>
+              <td>Natural Gas Trading</td>
+              <td>6x EV/EBITDA</td>
+              <td>~5,000</td>
+              <td>6x</td>
+              <td>30,000</td>
+              <td>~46</td>
+            </tr>
+            <tr>
+              <td>Petrochemicals</td>
+              <td>5x EV/EBITDA</td>
+              <td>~2,000</td>
+              <td>5x</td>
+              <td>10,000</td>
+              <td>~15</td>
+            </tr>
+            <tr>
+              <td>CGD / E&amp;P / Others</td>
+              <td>Book / Equity Value</td>
+              <td>JV book value</td>
+              <td>1x</td>
+              <td>~14,000</td>
+              <td>~21</td>
+            </tr>
+            <tr>
+              <td>Investments &amp; Cash</td>
+              <td>Market / Book Value</td>
+              <td>₹21,910 Cr</td>
+              <td>1x</td>
+              <td>21,910</td>
+              <td>~33</td>
+            </tr>
+            <tr class="tfoot-row">
+              <td>Less: Net Debt</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>-16,000</td>
+              <td>-24</td>
+            </tr>
+            <tr class="tfoot-row">
+              <td><strong>SOTP Fair Value</strong></td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td><strong>~1,34,910</strong></td>
+              <td><strong>~₹205</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="val-grid">
+          <div class="val-card">
+            <h4>Current Market Price</h4>
+            <div class="val-price">₹148</div>
+            <div class="val-note">As of mid-March 2026 (near 52-week lows)</div>
+          </div>
+          <div class="val-card" style="border-color: var(--green); background: var(--green-bg);">
+            <h4>SOTP Fair Value Estimate</h4>
+            <div class="val-price" style="color: var(--green);">₹205</div>
+            <div class="val-note" style="color: var(--green);">+38.5% upside from current levels | 12–18 months</div>
+          </div>
+        </div>
+
+        <div class="callout callout-info">
+          <strong>Valuation Note:</strong> The transmission segment is conservatively valued at 10x EBITDA, in line with Indian regulated utility peers. Were it to be re-rated to 12–13x (comparable to high-quality infrastructure/utility businesses globally), the fair value would expand to ₹225–245/share. The current valuation does not ascribe any meaningful premium for the green hydrogen optionality.
+        </div>
+      </div>
+
+      <!-- Final Rec -->
+      <div class="final-rec">
+        <div class="big-rec">BUY</div>
+        <div class="rec-trio">
+          <div class="trio-item">
+            <div class="trio-label">Target Price</div>
+            <div class="trio-val">₹205</div>
+            <div class="trio-sub">▲ 38.5% upside</div>
+          </div>
+          <div class="trio-item">
+            <div class="trio-label">Current Price</div>
+            <div class="trio-val">₹148</div>
+            <div class="trio-sub">Near 52-week low</div>
+          </div>
+          <div class="trio-item">
+            <div class="trio-label">Time Horizon</div>
+            <div class="trio-val">12–18 Mo</div>
+            <div class="trio-sub">FY26–FY27 visibility</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection" style="margin-top:20px;">
+        <span class="subsection-title">Rationale for BUY Recommendation</span>
+        <ul class="thesis-list">
+          <li><strong>Compelling Valuation at Trough Multiples</strong>: At 11.3x TTM P/E and 1.1x book value, GAIL is trading at one of its lowest valuation multiples in the past five years — well below the 14.8x peak reached in FY24. The near-term earnings weakness from West Asia supply disruption is creating an entry window.</li>
+          <li><strong>Irreplaceable Infrastructure Asset Base</strong>: The ~11,500 km pipeline network is a once-in-a-generation infrastructure moat with 25–30 year asset lives. At current market cap, investors are acquiring this infrastructure at deeply discounted replacement cost.</li>
+          <li><strong>Strong Dividend Floor – 5.1% Yield</strong>: One of the highest dividend yields among Nifty 100 companies. With >5% income return and 38%+ capital upside potential, the risk-reward ratio is highly favorable.</li>
+          <li><strong>Structural Demand Tailwind</strong>: India's natural gas penetration story (6% → 15% of energy mix) is a secular 10+ year theme. GAIL's pipeline infrastructure is the essential enabler, making it a must-own for investors seeking exposure to India's energy transition.</li>
+          <li><strong>Conservative Balance Sheet Provides Optionality</strong>: D/E of 0.25x and FCF of ~₹9,000 Cr/year provide significant headroom for both ongoing capex and accelerated dividend/buyback distributions.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">Conclusion</span>
+    </div>
+    <div class="section-body">
+      <p>GAIL (India) Limited presents a compelling investment case at current valuations — one that combines a durable infrastructure moat, an attractive income yield, and meaningful upside to fair value. The stock has corrected ~27% from its 52-week high of ₹203, creating what appears to be a value entry point driven by near-term, largely exogenous headwinds (West Asia geopolitical conflict affecting LNG supply chains and APM gas allocation cuts).</p>
+
+      <p>The business fundamentals remain intact. GAIL's core pipeline transmission business continues to generate high-margin, regulated returns irrespective of commodity cycles. Its 10-year revenue CAGR of 9% and profit CAGR of 13% demonstrate consistent long-run compounding. The FY24 and FY25 financial performances — with net profit up 77% and 26% respectively — confirm the company's ability to recover strongly from cyclical disruptions, as seen in FY23.</p>
+
+      <p>India's gas demand trajectory is perhaps the strongest structural argument for GAIL. The government's roadmap to increase natural gas's share in the energy mix from 6% to 15% by 2030 implies a near-tripling of transmission volumes — all of which must flow through GAIL's pipeline network. This is a regulated, capex-backed, government-sponsored demand engine that few equity investments can match in certainty.</p>
+
+      <p>Risks are real but manageable. The geopolitical LNG supply risk from the Strait of Hormuz is a near-term concern that has already been partially priced into the stock. The proposed "One Nation, One Tariff" regime introduces regulatory uncertainty, but the underlying volume growth more than offsets any tariff headwinds in the medium term.</p>
+
+      <p>With a SOTP-derived <strong>fair value of ₹205 per share</strong> (38.5% upside from ₹148), a ~5.1% dividend yield providing income support, and a 12–18 month investment horizon aligned with LNG supply normalization and pipeline capex monetization, GAIL warrants a clear <strong>BUY recommendation</strong> for investors seeking a blend of income stability and capital appreciation through India's energy infrastructure upcycle.</p>
+
+      <div class="callout" style="margin-top: 18px;">
+        <strong>Summary:</strong> GAIL is India's gas infrastructure monopoly — buying it at trough valuations, with a 5.1% dividend yield and 38% upside to fair value, is an opportunity that emerges once every few years. The convergence of cheap valuation, strong dividend support, and powerful structural demand tailwinds makes this a high-conviction BUY.
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main-wrapper -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-disclaimer">
+    <strong>Disclaimer:</strong> This equity analysis report is prepared for informational and educational purposes only. It does not constitute investment advice, solicitation, or an offer to buy or sell any securities. The analysis is based on publicly available information sourced from Screener.in, company filings, and credible financial data providers. All financial data referenced herein is based on consolidated FY24 as the latest annual period unless stated otherwise; market metrics reflect the most recently available data as of the report preparation date. Past performance is not a guarantee of future results. Investors should conduct their own due diligence and consult a SEBI-registered investment advisor before making investment decisions. The author and publisher assume no liability for any investment decisions made based on this report.
+  </div>
+  <div class="footer-credits">
+    <span>GAIL (India) Ltd — Equity Analysis Report</span>
+    <span>Data Sources: Screener.in · Equitymaster · Company Filings · NSE India</span>
+    <span>For personal/educational use only</span>
+  </div>
+</div>
+
+</div><!-- end content-wrapper -->
+</body>
+</html>
